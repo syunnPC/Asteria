@@ -1,0 +1,23 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64SystemCallUnknownBreak
+# size: 0xb0
+# artifacts: O0 O2 firmware
+0:1:cover
+1:1:invala
+1:0:mov.m ar.rsc=r0
+1:1:mov.m ar.bspstore=r26
+1:0:mov.m ar.rnat=r0
+0:1:mov r16=3
+1:0:mov.m ar.rsc=r16
+0:0:adds r12=-16,r27
+1:1:alloc r16=ar.pfs,2,0,0
+1:0:mov r32=r19
+0:1:mov r33=r22
+1:0:ssm 0x2000
+0:1:bsw.1
+1:1:srlz.d
+1:1:movl r1=<reloc:IMM64 __gp>
+1:1:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64FailStopUnknownSystemCallBreak>
+1:1:hint.m 0
+1:1:br.few <+0x90>

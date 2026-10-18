@@ -1,0 +1,7 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64FailStopRuntimeInterruptVectorTableInstall
+# size: 0x10
+# artifacts: O0 O2 firmware
+0:0:mov r16=0
+0:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>

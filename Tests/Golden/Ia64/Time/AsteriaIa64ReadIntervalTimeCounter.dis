@@ -1,0 +1,7 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64ReadIntervalTimeCounter
+# size: 0x10
+# artifacts: O0 O2 firmware
+0:0:mov.m r8=ar.itc
+0:1:br.ret.sptk.many b0

@@ -1,0 +1,12 @@
+{
+ "shared": {
+  "component": 35,
+  "directory": 6,
+  "client": 4,
+  "interpreter": 5,
+  "display": 15,
+  "smp": 2
+ },
+ "private": 13,
+ "display_private": 23
+}

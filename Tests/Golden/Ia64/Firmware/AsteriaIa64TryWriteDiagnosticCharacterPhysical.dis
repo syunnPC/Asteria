@@ -1,0 +1,41 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64TryWriteDiagnosticCharacterPhysical
+# size: 0x160
+# artifacts: O0 O2 firmware
+0:0:mov r14=psr
+0:0:mov r16=r32
+0:0:mov r17=r33
+0:0:mov r22=r34
+0:1:mov r23=r35
+1:1:movl r24=0x8000000000000000
+1:0:or r15=r22,r24
+0:0:or r18=r23,r24
+0:1:rsm 0x4000
+1:0:srlz.d
+1:1:mov.m r20=ar.rsc
+1:1:dep r21=0,r20,0,2
+1:1:mov.m ar.rsc=r21
+1:0:rsm 0x20000
+1:0:srlz.d
+1:1:ld1.acq r19=[r18]
+1:1:tbit.z p7,p6=r19,5
+1:0:(p06) br.cond.sptk.few <+0xf0>
+0:0:hint.i 0x0
+0:1:adds r17=-1,r17
+1:1:cmp.eq p7,p6=r17,r0
+1:0:(p06) br.cond.sptk.few <+0x80>
+0:1:mov r8=r0
+1:1:br.few <+0x110>
+1:1:mf
+1:0:st1 [r15]=r16
+1:0:mf.a
+0:0:mov r8=1
+1:0:tbit.z p7,p6=r14,17
+0:1:tbit.z p9,p8=r14,14
+1:1:(p06) ssm 0x20000
+1:0:srlz.d
+1:1:mov.m ar.rsc=r20
+1:0:(p08) ssm 0x4000
+1:1:srlz.d
+1:1:br.ret.sptk.many b0

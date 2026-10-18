@@ -1,0 +1,16 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaAmd64InventoryCpuId
+# size: 0x1b
+# artifacts: O0 O2 firmware
+push %rbx
+mov %rsi,%r8
+mov %edi,%eax
+xor %ecx,%ecx
+cpuid
+mov %eax,(%r8)
+mov %ebx,0x4(%r8)
+mov %ecx,0x8(%r8)
+mov %edx,0xc(%r8)
+pop %rbx
+ret

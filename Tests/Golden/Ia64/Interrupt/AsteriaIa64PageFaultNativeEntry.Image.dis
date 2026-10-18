@@ -1,0 +1,229 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64PageFaultNativeEntry
+# size: 0x990
+# artifacts: O0:nucleus_elf O2:nucleus_elf
+0:0:mov r24=pr
+0:1:mov.m r25=ar.k3
+1:0:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:adds r25=48,r25
+1:0:ld8 r25=[r25]
+1:1:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:ld8.acq r26=[r25]
+1:0:cmp.eq p6,p7=r26,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:mov.m r16=ar.k4
+1:1:shl r16=r16,8
+1:1:br.many <AsteriaIa64StopEntry>
+1:0:mov pr=r24,0xfffffffffffffffe
+1:0:mov r24=r16
+0:0:mov r31=pr
+0:0:mov r30=psr
+0:0:mov r29=cr.iip
+0:0:mov r28=cr.ipsr
+0:0:mov r27=cr.ifs
+0:0:mov r26=cr.isr
+0:0:mov r25=cr.ifa
+1:0:mov.m r23=ar.ccv
+0:1:mov r17=4
+1:1:cmp.ltu p7,p6=r24,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:extr.u r16=r30,13,2
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:extr.u r16=r28,32,2
+0:1:mov r17=3
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:extr.u r16=r28,34,1
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:extr.u r16=r28,44,1
+0:1:mov r17=1
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:movl r17=0x1008022000
+1:1:and r16=r28,r17
+1:0:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:movl r17=0x1008028000
+1:1:xor r16=r30,r28
+1:0:and r16=r16,r17
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mov r17=1
+1:0:cmp.eq p7,p6=r24,r17
+1:1:(p06) br.cond.sptk.few <+0x260>
+1:1:extr.u r16=r28,15,1
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:and r16=15,r29
+0:1:extr.u r17=r28,41,2
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mov r16=3
+1:0:cmp.eq p6,p7=r17,r16
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:movl r17=0xc000000000
+1:1:and r16=r26,r17
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mov.m r22=ar.k3
+1:0:cmp.eq p6,p7=r22,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:and r16=15,r22
+0:1:movl r17=0x1fffffffffffffc0
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:cmp.ltu p6,p7=r17,r22
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:adds r16=8,r22
+1:0:ld8 r21=[r16]
+1:1:adds r16=32,r22
+1:0:ld8.acq r20=[r16]
+1:1:cmp.eq p6,p7=r20,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:and r16=15,r20
+0:1:movl r17=0x1fffffffffffffc0
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:cmp.ltu p6,p7=r17,r20
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:adds r16=8,r20
+1:0:ld8 r19=[r16]
+1:1:cmp.eq p7,p6=r19,r21
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mov r16=4
+1:0:cmp.ltu p7,p6=r19,r16
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:adds r17=16,r20
+1:0:ld8 r16=[r17],8
+1:1:movl r18=0x5000
+1:1:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:1:movl r18=0x5100
+1:1:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:1:movl r18=0x5200
+1:1:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:1:movl r18=0x5300
+1:1:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17]
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:shladd r17=r24,3,r20
+1:0:adds r17=16,r17
+1:0:ld8 r24=[r17]
+0:0:ld8 r18=[r20]
+1:1:mov r21=r18
+1:0:cmp.eq p6,p7=r21,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:and r16=63,r21
+0:1:movl r17=0x1fffffffffffff40
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:cmp.ltu p6,p7=r17,r21
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8.acq r16=[r21]
+1:0:mov r17=1
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:adds r16=8,r21
+1:0:ld8 r17=[r16],8
+1:1:cmp.eq p7,p6=r17,r19
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r20=[r16]
+1:0:cmp.eq p6,p7=r20,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:and r16=63,r20
+0:1:movl r17=0x1ffffffffffff580
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:cmp.ltu p6,p7=r17,r20
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mov r17=r20
+1:0:ld8.acq r16=[r17],8
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17]
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:adds r17=96,r21
+1:0:ld8 r16=[r17],8
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:ld8 r16=[r17],8
+0:1:mov r18=1
+1:1:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17],8
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:ld8 r16=[r17]
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:0:mov r18=1
+0:1:mov r19=2
+1:1:mov.m ar.ccv=r18
+1:0:cmpxchg8.acq r16=[r21],r19,ar.ccv
+1:1:mov.m ar.ccv=r23
+1:0:cmp.eq p7,p6=r16,r18
+1:1:(p06) br.cond.dpnt.few <+0x970>
+1:1:mf
+1:0:adds r17=8,r20
+0:0:mov r16=1
+0:1:mov r18=2
+1:0:st8 [r17]=r16,8
+1:1:st8 [r17]=r18,8
+1:0:st8 [r17]=r16,8
+1:1:st8 [r17]=r16,8
+1:0:st8 [r17]=r26,8
+1:1:st8 [r17]=r24,8
+1:0:st8 [r17]=r30,8
+1:1:st8 [r17]=r29,8
+1:0:st8 [r17]=r28,8
+1:1:st8 [r17]=r27,8
+1:0:st8 [r17]=r0,8
+1:1:st8 [r17]=r26,8
+1:0:st8 [r17]=r25,8
+1:1:mov r16=cr.itir
+1:0:st8 [r17]=r16,8
+1:1:mov r16=cr.iipa
+1:0:st8 [r17]=r16,8
+1:1:mov r16=cr.iim
+1:0:st8 [r17]=r16
+1:0:adds r17=32,r20
+0:1:mov r16=2
+1:1:st8 [r17]=r16
+1:0:adds r17=96,r21
+0:0:mov r16=1
+0:1:mov r18=2
+1:0:st8 [r17]=r16,8
+1:1:st8 [r17]=r18,8
+1:0:st8 [r17]=r16,8
+1:1:st8 [r17]=r24
+1:0:mov r16=3
+1:0:st8.rel [r21]=r16
+1:1:hint.m 0
+1:1:br.few <+0x950>
+1:1:hint.m 0
+1:1:br.many <AsteriaIa64StopPageFault>

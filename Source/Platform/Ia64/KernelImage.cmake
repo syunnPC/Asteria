@@ -1,0 +1,480 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# IA-64 kernel image composition, in link order. The order is part of the image contract: it fixes
+# the section layout that the global-pointer reach, translation-register geometry, and relocation
+# checks validate. Source/CMakeLists.txt verifies that every production source is assigned to an
+# image or to an explicit unlinked list.
+
+set(ASTERIA_IA64_KERNEL_SOURCES
+    Boot/Edid.cpp
+    Boot/Uefi/GraphicsModeChoice.cpp
+    Boot/Uefi/BootConsole.cpp
+    Boot/KernelNoteHeader.S
+    Boot/KernelElf.cpp
+    Boot/Uefi/KernelLoader.cpp
+    Boot/BootManifest.cpp
+    Boot/Uefi/BootFileLoader.cpp
+    Boot/Uefi/BootApplication.cpp
+    Boot/Uefi/LoaderDiagnostic.cpp
+    Boot/BootInfoValidation.cpp
+    Kernel/Boot/KernelEntry.cpp
+    Kernel/Boot/BootInventory.cpp
+    Platform/Device/VirtioPciTransport.cpp
+    Platform/Device/VirtioIommuDomainBackend.cpp
+    Platform/Device/VtdTopology.cpp
+    Platform/Device/VtdUnit.cpp
+    Platform/Device/VtdDomainBackend.cpp
+    Platform/Device/VtdDomainGroup.cpp
+    Platform/Device/IdentityDomainBackend.cpp
+    Platform/Device/TrustedDmaRuntime.cpp
+    Platform/Ia64/Device/Ia64VtdHardware.cpp
+    Platform/Ia64/Device/Ia64VtdCacheMaintenance.S
+    Platform/Ia64/Device/Ia64VtdRuntime.cpp
+    Platform/Ia64/Device/Ia64IommuRuntime.cpp
+    Boot/Uefi/AcpiReportVolume.cpp
+    Boot/Uefi/FatBootReport.cpp
+    Boot/Uefi/FatReportVolume.cpp
+    Boot/Uefi/AmlBootEvidence.cpp
+    Boot/Uefi/AmlBootReport.cpp
+    Acpi/Aml/Grammar.cpp
+    Acpi/Aml/Namespace.cpp
+    Acpi/Aml/Parser.cpp
+    Acpi/Aml/Objects.cpp
+    Acpi/Aml/Evaluator.cpp
+    Acpi/Aml/Operators.cpp
+    Acpi/Aml/Resources.cpp
+    Acpi/Aml/Facts.cpp
+    Acpi/Aml/Report.cpp
+    Boot/Uefi/AcpiTableDump.cpp
+    Boot/Uefi/BootReport.cpp
+    Boot/Uefi/XhciBootReport.cpp
+    Boot/Uefi/TopologyReport.cpp
+    Boot/Uefi/PeripheralReport.cpp
+    Boot/Uefi/RootBridgeReport.cpp
+    Inventory/ReportText.cpp
+    Inventory/XhciReport.cpp
+    Boot/Acpi/AcpiDefinitionBlocks.cpp
+    Boot/Acpi/AcpiTableParser.cpp
+    Boot/Acpi/Ivrs.cpp
+    Boot/Acpi/DebugPortTables.cpp
+    Platform/Ia64/Diagnostics/Ia64Stop.cpp
+    Platform/Ia64/Diagnostics/Ia64Stop.S
+    Platform/Ia64/Firmware/Diagnostic.cpp
+    Platform/Ia64/Firmware/Diagnostic.S
+    Platform/Ia64/Firmware/Ia64DebugUart.cpp
+    Platform/Ia64/Firmware/BootEntropySources.cpp
+    Runtime/Memory.cpp
+    Runtime/CxxAbi.cpp
+    Runtime/Placement.cpp
+    Platform/Ia64/Runtime/CompilerArithmetic.cpp
+    Platform/FatalTrap.cpp
+    Boot/Uefi/TableValidation.cpp
+    Boot/Uefi/BootTransition.cpp
+    Boot/Uefi/BootEntropyGathering.cpp
+    Boot/Entropy/BootEntropyCollector.cpp
+    Kernel/Security/Sha256.cpp
+    Kernel/Memory/BootstrapPageAllocator.cpp
+    Platform/Ia64/Firmware/Ia64LoadedImageLayout.cpp
+    Platform/Ia64/Firmware/Ia64ImageRelocation.cpp
+    Platform/Ia64/Firmware/Ia64ImageRelocation.S
+    Kernel/Memory/InitialMappingPlan.cpp
+    Platform/Ia64/Memory/BootstrapMappingPlan.cpp
+    Platform/Ia64/Memory/InitialExecutionContextSwitcher.cpp
+    Platform/Ia64/Memory/InitialExecutionContextSwitcher.S
+    Platform/Ia64/Memory/InitialInterruptVectorTableInstaller.cpp
+    Platform/Ia64/Memory/InitialInterruptVectorTableInstaller.S
+    Platform/Ia64/Memory/InitialInterruptVectorTablePreparer.cpp
+    Platform/Ia64/Memory/InitialRseBackingStorePreparer.cpp
+    Platform/Ia64/Memory/InitialTranslationEncoder.cpp
+    Platform/Ia64/Memory/InitialTranslationInstaller.cpp
+    Platform/Ia64/Memory/InitialTranslationInstaller.S
+    Platform/Ia64/Memory/InitialTranslationResourcePlan.cpp
+    Platform/Ia64/Firmware/SalSystemTableCapture.cpp
+    Platform/Ia64/Firmware/SalSystemTableLocator.cpp
+    Platform/Ia64/Firmware/SalSystemTableParser.cpp
+    Platform/Ia64/Firmware/SalEntrypointBinder.cpp
+    Platform/Ia64/Firmware/PalStaticCallAdapter.cpp
+    Platform/Ia64/Firmware/PalStaticCallAdapter.S
+    Platform/Ia64/Firmware/PalBootstrapCapabilityCapture.cpp
+    Platform/Ia64/Memory/PalVirtualMemoryDecoder.cpp
+    Platform/Ia64/Memory/PalTranslationCachePurgeDecoder.cpp
+    Executable/Elf/Elf64Image.cpp
+    Platform/Ia64/Executable/Ia64InitialUserImageMappingOwner.cpp
+    Platform/Ia64/Executable/Ia64InitialUserImageMemoryOwner.cpp
+    Platform/Ia64/Executable/Ia64InitialUserImageOwner.cpp
+    Platform/Ia64/Executable/Ia64InitialUserImageSource.cpp
+    Platform/Ia64/Executable/Ia64P64Image.cpp
+    Platform/Synchronization/AtomicReferenceCount.cpp
+    Platform/Synchronization/SpinLock.cpp
+    Platform/Synchronization/ProcessorContext.cpp
+    Kernel/Object/ObjectRegistry.cpp
+    Kernel/Object/ObjectPin.cpp
+    Kernel/Object/RevocationRegistry.cpp
+    Kernel/Object/CapabilitySpace.cpp
+    Kernel/Object/CapabilitySpacePool.cpp
+    Kernel/Object/CapabilityKeyDerivation.cpp
+    Kernel/Object/CapabilityTransfer.cpp
+    Kernel/Object/RootCapabilityIssuer.cpp
+    Kernel/Protection/ProtectionDomain.cpp
+    Kernel/Protection/ProtectionDomainPool.cpp
+    Kernel/Resource/ResourceDomainPool.cpp
+    Kernel/Resource/ResourceDomain.cpp
+    Kernel/System/SystemCallDispatcher.cpp
+    Kernel/System/IpcSystemCallDispatcher.cpp
+    Kernel/System/IpcSystemCallIngress.cpp
+    Kernel/System/SystemCallIngress.cpp
+    Kernel/System/WaitSetSystemCallDispatcher.cpp
+    Kernel/System/WaitSetSystemCallIngress.cpp
+    Kernel/System/ObjectManager.cpp
+    Kernel/Ipc/MessageCodec.cpp
+    Kernel/Ipc/IpcDeliveryCodec.cpp
+    Kernel/Diagnostics/DiagnosticChannel.cpp
+    Kernel/Diagnostics/StopScreen.cpp
+    Platform/Firmware/DiagnosticLineSink.cpp
+    Kernel/Ipc/Endpoint.cpp
+    Kernel/Ipc/EndpointPool.cpp
+    Kernel/Ipc/WaitSetPool.cpp
+    Kernel/Ipc/Notification.cpp
+    Kernel/Ipc/ReplyToken.cpp
+    Kernel/Ipc/SynchronousReplyDispatcher.cpp
+    Kernel/Ipc/SynchronousCallDispatcher.cpp
+    Kernel/Ipc/WaitSet.cpp
+    Kernel/Ipc/WaitSetThreadDispatcher.cpp
+    Kernel/Scheduler/DispatchCoordinator.cpp
+    Kernel/Scheduler/ProcessorRunController.cpp
+    Kernel/Scheduler/ProcessorScheduler.cpp
+    Kernel/Scheduler/ReadyQueue.cpp
+    Kernel/Scheduler/SchedulingContext.cpp
+    Kernel/Scheduler/Thread.cpp
+    Kernel/Time/ProcessorDeadlineController.cpp
+    Kernel/Time/DeferredTimerWorker.cpp
+    Kernel/Time/Timer.cpp
+    Kernel/Time/TimerNotificationDelivery.cpp
+    Kernel/Time/TimerQueue.cpp
+    Kernel/Memory/FaultToken.cpp
+    Kernel/Memory/Frame.cpp
+    Kernel/Memory/MemoryObject.cpp
+    Kernel/Device/AhciHbaRegisterSnapshotReader.cpp
+    Kernel/Device/AhciIdentifyCommandExecutor.cpp
+    Kernel/Device/AhciIdentifyDmaPageBuilder.cpp
+    Kernel/Device/AhciPciBootstrapBinding.cpp
+    Kernel/Device/AhciReadDmaExtCommandBuilder.cpp
+    Kernel/Device/AhciReadDmaExtCommandExecutor.cpp
+    Kernel/Device/Detail/AhciIdentifyDeviceInformationParser.cpp
+    Kernel/Device/DeviceManager.cpp
+    Kernel/Device/DeviceManagerPci.cpp
+    Kernel/Device/DeviceRegion.cpp
+    Kernel/Device/PciFunction.cpp
+    Kernel/Device/PciFunctionControl.cpp
+    Kernel/Device/PciMessageSignaled.cpp
+    Kernel/Device/IommuDomain.cpp
+    Kernel/Device/IommuDomainPool.cpp
+    Kernel/Device/TrustedDmaPolicy.cpp
+    Kernel/Interrupt/InterruptPool.cpp
+    Kernel/Interrupt/Interrupt.cpp
+    Kernel/Interrupt/MessageSignaledSource.cpp
+    Kernel/Device/PciFunctionCatalog.cpp
+    Kernel/Device/PciEcamConfigurationSpace.cpp
+    Kernel/Device/PciEndpointBarDecoder.cpp
+    Kernel/Device/PciBarProbe.cpp
+    Kernel/Memory/FaultFrameMapping.cpp
+    Kernel/Memory/FaultResolutionDispatcher.cpp
+    Kernel/Memory/FaultTokenFactory.cpp
+    Kernel/Memory/FrameObjectPool.cpp
+    Kernel/Memory/PhysicalPageAllocator.cpp
+    Kernel/Memory/FramePool.cpp
+    Kernel/Memory/MemoryObjectPool.cpp
+    Kernel/Memory/MemoryMapper.cpp
+    Kernel/Scheduler/ThreadPool.cpp
+    Kernel/Memory/PageFaultIngress.cpp
+    Kernel/Memory/PagerFaultDispatcher.cpp
+    Kernel/Memory/PagerChannel.cpp
+    Kernel/Memory/FaultChannelPool.cpp
+    Kernel/Memory/PagerProtocol.cpp
+    Kernel/Memory/PinnedFrameMapping.cpp
+    Kernel/Memory/AddressSpace.cpp
+    Kernel/Memory/AddressSpacePool.cpp
+    Kernel/Memory/ProcessorAddressSpaceController.cpp
+    Kernel/Memory/DirectUserMemoryAccess.cpp
+    Kernel/Memory/RecordUserMemoryAccess.cpp
+    Kernel/Memory/TlbShootdownDrain.cpp
+    Kernel/Memory/TlbShootdownDispatcher.cpp
+    Kernel/Memory/TlbShootdownMailboxTransport.cpp
+    Platform/Ia64/Firmware/SalBootRendezvousRegistration.cpp
+    Platform/Ia64/Firmware/SalBootRendezvousRegistration.S
+    Platform/Acpi/Device/AcpiPciEcamTopologyAdapter.cpp
+    Platform/Device/PciEcamRuntime.cpp
+    Platform/Device/UsbHostPublication.cpp
+    Platform/Device/PhysicalMemoryMappedIo.cpp
+    Platform/Ia64/Device/Ia64PhysicalMemoryAccess.cpp
+    Platform/Ia64/Device/Ia64PortIo.cpp
+    Platform/Ia64/Device/Ia64PortIo.S
+    Platform/Ia64/Device/Ia64PhysicalMemoryAccess.S
+    Platform/Firmware/AhciPciResourceCapture.cpp
+    Platform/Ia64/Interrupt/Ia64ApplicationProcessorRuntimeReleaseCoordinator.cpp
+    Platform/Ia64/Interrupt/Ia64ApplicationProcessorTakeoverCoordinator.cpp
+    Platform/Ia64/Interrupt/Ia64ExternalInterruptEntry.cpp
+    Platform/Ia64/Interrupt/Ia64ExternalInterruptEntry.S
+    Platform/Ia64/Interrupt/Ia64ExternalPreemptionEntry.cpp
+    Platform/Ia64/Interrupt/Ia64ExternalPreemptionEntry.S
+    Platform/Ia64/Interrupt/Ia64ExternalPreemptionFrame.cpp
+    Platform/Ia64/Interrupt/Ia64DeviceInterruptPoll.cpp
+    Platform/Ia64/Interrupt/Ia64DeviceInterruptPoll.S
+    Platform/Ia64/Interrupt/Ia64InterruptLines.cpp
+    Platform/Ia64/Interrupt/Ia64IoSapic.cpp
+    Platform/Ia64/Interrupt/Ia64LocalSapicIpiController.cpp
+    Platform/Ia64/Interrupt/Ia64LocalSapicIpiController.S
+    Platform/Ia64/Interrupt/Ia64SalBootRendezvousHandler.cpp
+    Platform/Ia64/Interrupt/Ia64SalBootRendezvousHandler.S
+    Platform/Ia64/Memory/ApplicationProcessorExecutionStorageOwner.cpp
+    Platform/Ia64/Memory/ApplicationProcessorExecutionStoragePreparer.cpp
+    Platform/Ia64/Memory/InitialTranslationActivator.cpp
+    Platform/Ia64/Memory/InitialTranslationActivator.S
+    Platform/Ia64/Memory/Ia64RuntimeProcessorCapabilities.cpp
+    Platform/Ia64/Memory/Ia64RegionIdentifierAllocator.cpp
+    Platform/Ia64/Memory/Ia64RuntimeRegionSet.cpp
+    Platform/Ia64/Memory/Ia64RuntimeTranslationEncoder.cpp
+    Platform/Ia64/Memory/Ia64RuntimeTranslationLedger.cpp
+    Platform/Ia64/Memory/Ia64RuntimeRegionActivator.cpp
+    Platform/Ia64/Memory/Ia64RuntimeRegionActivator.S
+    Platform/Ia64/Memory/Ia64ActiveRuntimeTranslationBindings.cpp
+    Platform/Ia64/Memory/Ia64ApplicationProcessorRuntimeMappingOwner.cpp
+    Platform/Ia64/Memory/Ia64ApplicationProcessorRuntimePivot.cpp
+    Platform/Ia64/Memory/Ia64ApplicationProcessorRuntimePivot.S
+    Platform/Ia64/Memory/Ia64ApplicationProcessorRuntimeWorkerStorageOwner.cpp
+    Platform/Ia64/Memory/Ia64PageFaultDecoder.cpp
+    Platform/Ia64/Interrupt/Ia64PageFaultEntryContract.cpp
+    Platform/Ia64/Interrupt/Ia64PageFaultEntryContract.S
+    Platform/Ia64/Interrupt/Ia64UserFaultEntry.cpp
+    Platform/Ia64/Interrupt/Ia64UserFaultEntry.S
+    Platform/Ia64/Memory/Ia64RuntimeInterruptVectorTable.cpp
+    Platform/Ia64/Memory/Ia64RuntimeInterruptVectorTable.S
+    Platform/Ia64/Memory/Ia64RuntimeAddressSpacePageTable.cpp
+    Platform/Ia64/Memory/Ia64RuntimeAddressSpaceOwner.cpp
+    Platform/Ia64/Memory/Ia64RuntimeAddressSpaceSlots.cpp
+    Platform/Ia64/Memory/Ia64BspRuntimeMemory.cpp
+    Platform/Ia64/Memory/Ia64FrameScrubber.cpp
+    Platform/Ia64/Memory/Ia64FrameScrubber.S
+    Platform/Ia64/Memory/Ia64LocalTlbInvalidator.cpp
+    Platform/Ia64/Memory/Ia64LocalTlbInvalidator.S
+    Platform/Ia64/Memory/Ia64TranslationCachePurge.cpp
+    Platform/Ia64/Memory/Ia64TranslationCachePurge.S
+    Platform/Ia64/Memory/Ia64PolledTlbShootdownNotifier.cpp
+    Platform/Ia64/Scheduler/Ia64ApplicationProcessorKernelRuntime.cpp
+    Platform/Ia64/Scheduler/Ia64ApplicationProcessorKernelRuntime.S
+    Platform/Ia64/Scheduler/Ia64InitialUserImageLaunchOwner.cpp
+    Platform/Ia64/Scheduler/Ia64KernelContext.cpp
+    Platform/Ia64/Scheduler/Ia64KernelContext.S
+    Platform/Ia64/Scheduler/Ia64ProcessorRunLoop.cpp
+    Platform/Ia64/Scheduler/Ia64BspKernelRuntime.cpp
+    Platform/Ia64/Scheduler/Ia64BspKernelRuntime.S
+    Platform/Ia64/Scheduler/Ia64UserModeLaunch.cpp
+    Platform/Ia64/Scheduler/Ia64UserModeLaunch.S
+    Platform/Ia64/Scheduler/Ia64UserExecutionProbe.cpp
+    Platform/Ia64/Scheduler/Ia64UserExecutionProbePayload.cpp
+    Platform/Ia64/Scheduler/Ia64UserExecutionProbePayload.S
+    Platform/Ia64/System/Ia64SystemCallEntry.cpp
+    Platform/Ia64/System/Ia64SystemCallEntry.S
+    Platform/Ia64/System/Ia64SystemCallIngress.cpp
+    Platform/Ia64/System/Ia64SystemCallRegisterCodec.cpp
+    Platform/Ia64/System/Ia64SystemCallWaitContinuation.cpp
+    Platform/Ia64/System/Ia64PagerRuntime.cpp
+    Platform/Ia64/System/Ia64I8042Publication.cpp
+    Platform/Ia64/System/Ia64UserThreadTable.cpp
+    Platform/Ia64/System/Ia64UserThreadTable.S
+    Platform/Ia64/System/Ia64PagerRuntime.S
+    Platform/Ia64/Time/Ia64LocalTimer.cpp
+    Platform/Ia64/Time/Ia64LocalTimer.S
+    Platform/Ia64/Diagnostics/Ia64EvidenceRecord.cpp
+)
+
+# Embedded initial user image, in link order.
+set(ASTERIA_IA64_USER_SOURCES
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    User/Platform/Ia64/Runtime/Ia64BssZeroInitializationProbe.cpp
+    User/Platform/Ia64/Runtime/Ia64MinimalUserImageRuntime.cpp
+    User/Platform/Ia64/Runtime/Ia64MinimalUserImage.cpp
+    User/Platform/Ia64/Runtime/Ia64MinimalUserImage.S
+)
+
+# The boot pager image, which every firmware embeds beside the initial user image.
+set(ASTERIA_IA64_PAGER_SOURCES
+    Runtime/Memory.cpp
+    Platform/Ia64/Runtime/CompilerArithmetic.cpp
+    Platform/FatalTrap.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    User/Pager/PagerProgram.cpp
+    User/Loader/ExecutableFormats.cpp
+    User/Loader/InterpreterRegistry.cpp
+    User/Pager/ComponentImage.cpp
+    User/Pager/ObjectCalls.cpp
+    User/Pager/ComponentLoader.cpp
+    User/Pager/ComponentSupervisor.cpp
+    User/Pager/ComponentWatchdog.cpp
+    User/Session/SessionFrame.cpp
+    User/Session/SessionFaceFrame.cpp
+    User/Pager/PowerOff.cpp
+    User/Input/Ps2Controller.cpp
+    User/Input/Ps2Mouse.cpp
+    Kernel/Ipc/MessageCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    Inventory/ReportText.cpp
+    User/Pager/DeviceInventory.cpp
+    User/Pager/RootService.cpp
+    User/Pager/ProductInit.cpp
+    User/Pager/ProductDesktop.cpp
+    User/Pager/ToolkitLaunch.cpp
+    User/Pager/RootContext.cpp
+    User/Pager/InputTerminal.cpp
+    User/Pager/UsbProgress.cpp
+    User/Input/KeyRepeat.cpp
+    User/Pager/DeviceManagerRole.cpp
+    User/Platform/Ia64/Pager/Ia64PagerImage.cpp
+    User/Platform/Ia64/Pager/Ia64PagerImage.S
+)
+
+# The component the boot pager, as root service, builds and restarts in domains it creates; its
+# image is embedded in the pager image.
+set(ASTERIA_IA64_COMPONENT_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    User/Input/Ps2Controller.cpp
+    User/Input/Ps2ControllerSetup.cpp
+    User/Input/Ps2EventQueue.cpp
+    User/Input/Ps2Mouse.cpp
+    User/Platform/Ia64/Component/Ia64XhciDriver.cpp
+    User/Platform/Ia64/Component/Ia64ComponentImage.cpp
+    User/Platform/Ia64/Component/Ia64ComponentImage.S
+)
+
+# Component sources compiled for size: IA-64's component text fills its
+# bounded segment/grant budget (User/Pager/ComponentImage.hpp), and the Input
+# Broker and filesystem code spend their time waiting for IPC/device I/O. Linked
+# into the same component image.
+set(ASTERIA_IA64_COMPONENT_SIZE_SOURCES
+    User/Component/Ps2Publication.cpp
+    User/Component/ComponentProgram.cpp
+    User/Component/Ps2Driver.cpp
+    User/Input/Ps2Keyboard.cpp
+    User/Component/AhciDriver.cpp
+    User/Component/NetworkService.cpp
+    User/Component/NicDriver.cpp
+    User/Network/NetworkStack.cpp
+    User/Component/FilesystemService.cpp
+    User/Component/ServiceScratch.cpp
+    User/Filesystem/Exfat/ExfatVolume.cpp
+    User/Filesystem/Exfat/ExfatVolumeWrite.cpp
+    User/Filesystem/Fat/FatVolume.cpp
+    User/Filesystem/FsFormat.cpp
+    User/Filesystem/FsVolume.cpp
+    User/Component/InputBroker.cpp
+    User/Component/InputBrokerLogic.cpp
+)
+
+# The `usb` module : the USB 1.1/2.0 host group driver, its controller libraries, the USB core and
+# the HID boot decoder, linked with the component image's script and entry.
+set(ASTERIA_IA64_USB_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    Platform/Ia64/Runtime/CompilerArithmetic.cpp
+    Platform/FatalTrap.cpp
+    User/Component/UsbHostDriver.cpp
+    User/Component/XhciProgress.cpp
+    User/Input/Ps2EventQueue.cpp
+    User/Input/UsbDevice.cpp
+    User/Input/UsbDescriptors.cpp
+    User/Input/UsbConfiguration.cpp
+    User/Input/HidBoot.cpp
+    User/Input/HidRelativeMouse.cpp
+    User/Usb/XhciMemory.cpp
+    User/Usb/Usb1.cpp
+    User/Usb/Ohci.cpp
+    User/Usb/OhciStatus.cpp
+    User/Usb/Uhci.cpp
+    User/Usb/UhciStatus.cpp
+    User/Usb/Ehci.cpp
+    User/Usb/EhciStatus.cpp
+    User/Platform/Ia64/Component/Ia64UsbHostImage.cpp
+    User/Platform/Ia64/Component/Ia64ComponentImage.S
+)
+
+# The unit of the user image that defines its C++ entry, `AsteriaIa64MinimalUserImageMain`.
+# The test firmware links the other user units with the guest test program in its place.
+set(ASTERIA_IA64_USER_MAIN_SOURCE User/Platform/Ia64/Runtime/Ia64MinimalUserImage.cpp)
+
+# The Object Directory as a component the root service starts: its service core, the value codecs it
+# decodes deliveries and encodes replies with, and its entry; embedded in the pager image beside the
+# component.
+set(ASTERIA_IA64_DIRECTORY_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    Kernel/Ipc/IpcDeliveryCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryCore.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    Executive/ObjectDirectory/ObjectDirectoryServiceCore.cpp
+    User/Directory/DirectoryProgram.cpp
+    User/Platform/Ia64/Directory/Ia64DirectoryImage.cpp
+    User/Platform/Ia64/Directory/Ia64DirectoryImage.S
+)
+
+# A client of the services the root service starts: it resolves `echo` through the Directory with
+# the Directory protocol's codecs and exchanges echoes; embedded beside them.
+set(ASTERIA_IA64_CLIENT_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    User/Client/ClientProgram.cpp
+    User/Platform/Ia64/Client/Ia64ClientImage.cpp
+    User/Platform/Ia64/Client/Ia64ClientImage.S
+)
+
+# A test interpreter for AMD64 executables: it describes its guest with the loader's own format
+# handlers and reports it; embedded beside the foreign samples it is given.
+set(ASTERIA_IA64_INTERPRETER_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    User/Loader/ExecutableFormats.cpp
+    User/Interpreter/StubInterpreter.cpp
+    User/Platform/Ia64/Interpreter/Ia64StubInterpreterImage.cpp
+    User/Platform/Ia64/Interpreter/Ia64StubInterpreterImage.S
+)
+
+# The grid and composition ride only in `display`.
+set(ASTERIA_IA64_DISPLAY_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.cpp
+    User/Platform/Ia64/System/Ia64SystemCallTransport.S
+    User/Component/DisplayBroker.cpp
+    User/Component/DisplaySession.cpp
+    User/Session/SessionFaceFrame.cpp
+    User/Graphics/Composition/Composition.cpp
+    User/Graphics/Composition/PlaneStorage.cpp
+    User/Graphics/Composition/SessionPlane.cpp
+    User/Platform/Ia64/Component/Ia64DisplayImage.cpp
+    User/Platform/Ia64/Component/Ia64ComponentImage.S
+)
+
+# Separately linked module.
+set(ASTERIA_IA64_COMPOSITOR_SOURCES
+    User/Font/Arithmetic.cpp
+    User/Component/SessionCompositor.cpp
+    User/Platform/Ia64/Component/Ia64SessionImage.cpp
+)

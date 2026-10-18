@@ -1,0 +1,10 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: __wrap_AsteriaAmd64ApplicationProcessorEntry
+# size: 0x13
+# artifacts: firmware-test:kernel_elf[amd64_x2apic_handoff_probe]
+mov $0x1b,%ecx
+rdmsr
+or $0x400,%eax
+wrmsr
+jmp <reloc:PLT32 AsteriaAmd64ApplicationProcessorEntry-0x4>

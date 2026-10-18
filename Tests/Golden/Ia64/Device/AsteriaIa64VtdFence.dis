@@ -1,0 +1,7 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64VtdFence
+# size: 0x20
+# artifacts: O0 O2 firmware
+0:1:mf
+1:1:br.ret.sptk.many b0

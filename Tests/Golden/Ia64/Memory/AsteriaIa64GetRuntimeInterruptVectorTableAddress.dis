@@ -1,0 +1,7 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64GetRuntimeInterruptVectorTableAddress
+# size: 0x20
+# artifacts: O0 O2 firmware
+0:0:movl r8=<reloc:IMM64 AsteriaIa64RuntimeInterruptVectorTableImage>
+0:1:br.ret.sptk.many b0

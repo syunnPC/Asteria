@@ -1,0 +1,102 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64ExternalInterruptDispatchEntry
+# size: 0x4a0
+# artifacts: O0 O2 firmware
+0:0:mov r24=pr
+0:1:mov.m r25=ar.k3
+1:0:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:adds r25=48,r25
+1:0:ld8 r25=[r25]
+1:1:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:ld8.acq r26=[r25]
+1:0:cmp.eq p6,p7=r26,r0
+1:0:(p06) br.cond.sptk.few <+0xa0>
+0:1:mov r16=12288
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>
+1:0:mov pr=r24,0xfffffffffffffffe
+1:0:mov r31=pr
+0:0:mov r30=psr
+0:0:mov r29=cr.iip
+0:0:mov r28=cr.ipsr
+0:0:mov r27=cr.ifs
+0:0:mov r26=cr.isr
+0:0:mov.m r20=ar.ccv
+1:1:movl r16=0x10080ee002
+1:0:and r17=r30,r16
+0:1:movl r18=0x1008020000
+1:1:cmp.eq p7,p6=r17,r18
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:extr.u r17=r28,32,2
+1:1:cmp.eq p6,p7=3,r17
+1:1:(p06) br.cond.dpnt.few <+0x460>
+1:1:movl r16=0xfffff9ffffffffc3
+1:0:and r17=r28,r16
+0:1:movl r18=0x101008026000
+1:1:cmp.eq p7,p6=r17,r18
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:extr.u r17=r28,41,2
+1:1:mov r18=3
+1:1:cmp.eq p6,p7=r17,r18
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:0:extr.u r17=r26,39,1
+0:1:and r18=15,r29
+1:1:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:cmp.eq p7,p6=r18,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:mov.m r25=ar.k3
+1:0:cmp.eq p6,p7=r25,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:0:and r17=15,r25
+0:1:movl r18=0x1fffffffffffffc0
+1:1:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:cmp.ltu p6,p7=r18,r25
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:adds r17=24,r25
+1:0:ld8.acq r25=[r17]
+1:1:cmp.eq p6,p7=r25,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:and r17=15,r25
+1:0:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:movl r18=0x1fffffffffffffe0
+1:1:cmp.ltu p6,p7=r18,r25
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:mov r21=r25
+1:0:ld8 r24=[r21],8
+1:1:ld8 r23=[r21],8
+1:0:ld8 r22=[r21],8
+1:1:ld8.acq r21=[r21]
+1:0:cmp.eq p6,p7=r24,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:mov r18=4
+1:0:cmp.ltu p7,p6=r23,r18
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:mov r18=232
+1:0:cmp.eq p7,p6=r22,r18
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:cmp.eq p6,p7=r21,r0
+1:1:(p06) br.cond.dpnt.few <+0x440>
+1:0:and r17=63,r21
+0:1:movl r18=0x1fffffffffffff40
+1:1:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:cmp.ltu p6,p7=r18,r21
+1:1:(p06) br.cond.dpnt.few <+0x480>
+1:1:ld8.acq r17=[r21]
+1:0:cmp.eq p6,p7=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x440>
+1:1:mov r18=1
+1:0:cmp.eq p7,p6=r17,r18
+1:0:(p06) br.cond.dpnt.few <+0x480>
+1:1:br.few <reloc:PCREL21B AsteriaIa64ExternalPreemptionNativeEntry>
+1:1:mov pr=r31,0xfffffffffffffffe
+1:1:br.few <reloc:PCREL21B AsteriaIa64ExternalInterruptEntry>
+1:1:mov pr=r31,0xfffffffffffffffe
+1:1:br.few <reloc:PCREL21B AsteriaIa64UserInterruptClaim>
+1:1:hint.m 0
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopExternal>

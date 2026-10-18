@@ -1,0 +1,23 @@
+SPDX-License-Identifier: LicenseRef-IETF-Code-2005
+
+RFC 4231 test vectors, December 2005, Magnus Nystrom.
+Copyright (C) The Internet Society (2005).
+
+RFC 3978 section 3.3.a.E grants rights to extract, copy, publish, display,
+distribute, modify and incorporate executable code or code fragments from
+IETF Documents into other works for any purpose, subject to section 5.
+It grants no patent rights. Section 5.6.a permits the abbreviated notice
+retained in Tests/User/Crypto/HmacTests.cpp.
+
+The full applicable provisions are in https://www.rfc-editor.org/rfc/rfc3978.txt
+and the source publication at https://www.rfc-editor.org/rfc/rfc4231.txt.
+This LicenseRef identifies the pre-November-2008 grant; it does not label
+these vectors as public domain or retroactively apply the later BSD terms.
+
+This document and the information contained herein are provided on an
+"AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE REPRESENTS
+OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY AND THE INTERNET
+ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
+INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.

@@ -1,0 +1,7 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: _ZN7Asteria8Platform4Ia648Firmware24GetIa64ExecutingImageEndEv
+# size: 0x20
+# artifacts: O0 O2 firmware
+0:1:movl r8=<reloc:IMM64 AsteriaIa64LoadedImageEnd>
+1:1:br.ret.sptk.many b0

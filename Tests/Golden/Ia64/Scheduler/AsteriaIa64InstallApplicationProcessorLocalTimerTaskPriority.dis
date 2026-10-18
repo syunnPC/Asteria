@@ -1,0 +1,11 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InstallApplicationProcessorLocalTimerTaskPriority
+# size: 0x40
+# artifacts: O0 O2 firmware
+0:1:mov r14=208
+1:0:mov cr.tpr=r14
+1:1:srlz.d
+1:0:mov r8=cr.tpr
+1:1:xor r8=r8,r14
+1:1:br.ret.sptk.many b0

@@ -1,0 +1,437 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# AMD64 kernel image composition, in link order. The order is part of the image contract: it fixes
+# the section layout that the global-pointer reach, translation-register geometry, and relocation
+# checks validate. Source/CMakeLists.txt verifies that every production source is assigned to an
+# image or to an explicit unlinked list.
+
+set(ASTERIA_AMD64_KERNEL_SOURCES
+    Boot/Edid.cpp
+    Boot/Uefi/GraphicsModeChoice.cpp
+    Boot/Uefi/BootConsole.cpp
+    Boot/KernelNoteHeader.S
+    Boot/KernelElf.cpp
+    Boot/Uefi/KernelLoader.cpp
+    Boot/BootManifest.cpp
+    Boot/Uefi/BootFileLoader.cpp
+    Boot/Uefi/BootApplication.cpp
+    Boot/Uefi/LoaderDiagnostic.cpp
+    Boot/BootInfoValidation.cpp
+    Kernel/Boot/KernelEntry.cpp
+    Kernel/Boot/BootInventory.cpp
+    Boot/Uefi/AcpiReportVolume.cpp
+    Boot/Uefi/FatBootReport.cpp
+    Boot/Uefi/FatReportVolume.cpp
+    Boot/Uefi/AmlBootEvidence.cpp
+    Boot/Uefi/AmlBootReport.cpp
+    Acpi/Aml/Grammar.cpp
+    Acpi/Aml/Namespace.cpp
+    Acpi/Aml/Parser.cpp
+    Acpi/Aml/Objects.cpp
+    Acpi/Aml/Evaluator.cpp
+    Acpi/Aml/Operators.cpp
+    Acpi/Aml/Resources.cpp
+    Acpi/Aml/Facts.cpp
+    Acpi/Aml/Report.cpp
+    Boot/Uefi/AcpiTableDump.cpp
+    Boot/Uefi/BootReport.cpp
+    Boot/Uefi/XhciBootReport.cpp
+    Platform/Amd64/Firmware/ProcessorInventory.cpp
+    Platform/Amd64/Firmware/ProcessorInventory.S
+    Boot/Uefi/TopologyReport.cpp
+    Boot/Uefi/PeripheralReport.cpp
+    Boot/Uefi/RootBridgeReport.cpp
+    Inventory/ReportText.cpp
+    Inventory/XhciReport.cpp
+    Inventory/EhciRmrrReport.cpp
+    Platform/Amd64/Firmware/FirmwarePortIo.cpp
+    Boot/Acpi/AcpiDefinitionBlocks.cpp
+    Boot/Acpi/AcpiTableParser.cpp
+    Boot/Acpi/Ivrs.cpp
+    Platform/Amd64/Firmware/Diagnostic.cpp
+    Platform/Amd64/Firmware/DiagnosticSinkSelection.cpp
+    Platform/Amd64/Diagnostics/Amd64Stop.cpp
+    Platform/Amd64/Firmware/BootEntropySources.cpp
+    Runtime/Memory.cpp
+    Runtime/CxxAbi.cpp
+    Runtime/Placement.cpp
+    Platform/FatalTrap.cpp
+    Boot/Uefi/TableValidation.cpp
+    Boot/Uefi/BootTransition.cpp
+    Boot/Uefi/BootEntropyGathering.cpp
+    Boot/Entropy/BootEntropyCollector.cpp
+    Kernel/Security/Sha256.cpp
+    Kernel/Memory/BootstrapPageAllocator.cpp
+    Platform/Amd64/Firmware/Amd64LoadedImageLayout.cpp
+    Kernel/Memory/InitialMappingPlan.cpp
+    Platform/Amd64/Memory/BootstrapMappingPlan.cpp
+    Platform/Amd64/Memory/InitialPagingCapabilityCapture.cpp
+    Platform/Amd64/Memory/InitialPageTableBuilder.cpp
+    Platform/Amd64/Memory/InitialPageTablePreparation.cpp
+    Platform/Amd64/Memory/InitialPageTableVerifier.cpp
+    Platform/Amd64/Memory/InitialAddressSpacePreparation.cpp
+    Platform/Amd64/Memory/InitialAddressSpacePreparation.S
+    Executable/Elf/Elf64Image.cpp
+    Platform/Synchronization/AtomicReferenceCount.cpp
+    Platform/Synchronization/SpinLock.cpp
+    Platform/Synchronization/ProcessorContext.cpp
+    Kernel/Object/ObjectRegistry.cpp
+    Kernel/Object/ObjectPin.cpp
+    Kernel/Object/RevocationRegistry.cpp
+    Kernel/Object/CapabilitySpace.cpp
+    Kernel/Object/CapabilitySpacePool.cpp
+    Kernel/Object/CapabilityKeyDerivation.cpp
+    Kernel/Object/CapabilityTransfer.cpp
+    Kernel/Object/RootCapabilityIssuer.cpp
+    Kernel/Protection/ProtectionDomain.cpp
+    Kernel/Protection/ProtectionDomainPool.cpp
+    Kernel/Resource/ResourceDomainPool.cpp
+    Kernel/Resource/ResourceDomain.cpp
+    Kernel/System/SystemCallDispatcher.cpp
+    Kernel/System/IpcSystemCallDispatcher.cpp
+    Kernel/System/IpcSystemCallIngress.cpp
+    Kernel/System/SystemCallIngress.cpp
+    Kernel/System/WaitSetSystemCallDispatcher.cpp
+    Kernel/System/WaitSetSystemCallIngress.cpp
+    Kernel/System/ObjectManager.cpp
+    Kernel/Ipc/MessageCodec.cpp
+    Kernel/Ipc/IpcDeliveryCodec.cpp
+    Kernel/Diagnostics/DiagnosticChannel.cpp
+    Kernel/Diagnostics/StopScreen.cpp
+    Platform/Firmware/DiagnosticLineSink.cpp
+    Kernel/Ipc/Endpoint.cpp
+    Kernel/Ipc/EndpointPool.cpp
+    Kernel/Ipc/WaitSetPool.cpp
+    Kernel/Ipc/Notification.cpp
+    Kernel/Ipc/ReplyToken.cpp
+    Kernel/Ipc/SynchronousReplyDispatcher.cpp
+    Kernel/Ipc/SynchronousCallDispatcher.cpp
+    Kernel/Ipc/WaitSet.cpp
+    Kernel/Ipc/WaitSetThreadDispatcher.cpp
+    Kernel/Scheduler/DispatchCoordinator.cpp
+    Kernel/Scheduler/ProcessorRunController.cpp
+    Kernel/Scheduler/ProcessorScheduler.cpp
+    Kernel/Scheduler/ReadyQueue.cpp
+    Kernel/Scheduler/SchedulingContext.cpp
+    Kernel/Scheduler/Thread.cpp
+    Kernel/Time/ProcessorDeadlineController.cpp
+    Kernel/Time/DeferredTimerWorker.cpp
+    Kernel/Time/Timer.cpp
+    Kernel/Time/TimerNotificationDelivery.cpp
+    Kernel/Time/TimerQueue.cpp
+    Kernel/Memory/FaultToken.cpp
+    Kernel/Memory/Frame.cpp
+    Kernel/Memory/MemoryObject.cpp
+    Kernel/Device/AhciHbaRegisterSnapshotReader.cpp
+    Kernel/Device/AhciIdentifyCommandExecutor.cpp
+    Kernel/Device/AhciIdentifyDmaPageBuilder.cpp
+    Kernel/Device/AhciPciBootstrapBinding.cpp
+    Kernel/Device/AhciReadDmaExtCommandBuilder.cpp
+    Kernel/Device/AhciReadDmaExtCommandExecutor.cpp
+    Kernel/Device/Detail/AhciIdentifyDeviceInformationParser.cpp
+    Kernel/Device/DeviceManager.cpp
+    Kernel/Device/DeviceManagerPci.cpp
+    Kernel/Device/DeviceRegion.cpp
+    Kernel/Device/PciFunction.cpp
+    Kernel/Device/PciFunctionControl.cpp
+    Kernel/Device/PciMessageSignaled.cpp
+    Kernel/Device/IommuDomain.cpp
+    Kernel/Device/IommuDomainPool.cpp
+    Kernel/Device/TrustedDmaPolicy.cpp
+    Kernel/Interrupt/InterruptPool.cpp
+    Kernel/Device/PciFunctionCatalog.cpp
+    Kernel/Device/PciEcamConfigurationSpace.cpp
+    Kernel/Device/PciEndpointBarDecoder.cpp
+    Kernel/Device/PciBarProbe.cpp
+    Kernel/Memory/FaultFrameMapping.cpp
+    Kernel/Memory/FaultResolutionDispatcher.cpp
+    Kernel/Memory/FaultTokenFactory.cpp
+    Kernel/Memory/FrameObjectPool.cpp
+    Kernel/Memory/PhysicalPageAllocator.cpp
+    Kernel/Memory/FramePool.cpp
+    Kernel/Memory/MemoryObjectPool.cpp
+    Kernel/Memory/MemoryMapper.cpp
+    Kernel/Scheduler/ThreadPool.cpp
+    Platform/Amd64/Memory/Amd64FrameScrubber.cpp
+    Platform/Amd64/Memory/Amd64FrameScrubber.S
+    Kernel/Memory/PageFaultIngress.cpp
+    Kernel/Memory/PagerFaultDispatcher.cpp
+    Kernel/Memory/PagerChannel.cpp
+    Kernel/Memory/FaultChannelPool.cpp
+    Kernel/Memory/PagerProtocol.cpp
+    Kernel/Memory/PinnedFrameMapping.cpp
+    Kernel/Memory/AddressSpace.cpp
+    Kernel/Memory/AddressSpacePool.cpp
+    Kernel/Memory/ProcessorAddressSpaceController.cpp
+    Kernel/Memory/DirectUserMemoryAccess.cpp
+    Kernel/Memory/RecordUserMemoryAccess.cpp
+    Kernel/Memory/TlbShootdownDrain.cpp
+    Kernel/Memory/TlbShootdownDispatcher.cpp
+    Kernel/Memory/TlbShootdownMailboxTransport.cpp
+    Platform/Amd64/Diagnostics/Amd64EvidenceRecord.cpp
+    Platform/Amd64/Boot/Amd64ProcessorTopology.cpp
+    Platform/Amd64/Boot/Amd64MetadataArena.cpp
+    Platform/Amd64/Boot/Amd64ApplicationProcessorEntry.cpp
+    Platform/Amd64/Boot/Amd64BootRuntime.cpp
+    Platform/Device/PciEcamRuntime.cpp
+    Platform/Device/UsbHostPublication.cpp
+    Platform/Device/PhysicalMemoryMappedIo.cpp
+    Platform/Device/PortPciConfigurationSpace.cpp
+    Platform/Amd64/Device/Amd64PortIo.cpp
+    Platform/Amd64/Device/Amd64VtdHardware.cpp
+    Platform/Device/VtdTopology.cpp
+    Platform/Device/VtdUnit.cpp
+    Platform/Device/FirmwareDmaReservations.cpp
+    Platform/Amd64/Device/AmdViUnit.cpp
+    Platform/Amd64/Device/AmdViTopology.cpp
+    Platform/Amd64/Device/AmdViDomainBackend.cpp
+    Platform/Device/VtdDomainBackend.cpp
+    Platform/Device/VtdDomainGroup.cpp
+    Platform/Device/IdentityDomainBackend.cpp
+    Platform/Device/TrustedDmaRuntime.cpp
+    Kernel/Interrupt/Interrupt.cpp
+    Kernel/Interrupt/MessageSignaledSource.cpp
+    Platform/Amd64/Interrupt/Amd64DeviceVectors.cpp
+    Platform/Amd64/Interrupt/Amd64IoApic.cpp
+    Platform/Amd64/Interrupt/Amd64InterruptLines.cpp
+    Platform/Amd64/Device/Amd64PhysicalMemoryAccess.cpp
+    Platform/Amd64/Device/Amd64MmioWindow.cpp
+    Platform/Amd64/Device/Amd64BootstrapDevices.cpp
+    Platform/Firmware/AhciPciResourceCapture.cpp
+    Platform/Acpi/Device/AcpiPciEcamTopologyAdapter.cpp
+    Platform/Amd64/Executable/Amd64InitialUserImage.cpp
+    Platform/Amd64/Interrupt/Amd64UserEntry.cpp
+    Platform/Amd64/Interrupt/Amd64UserEntry.S
+    Platform/Amd64/Interrupt/Amd64ApplicationProcessorStartup.cpp
+    Platform/Amd64/Interrupt/Amd64ApplicationProcessorStartup.S
+    Platform/Amd64/Scheduler/Amd64ApplicationProcessorRuntime.cpp
+    Platform/Amd64/Scheduler/Amd64NativePreemptionProbe.cpp
+    Platform/Amd64/Scheduler/Amd64NativePreemptionProbe.S
+    Platform/Amd64/Memory/RuntimeAddressSpacePageTable.cpp
+    Platform/Amd64/Memory/RuntimeAddressSpacePageTable.S
+    Platform/Amd64/Memory/Amd64LocalTlbInvalidator.cpp
+    Platform/Amd64/Memory/Amd64LocalTlbInvalidator.S
+    Platform/Amd64/Memory/RuntimePageTableMapper.cpp
+    Platform/Amd64/Scheduler/Amd64KernelContext.cpp
+    Platform/Amd64/Scheduler/Amd64KernelContext.S
+    Platform/Amd64/Scheduler/Amd64ProcessorRunLoop.cpp
+    Platform/Amd64/System/Amd64SystemCallRegisterCodec.cpp
+    Platform/Amd64/System/Amd64WaitRuntime.cpp
+    Platform/Amd64/System/Amd64PagerRuntime.cpp
+    Platform/Amd64/System/Amd64SpinnerRuntime.cpp
+    Platform/Amd64/System/Amd64UserThreadTable.cpp
+    Platform/Amd64/Memory/Amd64PageFaultDecoder.cpp
+    Platform/Amd64/Interrupt/Amd64LocalApic.cpp
+    Platform/Amd64/Memory/Amd64X2ApicTlbShootdownNotifier.cpp
+    Platform/Amd64/Memory/Amd64X2ApicTlbShootdownNotifier.S
+    Platform/Amd64/Time/Amd64TscClock.cpp
+    Platform/Amd64/Time/Amd64ApicTimer.cpp
+)
+
+# Embedded initial user image, in link order.
+set(ASTERIA_AMD64_USER_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Platform/Amd64/Runtime/Amd64BssZeroInitializationProbe.cpp
+    User/Platform/Amd64/Runtime/Amd64MinimalUserImageRuntime.cpp
+    User/Platform/Amd64/Runtime/Amd64MinimalUserImage.cpp
+    User/Platform/Amd64/Runtime/Amd64MinimalUserImage.S
+)
+
+# The boot pager image, which every firmware embeds beside the initial user image.
+set(ASTERIA_AMD64_PAGER_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Pager/PagerProgram.cpp
+    User/Loader/InterpreterRegistry.cpp
+    Kernel/Ipc/MessageCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    User/Loader/ExecutableFormats.cpp
+    User/Pager/ComponentImage.cpp
+    User/Pager/ObjectCalls.cpp
+    User/Pager/ComponentLoader.cpp
+    User/Pager/ComponentSupervisor.cpp
+    User/Pager/ComponentWatchdog.cpp
+    User/Session/SessionFrame.cpp
+    User/Session/SessionFaceFrame.cpp
+    User/Pager/PowerOff.cpp
+    User/Input/Ps2Controller.cpp
+    User/Input/Ps2Mouse.cpp
+    Inventory/ReportText.cpp
+    User/Pager/DeviceInventory.cpp
+    User/Pager/RootService.cpp
+    User/Pager/ProductInit.cpp
+    User/Pager/ProductDesktop.cpp
+    User/Pager/ToolkitLaunch.cpp
+    User/Pager/RootContext.cpp
+    User/Pager/InputTerminal.cpp
+    User/Pager/UsbProgress.cpp
+    User/Input/KeyRepeat.cpp
+    User/Pager/DeviceManagerRole.cpp
+    User/Platform/Amd64/Pager/Amd64PagerImage.cpp
+    User/Platform/Amd64/Pager/Amd64PagerImage.S
+)
+
+# The CPU-bound spinner the test firmware embeds as a third boot domain.
+set(ASTERIA_AMD64_SPINNER_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Spinner/SpinnerProgram.cpp
+    User/Platform/Amd64/Spinner/Amd64SpinnerImage.cpp
+    User/Platform/Amd64/Spinner/Amd64SpinnerImage.S
+)
+
+# The component the test firmware's boot pager, as root service, builds and restarts in domains it
+# creates; its image is installed as MODULES/COMP.ELF.
+set(ASTERIA_AMD64_COMPONENT_SOURCES
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Platform/Amd64/Component/Amd64ComponentImage.S
+)
+
+# retain the existing 32-page component segment bound. Size code generation
+# for the shared component body leaves room for FS v2.
+set(ASTERIA_AMD64_COMPONENT_SIZE_SOURCES
+    User/Component/Ps2Publication.cpp
+    User/Component/FilesystemService.cpp
+    User/Component/ServiceScratch.cpp
+    User/Filesystem/Exfat/ExfatVolume.cpp
+    User/Filesystem/Exfat/ExfatVolumeWrite.cpp
+    User/Filesystem/Fat/FatVolume.cpp
+    User/Filesystem/FsFormat.cpp
+    User/Filesystem/FsVolume.cpp
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Component/ComponentProgram.cpp
+    User/Component/AhciDriver.cpp
+    User/Component/Ps2Driver.cpp
+    User/Input/Ps2Controller.cpp
+    User/Input/Ps2ControllerSetup.cpp
+    User/Input/Ps2EventQueue.cpp
+    User/Input/Ps2Keyboard.cpp
+    User/Input/Ps2Mouse.cpp
+    User/Component/InputBroker.cpp
+    User/Component/InputBrokerLogic.cpp
+    User/Component/NetworkService.cpp
+    User/Component/NicDriver.cpp
+    User/Component/XhciDriver.cpp
+    User/Component/XhciStorage.cpp
+    User/Component/XhciProgress.cpp
+    User/Usb/Xhci.cpp
+    User/Usb/XhciMemory.cpp
+    User/Usb/XhciEvent.cpp
+    User/Input/UsbDevice.cpp
+    User/Input/UsbDescriptors.cpp
+    User/Input/UsbConfiguration.cpp
+    User/Input/HidBoot.cpp
+    User/Input/HidRelativeMouse.cpp
+    User/Network/NetworkStack.cpp
+    User/Platform/Amd64/Component/Amd64ComponentImage.cpp
+)
+
+# The Object Directory as a component the root service starts: its service core, the value codecs it
+# decodes deliveries and encodes replies with, and its entry; embedded in the pager image beside the
+# component.
+set(ASTERIA_AMD64_DIRECTORY_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    Kernel/Ipc/IpcDeliveryCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryCore.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    Executive/ObjectDirectory/ObjectDirectoryServiceCore.cpp
+    User/Directory/DirectoryProgram.cpp
+    User/Platform/Amd64/Directory/Amd64DirectoryImage.cpp
+    User/Platform/Amd64/Directory/Amd64DirectoryImage.S
+)
+
+# A client of the services the root service starts: it resolves `echo` through the Directory with
+# the Directory protocol's codecs and exchanges echoes; embedded beside them.
+set(ASTERIA_AMD64_CLIENT_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    Executive/ObjectDirectory/ObjectDirectoryProtocol.cpp
+    User/Client/ClientProgram.cpp
+    User/Platform/Amd64/Client/Amd64ClientImage.cpp
+    User/Platform/Amd64/Client/Amd64ClientImage.S
+)
+
+# A test interpreter for IA-64 executables: it describes its guest with the loader's own format
+# handlers and reports it; embedded beside the foreign samples it is given.
+set(ASTERIA_AMD64_INTERPRETER_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    Kernel/Ipc/MessageCodec.cpp
+    User/Loader/ExecutableFormats.cpp
+    User/Interpreter/StubInterpreter.cpp
+    User/Platform/Amd64/Interpreter/Amd64StubInterpreterImage.cpp
+    User/Platform/Amd64/Interpreter/Amd64StubInterpreterImage.S
+)
+
+# The `usb` module : the USB 1.1/2.0 host group driver, its controller libraries, the USB core and
+# the HID boot decoder, linked with the component image's script and entry.
+set(ASTERIA_AMD64_USB_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Component/UsbHostDriver.cpp
+    User/Component/XhciProgress.cpp
+    User/Input/Ps2EventQueue.cpp
+    User/Input/UsbDevice.cpp
+    User/Input/UsbDescriptors.cpp
+    User/Input/UsbConfiguration.cpp
+    User/Input/HidBoot.cpp
+    User/Input/HidRelativeMouse.cpp
+    User/Usb/XhciMemory.cpp
+    User/Usb/Usb1.cpp
+    User/Usb/Ohci.cpp
+    User/Usb/OhciStatus.cpp
+    User/Usb/Uhci.cpp
+    User/Usb/UhciStatus.cpp
+    User/Usb/Ehci.cpp
+    User/Usb/EhciStatus.cpp
+    User/Platform/Amd64/Component/Amd64UsbHostImage.cpp
+    User/Platform/Amd64/Component/Amd64ComponentImage.S
+)
+
+# The unit of the user image that defines its C++ entry, `AsteriaAmd64MinimalUserImageMain`.
+# The test firmware links the other user units with the guest test program in its place.
+set(ASTERIA_AMD64_USER_MAIN_SOURCE User/Platform/Amd64/Runtime/Amd64MinimalUserImage.cpp)
+
+# The grid and composition ride only in `display`.
+set(ASTERIA_AMD64_DISPLAY_SOURCES
+    Runtime/Memory.cpp
+    User/System/SystemCallClient.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.cpp
+    User/Platform/Amd64/System/Amd64SystemCallTransport.S
+    User/Component/DisplayBroker.cpp
+    User/Component/DisplaySession.cpp
+    User/Session/SessionFaceFrame.cpp
+    User/Graphics/Composition/Composition.cpp
+    User/Graphics/Composition/PlaneStorage.cpp
+    User/Graphics/Composition/SessionPlane.cpp
+    User/Platform/Amd64/Component/Amd64DisplayImage.cpp
+    User/Platform/Amd64/Component/Amd64ComponentImage.S
+)
+
+# Separately linked module.
+set(ASTERIA_AMD64_COMPOSITOR_SOURCES
+    User/Component/SessionCompositor.cpp
+    User/Platform/Amd64/Component/Amd64SessionImage.cpp
+)
+
+list(APPEND ASTERIA_AMD64_UNLINKED_USER_SOURCES User/Platform/Amd64/Component/Amd64ToolkitImage.cpp)

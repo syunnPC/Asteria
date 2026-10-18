@@ -1,0 +1,16 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64StartKernelContext
+# size: 0x60
+# artifacts: O0 O2 firmware
+0:0:alloc r16=ar.pfs,3,2,0
+0:0:mov r17=r4
+0:0:mov r18=r5
+0:1:mov r34=r6
+1:0:mov r1=r18
+0:1:mov b6=r17
+1:1:br.call.sptk.many b0=b6
+1:1:rsm 0x4000
+1:0:srlz.d
+1:1:hint.m 0
+1:1:br.few <+0x40>

@@ -1,0 +1,91 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64StopEntry
+# size: 0x370
+# artifacts: O0 O2 firmware
+0:1:mov r17=psr
+1:1:tbit.z p6,p7=r17,17
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:1:tbit.z p6,p7=r17,36
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:1:rsm 0x6000
+1:0:srlz.d
+1:1:mov.m r17=ar.k3
+1:0:cmp.eq p6,p7=r17,r0
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:0:adds r18=48,r17
+0:1:adds r19=8,r17
+1:0:ld8 r30=[r18]
+0:0:ld8 r31=[r19]
+1:1:cmp.eq p6,p7=r30,r0
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:1:mov r20=4
+1:0:cmp.ltu p7,p6=r31,r20
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:0:shl r18=r31,7
+0:1:ld8.acq r20=[r30]
+1:1:tbit.z p7,p6=r20,63
+1:1:(p06) br.cond.sptk.few <+0x270>
+1:1:add r18=r30,r18
+1:0:adds r18=144,r18
+1:1:adds r19=40,r18
+1:0:ld8.acq r20=[r19]
+1:1:cmp.eq p6,p7=2,r20
+1:0:(p06) br.cond.dpnt.few <reloc:PCREL21B AsteriaIa64StopPark>
+0:1:cmp.eq p6,p7=1,r20
+1:0:(p06) br.cond.sptk.few <+0x210>
+0:1:adds r18=48,r18
+1:0:st8 [r18]=r16,8
+0:1:mov r20=cr.iip
+1:0:st8 [r18]=r20,8
+0:1:mov r20=cr.ipsr
+1:0:st8 [r18]=r20,8
+1:1:mov r20=cr.isr
+1:0:st8 [r18]=r20,8
+1:1:mov r20=cr.ifa
+1:0:st8 [r18]=r20,8
+1:1:mov r20=cr.iim
+1:0:st8 [r18]=r20,8
+1:1:mov r20=cr.iipa
+1:0:st8 [r18]=r20,8
+1:1:mov r20=cr.ifa
+1:0:mov r21=rr[r20]
+1:0:st8 [r18]=r21,8
+0:1:extr.u r22=r21,8,24
+1:0:st8 [r18]=r22,8
+0:1:mov r20=b0
+1:0:st8 [r18]=r20
+1:1:ld8.acq r20=[r30]
+1:1:tbit.z p7,p6=r20,63
+1:0:(p06) br.cond.sptk.few <+0x270>
+0:1:cmp.eq p6,p7=r20,r0
+1:0:(p06) br.cond.sptk.few <+0x290>
+0:1:mov r20=2
+1:0:st8.rel [r19]=r20
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopPark>
+1:1:adds r18=792,r30
+1:0:fetchadd8.rel r19=[r18],1
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopPark>
+1:0:mov.m ar.rsc=r0
+1:1:cover
+1:0:shl r20=r31,4
+0:1:shl r21=r31,3
+1:1:add r20=r20,r21
+1:0:add r20=r30,r20
+1:1:adds r20=696,r20
+1:0:ld8 r12=[r20],8
+1:1:ld8 r21=[r20],8
+1:0:ld8 r1=[r20]
+1:1:mov.m ar.bspstore=r21
+1:0:mov.m ar.rnat=r0
+1:1:alloc r22=ar.pfs,2,0,0
+1:0:mov r32=r30
+0:0:mov r33=r31
+0:1:mov.m ar.unat=r0
+1:1:movl r14=0x9804c0270033f
+1:0:mov.m ar.fpsr=r14
+0:0:ssm 0x2000
+0:1:bsw.1
+1:1:srlz.i
+1:0:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64StopCaptured>
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopPark>

@@ -1,0 +1,8 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64PagerSpinningThreadEntry
+# size: 0x20
+# artifacts: firmware:pager_elf firmware-test:pager_elf
+0:1:fetchadd8.rel r14=[r4],1
+1:0:hint.m 0
+0:1:br.few <+0x0>

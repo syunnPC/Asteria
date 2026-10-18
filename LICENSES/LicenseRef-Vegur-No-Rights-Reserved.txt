@@ -1,0 +1,14 @@
+SPDX-License-Identifier: LicenseRef-Vegur-No-Rights-Reserved
+
+Vegur font data by Sora Sagano (dotcolon).
+Source and published terms: https://dotcolon.net/fonts/vegur/
+
+"Vegur is No Rights Reserved."
+
+The publisher permits use, modification and redistribution, including websites,
+print, logotypes and uses involving trademark registration. The fonts have no
+warranty or support, and the publisher accepts no responsibility for problems
+arising from their use. File hashes are recorded in Data/Fonts/Vegur/NOTICE.md.
+
+This LicenseRef preserves the publisher's terms rather than asserting that the
+font files are licensed under Apache-2.0 or a different public-domain dedication.

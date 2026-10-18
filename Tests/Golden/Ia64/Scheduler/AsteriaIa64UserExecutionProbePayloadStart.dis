@@ -1,0 +1,147 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64UserExecutionProbePayloadStart
+# size: 0x450
+# artifacts: O0 O2 firmware
+0:1:alloc r17=ar.pfs,4,4,0
+1:0:mov r14=r12
+0:1:movl r18=0x4153544552494133
+1:0:st8 [r14]=r18
+0:0:mov r32=r18
+0:1:adds r33=1,r18
+1:0:adds r34=2,r18
+0:1:adds r35=3,r18
+1:1:mf
+1:1:br.call.sptk.many b0=<+0x110>
+1:0:xor r20=r32,r18
+0:1:adds r21=1,r18
+1:1:xor r21=r33,r21
+1:0:or r20=r20,r21
+0:1:adds r21=2,r18
+1:1:xor r21=r34,r21
+1:0:or r20=r20,r21
+0:1:adds r21=3,r18
+1:1:xor r21=r35,r21
+1:1:or r20=r20,r21
+1:0:cmp.eq p6,p7=r20,r0
+1:0:(p06) mov r22=r18
+0:1:(p07) mov r22=r0
+1:1:movl r16=0x2000000003004ff0
+1:1:st8 [r16]=r22
+1:0:mov r14=r0
+0:0:mov r16=r0
+0:1:mov r17=r0
+1:0:mov r18=r0
+0:0:mov r20=r0
+0:1:mov r21=r0
+1:0:mov r22=r0
+1:0:mf
+1:1:br.few <+0x100>
+1:0:alloc r19=ar.pfs,6,0,0
+0:1:mov r20=b0
+1:0:mov r28=r14
+0:1:mov r29=r15
+1:0:flushrs
+1:1:movl r16=0x2000000002004200
+1:1:adds r17=48,r16
+1:0:st8 [r17]=r0
+1:0:mov r15=2
+0:0:mov r32=r4
+0:1:mov r33=r5
+1:0:mov r34=r0
+0:0:mov r35=r0
+0:1:mov r36=r0
+1:0:mov r37=r0
+1:1:break.i 0x100000
+1:1:adds r27=-24,r12
+1:0:st8 [r27]=r8,8
+1:1:st8 [r27]=r9,8
+1:0:st8 [r27]=r10
+1:1:movl r14=0x2000000002004100
+1:1:ld8 r21=[r14],8
+1:0:ld8 r22=[r14],8
+1:1:mov r24=257
+1:0:xor r23=r21,r24
+1:0:mov r15=6
+0:0:mov r32=r21
+0:1:mov r33=r22
+1:0:mov r34=r14
+0:0:mov r35=88
+0:1:mov r36=r0
+1:0:mov r37=r0
+1:1:break.i 0x100000
+1:1:st8 [r16]=r8,8
+1:0:st8 [r16]=r9,8
+1:1:st8 [r16]=r10,8
+1:0:or r24=r8,r10
+0:1:adds r25=-1,r9
+1:1:or r24=r24,r25
+1:0:or r23=r23,r24
+1:0:mov r15=7
+0:0:mov r32=r21
+0:1:mov r33=r22
+1:1:movl r34=0x2000000002004300
+1:0:mov r35=136
+0:0:mov r36=r0
+0:1:mov r37=r0
+1:1:break.i 0x100000
+1:1:st8 [r16]=r8,8
+1:0:st8 [r16]=r9,8
+1:1:st8 [r16]=r10,8
+1:0:mov r24=r8
+0:0:adds r25=-1,r9
+0:1:adds r26=-136,r10
+1:0:or r24=r24,r25
+0:1:or r26=r26,r23
+1:1:or r23=r24,r26
+1:1:movl r14=0x2000000002004168
+1:1:ld8 r21=[r14],8
+1:0:ld8 r22=[r14]
+1:1:mov r24=258
+1:0:xor r24=r21,r24
+1:1:or r23=r23,r24
+1:0:mov r15=8
+0:0:mov r32=r21
+0:1:mov r33=r22
+1:0:mov r34=r0
+0:0:mov r35=r0
+0:1:mov r36=r0
+1:0:mov r37=r0
+1:1:break.i 0x100000
+1:1:movl r14=0x20000000020044d0
+1:1:st8 [r14]=r8,8
+1:0:st8 [r14]=r9,8
+1:1:st8 [r14]=r10
+1:0:mov r24=r8
+0:1:movl r25=0x5741495453455401
+1:0:xor r25=r9,r25
+0:1:adds r26=-1,r10
+1:0:or r24=r24,r25
+0:1:or r26=r26,r23
+1:0:or r23=r24,r26
+1:1:cmp.eq p6,p7=r23,r0
+1:0:mf
+1:1:(p06) st8 [r16]=r18
+1:0:mf
+1:1:adds r27=-24,r12
+1:0:ld8 r8=[r27],8
+1:1:ld8 r9=[r27],8
+1:0:ld8 r10=[r27]
+1:0:mov r14=r28
+0:1:mov r15=r29
+1:0:mov b0=r20
+0:1:mov.i ar.pfs=r19
+1:0:mov r16=r0
+0:0:mov r17=r0
+0:1:mov r19=r0
+1:0:mov r20=r0
+0:0:mov r21=r0
+0:1:mov r22=r0
+1:0:mov r23=r0
+0:0:mov r24=r0
+0:1:mov r25=r0
+1:0:mov r26=r0
+0:0:mov r27=r0
+0:1:mov r28=r0
+1:1:mov r29=r0
+1:1:br.ret.sptk.many b0

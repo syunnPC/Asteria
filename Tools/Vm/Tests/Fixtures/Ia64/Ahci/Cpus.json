@@ -1,0 +1,9 @@
+[
+ {
+  "thread-id": 634713,
+  "qom-type": "montecito-9050-ia64-cpu",
+  "qom-path": "/machine/unattached/device[0]",
+  "cpu-index": 0,
+  "target": "ia64"
+ }
+]

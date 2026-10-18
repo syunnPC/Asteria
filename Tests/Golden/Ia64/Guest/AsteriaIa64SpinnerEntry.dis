@@ -1,0 +1,1610 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64SpinnerEntry
+# size: 0x4f20
+# artifacts: firmware-test:spinner_elf
+0:1:alloc r2=ar.pfs,96,96,0
+1:1:movl r16=0x9804c0270073f
+1:1:mov.m ar.fpsr=r16
+1:1:movl r16=0xc000000000000007
+1:1:mov.i ar.pfs=r16
+1:1:mov r16=13
+1:1:mov.i ar.ec=r16
+1:1:movl r16=0x123456789abcdef
+1:1:mov.m ar.unat=r16
+1:0:mov r16=2
+1:1:setf.sig f2=r16
+1:0:mov r16=3
+1:1:setf.sig f3=r16
+1:0:mov r16=4
+1:1:setf.sig f4=r16
+1:0:mov r16=5
+1:1:setf.sig f5=r16
+1:0:mov r16=6
+1:1:setf.sig f6=r16
+1:0:mov r16=7
+1:1:setf.sig f7=r16
+1:0:mov r16=8
+1:1:setf.sig f8=r16
+1:0:mov r16=9
+1:1:setf.sig f9=r16
+1:0:mov r16=10
+1:1:setf.sig f10=r16
+1:0:mov r16=11
+1:1:setf.sig f11=r16
+1:0:mov r16=12
+1:1:setf.sig f12=r16
+1:0:mov r16=13
+1:1:setf.sig f13=r16
+1:0:mov r16=14
+1:1:setf.sig f14=r16
+1:0:mov r16=15
+1:1:setf.sig f15=r16
+1:0:mov r16=16
+1:1:setf.sig f16=r16
+1:0:mov r16=17
+1:1:setf.sig f17=r16
+1:0:mov r16=18
+1:1:setf.sig f18=r16
+1:0:mov r16=19
+1:1:setf.sig f19=r16
+1:0:mov r16=20
+1:1:setf.sig f20=r16
+1:0:mov r16=21
+1:1:setf.sig f21=r16
+1:0:mov r16=22
+1:1:setf.sig f22=r16
+1:0:mov r16=23
+1:1:setf.sig f23=r16
+1:0:mov r16=24
+1:1:setf.sig f24=r16
+1:0:mov r16=25
+1:1:setf.sig f25=r16
+1:0:mov r16=26
+1:1:setf.sig f26=r16
+1:0:mov r16=27
+1:1:setf.sig f27=r16
+1:0:mov r16=28
+1:1:setf.sig f28=r16
+1:0:mov r16=29
+1:1:setf.sig f29=r16
+1:0:mov r16=30
+1:1:setf.sig f30=r16
+1:0:mov r16=31
+1:1:setf.sig f31=r16
+1:0:mov r16=32
+1:1:setf.sig f32=r16
+1:0:mov r16=33
+1:1:setf.sig f33=r16
+1:0:mov r16=34
+1:1:setf.sig f34=r16
+1:0:mov r16=35
+1:1:setf.sig f35=r16
+1:0:mov r16=36
+1:1:setf.sig f36=r16
+1:0:mov r16=37
+1:1:setf.sig f37=r16
+1:0:mov r16=38
+1:1:setf.sig f38=r16
+1:0:mov r16=39
+1:1:setf.sig f39=r16
+1:0:mov r16=40
+1:1:setf.sig f40=r16
+1:0:mov r16=41
+1:1:setf.sig f41=r16
+1:0:mov r16=42
+1:1:setf.sig f42=r16
+1:0:mov r16=43
+1:1:setf.sig f43=r16
+1:0:mov r16=44
+1:1:setf.sig f44=r16
+1:0:mov r16=45
+1:1:setf.sig f45=r16
+1:0:mov r16=46
+1:1:setf.sig f46=r16
+1:0:mov r16=47
+1:1:setf.sig f47=r16
+1:0:mov r16=48
+1:1:setf.sig f48=r16
+1:0:mov r16=49
+1:1:setf.sig f49=r16
+1:0:mov r16=50
+1:1:setf.sig f50=r16
+1:0:mov r16=51
+1:1:setf.sig f51=r16
+1:0:mov r16=52
+1:1:setf.sig f52=r16
+1:0:mov r16=53
+1:1:setf.sig f53=r16
+1:0:mov r16=54
+1:1:setf.sig f54=r16
+1:0:mov r16=55
+1:1:setf.sig f55=r16
+1:0:mov r16=56
+1:1:setf.sig f56=r16
+1:0:mov r16=57
+1:1:setf.sig f57=r16
+1:0:mov r16=58
+1:1:setf.sig f58=r16
+1:0:mov r16=59
+1:1:setf.sig f59=r16
+1:0:mov r16=60
+1:1:setf.sig f60=r16
+1:0:mov r16=61
+1:1:setf.sig f61=r16
+1:0:mov r16=62
+1:1:setf.sig f62=r16
+1:0:mov r16=63
+1:1:setf.sig f63=r16
+1:0:mov r16=64
+1:1:setf.sig f64=r16
+1:0:mov r16=65
+1:1:setf.sig f65=r16
+1:0:mov r16=66
+1:1:setf.sig f66=r16
+1:0:mov r16=67
+1:1:setf.sig f67=r16
+1:0:mov r16=68
+1:1:setf.sig f68=r16
+1:0:mov r16=69
+1:1:setf.sig f69=r16
+1:0:mov r16=70
+1:1:setf.sig f70=r16
+1:0:mov r16=71
+1:1:setf.sig f71=r16
+1:0:mov r16=72
+1:1:setf.sig f72=r16
+1:0:mov r16=73
+1:1:setf.sig f73=r16
+1:0:mov r16=74
+1:1:setf.sig f74=r16
+1:0:mov r16=75
+1:1:setf.sig f75=r16
+1:0:mov r16=76
+1:1:setf.sig f76=r16
+1:0:mov r16=77
+1:1:setf.sig f77=r16
+1:0:mov r16=78
+1:1:setf.sig f78=r16
+1:0:mov r16=79
+1:1:setf.sig f79=r16
+1:0:mov r16=80
+1:1:setf.sig f80=r16
+1:0:mov r16=81
+1:1:setf.sig f81=r16
+1:0:mov r16=82
+1:1:setf.sig f82=r16
+1:0:mov r16=83
+1:1:setf.sig f83=r16
+1:0:mov r16=84
+1:1:setf.sig f84=r16
+1:0:mov r16=85
+1:1:setf.sig f85=r16
+1:0:mov r16=86
+1:1:setf.sig f86=r16
+1:0:mov r16=87
+1:1:setf.sig f87=r16
+1:0:mov r16=88
+1:1:setf.sig f88=r16
+1:0:mov r16=89
+1:1:setf.sig f89=r16
+1:0:mov r16=90
+1:1:setf.sig f90=r16
+1:0:mov r16=91
+1:1:setf.sig f91=r16
+1:0:mov r16=92
+1:1:setf.sig f92=r16
+1:0:mov r16=93
+1:1:setf.sig f93=r16
+1:0:mov r16=94
+1:1:setf.sig f94=r16
+1:0:mov r16=95
+1:1:setf.sig f95=r16
+1:0:mov r16=96
+1:1:setf.sig f96=r16
+1:0:mov r16=97
+1:1:setf.sig f97=r16
+1:0:mov r16=98
+1:1:setf.sig f98=r16
+1:0:mov r16=99
+1:1:setf.sig f99=r16
+1:0:mov r16=100
+1:1:setf.sig f100=r16
+1:0:mov r16=101
+1:1:setf.sig f101=r16
+1:0:mov r16=102
+1:1:setf.sig f102=r16
+1:0:mov r16=103
+1:1:setf.sig f103=r16
+1:0:mov r16=104
+1:1:setf.sig f104=r16
+1:0:mov r16=105
+1:1:setf.sig f105=r16
+1:0:mov r16=106
+1:1:setf.sig f106=r16
+1:0:mov r16=107
+1:1:setf.sig f107=r16
+1:0:mov r16=108
+1:1:setf.sig f108=r16
+1:0:mov r16=109
+1:1:setf.sig f109=r16
+1:0:mov r16=110
+1:1:setf.sig f110=r16
+1:0:mov r16=111
+1:1:setf.sig f111=r16
+1:0:mov r16=112
+1:1:setf.sig f112=r16
+1:0:mov r16=113
+1:1:setf.sig f113=r16
+1:0:mov r16=114
+1:1:setf.sig f114=r16
+1:0:mov r16=115
+1:1:setf.sig f115=r16
+1:0:mov r16=116
+1:1:setf.sig f116=r16
+1:0:mov r16=117
+1:1:setf.sig f117=r16
+1:0:mov r16=118
+1:1:setf.sig f118=r16
+1:0:mov r16=119
+1:1:setf.sig f119=r16
+1:0:mov r16=120
+1:1:setf.sig f120=r16
+1:0:mov r16=121
+1:1:setf.sig f121=r16
+1:0:mov r16=122
+1:1:setf.sig f122=r16
+1:0:mov r16=123
+1:1:setf.sig f123=r16
+1:0:mov r16=124
+1:1:setf.sig f124=r16
+1:0:mov r16=125
+1:1:setf.sig f125=r16
+1:0:mov r16=126
+1:1:setf.sig f126=r16
+1:0:mov r16=127
+1:1:setf.sig f127=r16
+1:0:mov r16=4096
+1:1:mov b0=r16
+1:1:mov r16=4112
+1:1:mov b1=r16
+1:1:mov r16=4128
+1:1:mov b2=r16
+1:1:mov r16=4144
+1:1:mov b3=r16
+1:1:mov r16=4160
+1:1:mov b4=r16
+1:1:mov r16=4176
+1:1:mov b5=r16
+1:1:mov r16=4192
+1:1:mov b6=r16
+1:1:mov r16=4208
+1:1:mov b7=r16
+1:1:movl r16=0xaaaaaaaaaaaaaaaa
+1:1:mov pr=r16,0xfffffffffffffffe
+1:1:movl r16=0x5a5a5a5a5a5a5a5a
+1:1:mov.i ar.lc=r16
+1:1:mov r1=1
+1:1:mov r2=2
+1:0:mov r3=3
+1:1:mov r4=4
+1:0:mov r5=5
+1:1:mov r6=6
+1:0:mov r7=7
+1:1:mov r8=0
+1:0:mov r9=0
+1:1:mov r12=12
+1:0:mov r13=13
+1:1:mov r14=14
+1:0:mov r15=15
+1:1:mov r16=16
+1:0:mov r17=17
+1:1:mov r18=18
+1:0:mov r19=19
+1:1:mov r20=20
+1:0:mov r21=21
+1:1:mov r26=26
+1:0:mov r27=27
+1:1:mov r28=28
+1:0:mov r29=29
+1:1:mov r30=30
+1:0:mov r31=31
+1:1:mov.m r22=ar.bsp
+1:0:mov.m r23=ar.bspstore
+1:1:mov.m r24=ar.rnat
+1:0:mov.m r25=ar.fpsr
+1:1:mov r34=34
+1:0:mov r35=35
+1:1:mov r36=36
+1:0:mov r37=37
+1:1:mov r38=38
+1:0:mov r39=39
+1:1:mov r40=40
+1:0:mov r41=41
+1:1:mov r42=42
+1:0:mov r43=43
+1:1:mov r44=44
+1:0:mov r45=45
+1:1:mov r46=46
+1:0:mov r47=47
+1:1:mov r48=48
+1:0:mov r49=49
+1:1:mov r50=50
+1:0:mov r51=51
+1:1:mov r52=52
+1:0:mov r53=53
+1:1:mov r54=54
+1:0:mov r55=55
+1:1:mov r56=56
+1:0:mov r57=57
+1:1:mov r58=58
+1:0:mov r59=59
+1:1:mov r60=60
+1:0:mov r61=61
+1:1:mov r62=62
+1:0:mov r63=63
+1:1:mov r64=64
+1:0:mov r65=65
+1:1:mov r66=66
+1:0:mov r67=67
+1:1:mov r68=68
+1:0:mov r69=69
+1:1:mov r70=70
+1:0:mov r71=71
+1:1:mov r72=72
+1:0:mov r73=73
+1:1:mov r74=74
+1:0:mov r75=75
+1:1:mov r76=76
+1:0:mov r77=77
+1:1:mov r78=78
+1:0:mov r79=79
+1:1:mov r80=80
+1:0:mov r81=81
+1:1:mov r82=82
+1:0:mov r83=83
+1:1:mov r84=84
+1:0:mov r85=85
+1:1:mov r86=86
+1:0:mov r87=87
+1:1:mov r88=88
+1:0:mov r89=89
+1:1:mov r90=90
+1:0:mov r91=91
+1:1:mov r92=92
+1:0:mov r93=93
+1:1:mov r94=94
+1:0:mov r95=95
+1:1:mov r96=96
+1:0:mov r97=97
+1:1:mov r98=98
+1:0:mov r99=99
+1:1:mov r100=100
+1:0:mov r101=101
+1:1:mov r102=102
+1:0:mov r103=103
+1:1:mov r104=104
+1:0:mov r105=105
+1:1:mov r106=106
+1:0:mov r107=107
+1:1:mov r108=108
+1:0:mov r109=109
+1:1:mov r110=110
+1:0:mov r111=111
+1:1:mov r112=112
+1:0:mov r113=113
+1:1:mov r114=114
+1:0:mov r115=115
+1:1:mov r116=116
+1:0:mov r117=117
+1:1:mov r118=118
+1:0:mov r119=119
+1:1:mov r120=120
+1:0:mov r121=121
+1:1:mov r122=122
+1:0:mov r123=123
+1:1:mov r124=124
+1:0:mov r125=125
+1:1:mov r126=126
+1:0:mov r127=127
+1:1:mov.m r11=ar.itc
+1:1:movl r10=0x3b9aca00
+1:1:add r11=r11,r10
+1:1:mov r32=pr
+1:0:adds r8=1,r8
+0:0:adds r9=1,r9
+0:1:mov.m r10=ar.itc
+1:0:cmp.ltu p6,p7=r10,r11
+1:1:(p06) br.cond.sptk.few <+0xd20>
+1:1:mov r33=pr
+1:1:cmp.eq p7,p6=16,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=1,r1
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=2,r2
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=3,r3
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=4,r4
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=5,r5
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=6,r6
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=7,r7
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=12,r12
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=13,r13
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=14,r14
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=15,r15
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=17,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=18,r18
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=19,r19
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=20,r20
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=21,r21
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=26,r26
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=27,r27
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=28,r28
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=29,r29
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=30,r30
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=31,r31
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=r8,r9
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p6,p7=r0,r8
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=r32,r33
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:movl r16=0xaaaaaaaaaaaaaaab
+1:1:cmp.eq p7,p6=r32,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=34,r34
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=35,r35
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=36,r36
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=37,r37
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=38,r38
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=39,r39
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=40,r40
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=41,r41
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=42,r42
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=43,r43
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=44,r44
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=45,r45
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=46,r46
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=47,r47
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=48,r48
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=49,r49
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=50,r50
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=51,r51
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=52,r52
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=53,r53
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=54,r54
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=55,r55
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=56,r56
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=57,r57
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=58,r58
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=59,r59
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=60,r60
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=61,r61
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=62,r62
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=63,r63
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=64,r64
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=65,r65
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=66,r66
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=67,r67
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=68,r68
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=69,r69
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=70,r70
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=71,r71
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=72,r72
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=73,r73
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=74,r74
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=75,r75
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=76,r76
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=77,r77
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=78,r78
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=79,r79
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=80,r80
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=81,r81
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=82,r82
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=83,r83
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=84,r84
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=85,r85
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=86,r86
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=87,r87
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=88,r88
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=89,r89
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=90,r90
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=91,r91
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=92,r92
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=93,r93
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=94,r94
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=95,r95
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=96,r96
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=97,r97
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=98,r98
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=99,r99
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=100,r100
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=101,r101
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=102,r102
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=103,r103
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=104,r104
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=105,r105
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=106,r106
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=107,r107
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=108,r108
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=109,r109
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=110,r110
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=111,r111
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=112,r112
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=113,r113
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=114,r114
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=115,r115
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=116,r116
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=117,r117
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=118,r118
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=119,r119
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=120,r120
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=121,r121
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=122,r122
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=123,r123
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=124,r124
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=125,r125
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=126,r126
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:cmp.eq p7,p6=127,r127
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f2
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f2
+1:0:cmp.eq p7,p6=2,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f3
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f3
+1:0:cmp.eq p7,p6=3,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f4
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f4
+1:0:cmp.eq p7,p6=4,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f5
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f5
+1:0:cmp.eq p7,p6=5,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f6
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f6
+1:0:cmp.eq p7,p6=6,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f7
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f7
+1:0:cmp.eq p7,p6=7,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f8
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f8
+1:0:cmp.eq p7,p6=8,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f9
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f9
+1:0:cmp.eq p7,p6=9,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f10
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f10
+1:0:cmp.eq p7,p6=10,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f11
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f11
+1:0:cmp.eq p7,p6=11,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f12
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f12
+1:0:cmp.eq p7,p6=12,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f13
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f13
+1:0:cmp.eq p7,p6=13,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f14
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f14
+1:0:cmp.eq p7,p6=14,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f15
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f15
+1:0:cmp.eq p7,p6=15,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f16
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f16
+1:0:cmp.eq p7,p6=16,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f17
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f17
+1:0:cmp.eq p7,p6=17,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f18
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f18
+1:0:cmp.eq p7,p6=18,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f19
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f19
+1:0:cmp.eq p7,p6=19,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f20
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f20
+1:0:cmp.eq p7,p6=20,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f21
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f21
+1:0:cmp.eq p7,p6=21,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f22
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f22
+1:0:cmp.eq p7,p6=22,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f23
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f23
+1:0:cmp.eq p7,p6=23,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f24
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f24
+1:0:cmp.eq p7,p6=24,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f25
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f25
+1:0:cmp.eq p7,p6=25,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f26
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f26
+1:0:cmp.eq p7,p6=26,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f27
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f27
+1:0:cmp.eq p7,p6=27,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f28
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f28
+1:0:cmp.eq p7,p6=28,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f29
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f29
+1:0:cmp.eq p7,p6=29,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f30
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f30
+1:0:cmp.eq p7,p6=30,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f31
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f31
+1:0:cmp.eq p7,p6=31,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f32
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f32
+1:0:cmp.eq p7,p6=32,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f33
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f33
+1:0:cmp.eq p7,p6=33,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f34
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f34
+1:0:cmp.eq p7,p6=34,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f35
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f35
+1:0:cmp.eq p7,p6=35,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f36
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f36
+1:0:cmp.eq p7,p6=36,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f37
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f37
+1:0:cmp.eq p7,p6=37,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f38
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f38
+1:0:cmp.eq p7,p6=38,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f39
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f39
+1:0:cmp.eq p7,p6=39,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f40
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f40
+1:0:cmp.eq p7,p6=40,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f41
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f41
+1:0:cmp.eq p7,p6=41,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f42
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f42
+1:0:cmp.eq p7,p6=42,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f43
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f43
+1:0:cmp.eq p7,p6=43,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f44
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f44
+1:0:cmp.eq p7,p6=44,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f45
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f45
+1:0:cmp.eq p7,p6=45,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f46
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f46
+1:0:cmp.eq p7,p6=46,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f47
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f47
+1:0:cmp.eq p7,p6=47,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f48
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f48
+1:0:cmp.eq p7,p6=48,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f49
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f49
+1:0:cmp.eq p7,p6=49,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f50
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f50
+1:0:cmp.eq p7,p6=50,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f51
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f51
+1:0:cmp.eq p7,p6=51,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f52
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f52
+1:0:cmp.eq p7,p6=52,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f53
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f53
+1:0:cmp.eq p7,p6=53,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f54
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f54
+1:0:cmp.eq p7,p6=54,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f55
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f55
+1:0:cmp.eq p7,p6=55,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f56
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f56
+1:0:cmp.eq p7,p6=56,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f57
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f57
+1:0:cmp.eq p7,p6=57,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f58
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f58
+1:0:cmp.eq p7,p6=58,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f59
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f59
+1:0:cmp.eq p7,p6=59,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f60
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f60
+1:0:cmp.eq p7,p6=60,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f61
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f61
+1:0:cmp.eq p7,p6=61,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f62
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f62
+1:0:cmp.eq p7,p6=62,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f63
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f63
+1:0:cmp.eq p7,p6=63,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f64
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f64
+1:0:cmp.eq p7,p6=64,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f65
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f65
+1:0:cmp.eq p7,p6=65,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f66
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f66
+1:0:cmp.eq p7,p6=66,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f67
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f67
+1:0:cmp.eq p7,p6=67,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f68
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f68
+1:0:cmp.eq p7,p6=68,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f69
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f69
+1:0:cmp.eq p7,p6=69,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f70
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f70
+1:0:cmp.eq p7,p6=70,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f71
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f71
+1:0:cmp.eq p7,p6=71,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f72
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f72
+1:0:cmp.eq p7,p6=72,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f73
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f73
+1:0:cmp.eq p7,p6=73,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f74
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f74
+1:0:cmp.eq p7,p6=74,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f75
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f75
+1:0:cmp.eq p7,p6=75,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f76
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f76
+1:0:cmp.eq p7,p6=76,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f77
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f77
+1:0:cmp.eq p7,p6=77,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f78
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f78
+1:0:cmp.eq p7,p6=78,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f79
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f79
+1:0:cmp.eq p7,p6=79,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f80
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f80
+1:0:cmp.eq p7,p6=80,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f81
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f81
+1:0:cmp.eq p7,p6=81,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f82
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f82
+1:0:cmp.eq p7,p6=82,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f83
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f83
+1:0:cmp.eq p7,p6=83,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f84
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f84
+1:0:cmp.eq p7,p6=84,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f85
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f85
+1:0:cmp.eq p7,p6=85,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f86
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f86
+1:0:cmp.eq p7,p6=86,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f87
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f87
+1:0:cmp.eq p7,p6=87,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f88
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f88
+1:0:cmp.eq p7,p6=88,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f89
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f89
+1:0:cmp.eq p7,p6=89,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f90
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f90
+1:0:cmp.eq p7,p6=90,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f91
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f91
+1:0:cmp.eq p7,p6=91,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f92
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f92
+1:0:cmp.eq p7,p6=92,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f93
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f93
+1:0:cmp.eq p7,p6=93,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f94
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f94
+1:0:cmp.eq p7,p6=94,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f95
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f95
+1:0:cmp.eq p7,p6=95,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f96
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f96
+1:0:cmp.eq p7,p6=96,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f97
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f97
+1:0:cmp.eq p7,p6=97,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f98
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f98
+1:0:cmp.eq p7,p6=98,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f99
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f99
+1:0:cmp.eq p7,p6=99,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f100
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f100
+1:0:cmp.eq p7,p6=100,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f101
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f101
+1:0:cmp.eq p7,p6=101,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f102
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f102
+1:0:cmp.eq p7,p6=102,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f103
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f103
+1:0:cmp.eq p7,p6=103,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f104
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f104
+1:0:cmp.eq p7,p6=104,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f105
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f105
+1:0:cmp.eq p7,p6=105,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f106
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f106
+1:0:cmp.eq p7,p6=106,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f107
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f107
+1:0:cmp.eq p7,p6=107,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f108
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f108
+1:0:cmp.eq p7,p6=108,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f109
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f109
+1:0:cmp.eq p7,p6=109,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f110
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f110
+1:0:cmp.eq p7,p6=110,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f111
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f111
+1:0:cmp.eq p7,p6=111,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f112
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f112
+1:0:cmp.eq p7,p6=112,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f113
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f113
+1:0:cmp.eq p7,p6=113,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f114
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f114
+1:0:cmp.eq p7,p6=114,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f115
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f115
+1:0:cmp.eq p7,p6=115,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f116
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f116
+1:0:cmp.eq p7,p6=116,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f117
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f117
+1:0:cmp.eq p7,p6=117,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f118
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f118
+1:0:cmp.eq p7,p6=118,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f119
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f119
+1:0:cmp.eq p7,p6=119,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f120
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f120
+1:0:cmp.eq p7,p6=120,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f121
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f121
+1:0:cmp.eq p7,p6=121,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f122
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f122
+1:0:cmp.eq p7,p6=122,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f123
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f123
+1:0:cmp.eq p7,p6=123,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f124
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f124
+1:0:cmp.eq p7,p6=124,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f125
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f125
+1:0:cmp.eq p7,p6=125,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f126
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f126
+1:0:cmp.eq p7,p6=126,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.exp r16=f127
+1:1:movl r17=0x1003e
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:getf.sig r16=f127
+1:0:cmp.eq p7,p6=127,r16
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b0
+1:1:mov r17=4096
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b1
+1:1:mov r17=4112
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b2
+1:1:mov r17=4128
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b3
+1:1:mov r17=4144
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b4
+1:1:mov r17=4160
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b5
+1:1:mov r17=4176
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b6
+1:1:mov r17=4192
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov r16=b7
+1:1:mov r17=4208
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.bsp
+1:0:cmp.eq p7,p6=r16,r22
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.bspstore
+1:0:cmp.eq p7,p6=r16,r23
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.rnat
+1:0:cmp.eq p7,p6=r16,r24
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.fpsr
+1:0:cmp.eq p7,p6=r16,r25
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.rsc
+1:1:movl r17=0xc
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.i r16=ar.pfs
+1:1:movl r17=0xc000000000000007
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.i r16=ar.ec
+1:1:movl r17=0xd
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.i r16=ar.lc
+1:1:movl r17=0x5a5a5a5a5a5a5a5a
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:1:mov.m r16=ar.unat
+1:1:movl r17=0x123456789abcdef
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x4f10>
+1:0:break.i 0x1234
+1:0:break.i 0x4321

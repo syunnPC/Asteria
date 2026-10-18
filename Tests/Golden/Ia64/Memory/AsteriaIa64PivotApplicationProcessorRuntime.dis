@@ -1,0 +1,32 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64PivotApplicationProcessorRuntime
+# size: 0x120
+# artifacts: O0 O2 firmware
+0:0:mov r14=r32
+0:0:mov r15=r33
+0:1:mov r11=r34
+1:1:mov r8=psr
+1:1:movl r17=0x100802e000
+1:1:and r8=r8,r17
+1:0:cmp.eq p7,p6=r8,r0
+1:1:(p06) br.cond.dpnt.few <+0x110>
+1:1:movl r10=<reloc:IMM64 AsteriaIa64ApplicationProcessorTranslatedLanding>
+1:1:bsw.1
+1:1:cover
+1:1:flushrs
+1:0:mov.m ar.rsc=r0
+1:1:invala
+1:0:mov.m ar.bspstore=r11
+1:0:mov.m ar.rnat=r0
+0:0:mov.i ar.pfs=r0
+0:1:mov.m ar.unat=r0
+1:0:mf
+1:1:mov r12=r15
+1:1:movl r18=0x101008022018
+1:0:mov cr.ifs=r0
+0:0:mov cr.ipsr=r18
+0:0:mov cr.iip=r10
+1:1:rfi
+1:0:mov r8=1
+0:1:br.ret.sptk.many b0

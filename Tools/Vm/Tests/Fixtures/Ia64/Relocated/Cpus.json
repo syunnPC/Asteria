@@ -1,0 +1,30 @@
+[
+ {
+  "thread-id": 685616,
+  "qom-type": "montecito-9050-ia64-cpu",
+  "qom-path": "/machine/unattached/device[0]",
+  "cpu-index": 0,
+  "target": "ia64"
+ },
+ {
+  "thread-id": 685616,
+  "qom-type": "montecito-9050-ia64-cpu",
+  "qom-path": "/machine/unattached/device[1]",
+  "cpu-index": 1,
+  "target": "ia64"
+ },
+ {
+  "thread-id": 685616,
+  "qom-type": "montecito-9050-ia64-cpu",
+  "qom-path": "/machine/unattached/device[2]",
+  "cpu-index": 2,
+  "target": "ia64"
+ },
+ {
+  "thread-id": 685616,
+  "qom-type": "montecito-9050-ia64-cpu",
+  "qom-path": "/machine/unattached/device[3]",
+  "cpu-index": 3,
+  "target": "ia64"
+ }
+]

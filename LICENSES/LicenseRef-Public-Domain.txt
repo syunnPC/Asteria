@@ -1,0 +1,9 @@
+SPDX-License-Identifier: LicenseRef-Public-Domain
+
+The NetBSD bold8x16 glyph bitmap (sys/dev/wsfont/bold8x16.h, revision 1.13)
+is identified by its source as public domain: "This font lives in the public domain".
+Only the glyph bytes are retained. No BSD-licensed font-file implementation
+is included. See Source/User/Graphics/Bold8x16Font.hpp and
+Source/Kernel/Diagnostics/StopFont.hpp for the project-owned declarations.
+Apache-2.0 applies to those declarations; it does not replace the public-domain
+status of the glyph data.

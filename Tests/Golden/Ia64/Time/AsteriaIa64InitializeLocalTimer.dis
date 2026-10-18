@@ -1,0 +1,19 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InitializeLocalTimer
+# size: 0x90
+# artifacts: O0 O2 firmware
+0:1:mov cr.itv=r32
+1:0:srlz.d
+1:1:mov cr.itm=r0
+1:0:srlz.d
+1:0:mov r14=cr.itv
+0:0:mov r15=cr.itm
+1:1:cmp.eq p7,p6=r14,r32
+1:1:(p06) br.cond.dpnt.few <+0x80>
+1:1:cmp.eq p7,p6=r15,r0
+1:1:(p06) br.cond.dpnt.few <+0x80>
+1:0:mov r8=r0
+0:1:br.ret.sptk.many b0
+1:0:mov r8=1
+0:1:br.ret.sptk.many b0

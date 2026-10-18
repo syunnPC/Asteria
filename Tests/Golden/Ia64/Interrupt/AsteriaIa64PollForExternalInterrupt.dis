@@ -1,0 +1,8 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64PollForExternalInterrupt
+# size: 0x20
+# artifacts: O0 O2 firmware
+0:0:mov r34=r33
+0:1:mov r33=1
+1:1:br.few <reloc:PCREL21B AsteriaIa64PollForExternalInterruptSequence>

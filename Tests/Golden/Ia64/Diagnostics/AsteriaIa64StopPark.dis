@@ -1,0 +1,9 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64StopPark
+# size: 0x30
+# artifacts: O0 O2 firmware
+0:1:rsm 0x4000
+1:0:srlz.d
+1:1:hint.m 0
+1:1:br.few <+0x10>

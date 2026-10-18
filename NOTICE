@@ -1,0 +1,30 @@
+SPDX-License-Identifier: Apache-2.0
+
+Asteria
+Project-authored code and documentation: Apache License, Version 2.0.
+
+Third-party data retain their original terms:
+
+- NetBSD bold8x16 glyph bitmap, revision 1.13: public domain glyph data only.
+  See Source/User/Graphics/Bold8x16Font.hpp,
+  Source/Kernel/Diagnostics/StopFont.hpp and
+  LICENSES/LicenseRef-Public-Domain.txt.
+- Vegur Light, Regular and Bold, Sora Sagano (dotcolon): No Rights Reserved.
+  See Data/Fonts/Vegur/NOTICE.md and
+  LICENSES/LicenseRef-Vegur-No-Rights-Reserved.txt.
+- RFC 4231 vectors (2005), Magnus Nystrom: Copyright (C) The Internet Society
+  (2005). See LICENSES/LicenseRef-IETF-Code-2005.txt.
+- RFC 5869 vectors (2010), Hugo Krawczyk and Pasi Eronen;
+  RFC 7748 vectors (2016), Adam Langley, Mike Hamburg and Sean Turner;
+  RFC 8032 vectors (2017), Simon Josefsson and Ilari Liusvaara;
+  RFC 8439 vectors (2018), Yoav Nir and Adam Langley;
+  RFC 9106 vectors (2021), Alex Biryukov, Daniel Dinu, Dmitry Khovratovich
+  and Simon Josefsson: Copyright (c) the respective publication year,
+  IETF Trust and the persons identified as authors of the code.
+  All rights reserved. See LICENSES/BSD-3-Clause.txt.
+- NIST cryptographic validation and standard example values: source
+  publications and vector sets are listed in Tests/User/Crypto/Readme.md.
+
+Only test values from the RFCs are retained; their example implementations
+are not included. These notices do not change the Apache-2.0 terms for
+project-authored code or replace the conditions attached to third-party data.

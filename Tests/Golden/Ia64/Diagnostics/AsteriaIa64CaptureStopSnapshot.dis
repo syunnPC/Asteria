@@ -1,0 +1,37 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64CaptureStopSnapshot
+# size: 0x110
+# artifacts: O0 O2 firmware
+0:0:mov r14=r32
+0:0:mov r15=b0
+0:0:mov r16=psr
+0:0:mov r23=psr
+1:1:mov.m r18=ar.rsc
+1:1:dep r19=0,r18,0,2
+1:0:mov.m ar.rsc=r19
+0:0:rsm 0x2000
+1:1:srlz.d
+1:0:st8 [r14]=r0,8
+1:1:st8 [r14]=r15,8
+1:0:st8 [r14]=r16,8
+1:1:mov r15=cr.isr
+1:0:st8 [r14]=r15,8
+1:1:mov r15=cr.ifa
+1:0:st8 [r14]=r15,8
+1:1:mov r15=cr.iim
+1:0:st8 [r14]=r15,8
+1:1:mov r15=cr.iipa
+1:0:st8 [r14]=r15,8
+1:1:mov r15=cr.ifa
+1:0:mov r16=rr[r15]
+1:0:st8 [r14]=r16,8
+0:1:extr.u r17=r16,8,24
+1:0:st8 [r14]=r17,8
+0:1:mov r15=b0
+1:1:st8 [r14]=r15
+1:1:tbit.z p7,p6=r23,13
+1:1:(p06) ssm 0x2000
+1:0:srlz.d
+1:1:mov.m ar.rsc=r18
+1:1:br.ret.sptk.many b0

@@ -1,0 +1,320 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64ExternalPreemptionRestoreTail
+# size: 0xb10
+# artifacts: O0 O2 firmware
+0:1:cmp.eq p6,p7=r4,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:cmp.eq p6,p7=r5,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:cmp.eq p6,p7=r6,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:cmp.eq p6,p7=r7,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:ld8.acq r14=[r5]
+1:0:cmp.eq p7,p6=r14,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=8,r5
+1:0:ld8.acq r15=[r14]
+1:1:mov r16=5
+1:0:cmp.eq p7,p6=r15,r16
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=32,r5
+1:0:ld8 r15=[r14]
+1:1:cmp.eq p7,p6=r15,r4
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=152,r5
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14]
+1:0:cmp.eq p7,p6=r15,r6
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:cmp.eq p7,p6=r16,r7
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=120,r4
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14]
+1:0:shr.u r15=r15,63
+0:1:shr.u r16=r16,63
+1:1:cmp.eq p7,p6=r15,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:cmp.eq p6,p7=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:ld8.acq r14=[r4]
+1:0:cmp.eq p7,p6=r14,r6
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=8,r4
+1:0:ld8 r15=[r14],8
+1:1:cmp.eq p7,p6=r15,r6
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=8,r14
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14]
+1:0:mov r17=3
+1:1:cmp.eq p7,p6=r15,r17
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:mov r17=6
+1:0:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=208,r4
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14],8
+1:0:ld8 r17=[r14]
+1:1:alloc r18=ar.pfs,0,0,0
+1:0:mov.m ar.rsc=r17
+1:1:loadrs
+1:0:invala
+1:1:mov.m ar.bspstore=r15
+1:0:mov.m ar.rnat=r16
+1:1:mov.m r14=ar.bsp
+1:0:adds r15=2640,r4
+1:1:ld8 r16=[r15]
+1:0:cmp.eq p7,p6=r14,r16
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:adds r14=624,r4
+1:0:ldf.fill f2=[r14],16
+1:1:ldf.fill f3=[r14],16
+1:0:ldf.fill f4=[r14],16
+1:1:ldf.fill f5=[r14],16
+1:0:ldf.fill f6=[r14],16
+1:1:ldf.fill f7=[r14],16
+1:0:ldf.fill f8=[r14],16
+1:1:ldf.fill f9=[r14],16
+1:0:ldf.fill f10=[r14],16
+1:1:ldf.fill f11=[r14],16
+1:0:ldf.fill f12=[r14],16
+1:1:ldf.fill f13=[r14],16
+1:0:ldf.fill f14=[r14],16
+1:1:ldf.fill f15=[r14],16
+1:0:ldf.fill f16=[r14],16
+1:1:ldf.fill f17=[r14],16
+1:0:ldf.fill f18=[r14],16
+1:1:ldf.fill f19=[r14],16
+1:0:ldf.fill f20=[r14],16
+1:1:ldf.fill f21=[r14],16
+1:0:ldf.fill f22=[r14],16
+1:1:ldf.fill f23=[r14],16
+1:0:ldf.fill f24=[r14],16
+1:1:ldf.fill f25=[r14],16
+1:0:ldf.fill f26=[r14],16
+1:1:ldf.fill f27=[r14],16
+1:0:ldf.fill f28=[r14],16
+1:1:ldf.fill f29=[r14],16
+1:0:ldf.fill f30=[r14],16
+1:1:ldf.fill f31=[r14],16
+1:0:ldf.fill f32=[r14],16
+1:1:ldf.fill f33=[r14],16
+1:0:ldf.fill f34=[r14],16
+1:1:ldf.fill f35=[r14],16
+1:0:ldf.fill f36=[r14],16
+1:1:ldf.fill f37=[r14],16
+1:0:ldf.fill f38=[r14],16
+1:1:ldf.fill f39=[r14],16
+1:0:ldf.fill f40=[r14],16
+1:1:ldf.fill f41=[r14],16
+1:0:ldf.fill f42=[r14],16
+1:1:ldf.fill f43=[r14],16
+1:0:ldf.fill f44=[r14],16
+1:1:ldf.fill f45=[r14],16
+1:0:ldf.fill f46=[r14],16
+1:1:ldf.fill f47=[r14],16
+1:0:ldf.fill f48=[r14],16
+1:1:ldf.fill f49=[r14],16
+1:0:ldf.fill f50=[r14],16
+1:1:ldf.fill f51=[r14],16
+1:0:ldf.fill f52=[r14],16
+1:1:ldf.fill f53=[r14],16
+1:0:ldf.fill f54=[r14],16
+1:1:ldf.fill f55=[r14],16
+1:0:ldf.fill f56=[r14],16
+1:1:ldf.fill f57=[r14],16
+1:0:ldf.fill f58=[r14],16
+1:1:ldf.fill f59=[r14],16
+1:0:ldf.fill f60=[r14],16
+1:1:ldf.fill f61=[r14],16
+1:0:ldf.fill f62=[r14],16
+1:1:ldf.fill f63=[r14],16
+1:0:ldf.fill f64=[r14],16
+1:1:ldf.fill f65=[r14],16
+1:0:ldf.fill f66=[r14],16
+1:1:ldf.fill f67=[r14],16
+1:0:ldf.fill f68=[r14],16
+1:1:ldf.fill f69=[r14],16
+1:0:ldf.fill f70=[r14],16
+1:1:ldf.fill f71=[r14],16
+1:0:ldf.fill f72=[r14],16
+1:1:ldf.fill f73=[r14],16
+1:0:ldf.fill f74=[r14],16
+1:1:ldf.fill f75=[r14],16
+1:0:ldf.fill f76=[r14],16
+1:1:ldf.fill f77=[r14],16
+1:0:ldf.fill f78=[r14],16
+1:1:ldf.fill f79=[r14],16
+1:0:ldf.fill f80=[r14],16
+1:1:ldf.fill f81=[r14],16
+1:0:ldf.fill f82=[r14],16
+1:1:ldf.fill f83=[r14],16
+1:0:ldf.fill f84=[r14],16
+1:1:ldf.fill f85=[r14],16
+1:0:ldf.fill f86=[r14],16
+1:1:ldf.fill f87=[r14],16
+1:0:ldf.fill f88=[r14],16
+1:1:ldf.fill f89=[r14],16
+1:0:ldf.fill f90=[r14],16
+1:1:ldf.fill f91=[r14],16
+1:0:ldf.fill f92=[r14],16
+1:1:ldf.fill f93=[r14],16
+1:0:ldf.fill f94=[r14],16
+1:1:ldf.fill f95=[r14],16
+1:0:ldf.fill f96=[r14],16
+1:1:ldf.fill f97=[r14],16
+1:0:ldf.fill f98=[r14],16
+1:1:ldf.fill f99=[r14],16
+1:0:ldf.fill f100=[r14],16
+1:1:ldf.fill f101=[r14],16
+1:0:ldf.fill f102=[r14],16
+1:1:ldf.fill f103=[r14],16
+1:0:ldf.fill f104=[r14],16
+1:1:ldf.fill f105=[r14],16
+1:0:ldf.fill f106=[r14],16
+1:1:ldf.fill f107=[r14],16
+1:0:ldf.fill f108=[r14],16
+1:1:ldf.fill f109=[r14],16
+1:0:ldf.fill f110=[r14],16
+1:1:ldf.fill f111=[r14],16
+1:0:ldf.fill f112=[r14],16
+1:1:ldf.fill f113=[r14],16
+1:0:ldf.fill f114=[r14],16
+1:1:ldf.fill f115=[r14],16
+1:0:ldf.fill f116=[r14],16
+1:1:ldf.fill f117=[r14],16
+1:0:ldf.fill f118=[r14],16
+1:1:ldf.fill f119=[r14],16
+1:0:ldf.fill f120=[r14],16
+1:1:ldf.fill f121=[r14],16
+1:0:ldf.fill f122=[r14],16
+1:1:ldf.fill f123=[r14],16
+1:0:ldf.fill f124=[r14],16
+1:1:ldf.fill f125=[r14],16
+1:0:ldf.fill f126=[r14],16
+1:1:ldf.fill f127=[r14],16
+1:0:adds r14=256,r4
+1:1:ld8 r15=[r14],8
+1:0:ld8 r16=[r14],8
+1:1:ld8 r17=[r14],8
+1:0:ld8 r18=[r14],8
+1:1:ld8 r19=[r14]
+1:0:mov.i ar.lc=r15
+0:1:mov.i ar.ec=r16
+1:1:mov.m ar.csd=r17
+1:0:mov.m ar.ccv=r18
+0:1:mov.m ar.fpsr=r19
+1:0:adds r14=304,r4
+1:1:ld8 r15=[r14],8
+1:0:ld8 r16=[r14],8
+1:1:ld8 r17=[r14],8
+1:0:ld8 r18=[r14],8
+1:1:ld8 r19=[r14],8
+1:0:ld8 r20=[r14],8
+1:1:ld8 r21=[r14],8
+1:0:ld8 r22=[r14]
+1:0:mov b0=r15
+0:1:mov b1=r16
+1:0:mov b2=r17
+0:1:mov b3=r18
+1:0:mov b4=r19
+0:1:mov b5=r20
+1:0:mov b6=r21
+0:1:mov b7=r22
+1:1:adds r14=240,r4
+1:0:ld8 r8=[r14],8
+1:0:ld8 r9=[r14]
+1:1:bsw.0
+1:0:mov r16=r4
+0:0:mov r17=r5
+0:1:mov r18=r6
+1:1:adds r14=104,r4
+1:0:ld8 r19=[r14],8
+1:1:ld8 r20=[r14],8
+1:0:adds r14=8,r14
+1:1:ld8 r21=[r14]
+1:0:adds r14=184,r4
+1:1:ld8 r22=[r14],8
+1:0:ld8 r23=[r14]
+1:1:adds r14=232,r4
+1:0:ld8 r24=[r14],8
+1:1:adds r14=296,r4
+1:0:ld8 r25=[r14]
+1:1:adds r14=176,r17
+1:0:ld8 r26=[r14]
+1:1:adds r26=1,r26
+1:0:adds r14=128,r17
+1:1:ld8 r14=[r14]
+1:0:cmp.eq p7,p6=r19,r14
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:extr.u r14=r20,41,2
+1:1:mov r15=2
+1:1:cmp.ltu p7,p6=r14,r15
+1:1:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:extr.u r14=r20,14,1
+1:1:cmp.eq p6,p7=r14,r0
+1:0:(p06) br.cond.dpnt.few <+0xaf0>
+1:1:bsw.1
+1:1:mov.m ar.unat=r9
+1:0:adds r14=488,r4
+1:1:ld8.fill r16=[r14],8
+1:0:ld8.fill r17=[r14],8
+1:1:ld8.fill r18=[r14],8
+1:0:ld8.fill r19=[r14],8
+1:1:ld8.fill r20=[r14],8
+1:0:ld8.fill r21=[r14],8
+1:1:ld8.fill r22=[r14],8
+1:0:ld8.fill r23=[r14],8
+1:1:ld8.fill r24=[r14],8
+1:0:ld8.fill r25=[r14],8
+1:1:ld8.fill r26=[r14],8
+1:0:ld8.fill r27=[r14],8
+1:1:ld8.fill r28=[r14],8
+1:0:ld8.fill r29=[r14],8
+1:1:ld8.fill r30=[r14],8
+1:0:ld8.fill r31=[r14]
+1:1:mov.m ar.unat=r8
+1:0:adds r15=368,r4
+1:1:ld8.fill r1=[r15],8
+1:0:ld8.fill r2=[r15],8
+1:1:ld8.fill r3=[r15],8
+1:0:ld8.fill r4=[r15],8
+1:1:ld8.fill r5=[r15],8
+1:0:ld8.fill r6=[r15],8
+1:1:ld8.fill r7=[r15],8
+1:0:ld8.fill r8=[r15],8
+1:1:ld8.fill r9=[r15],8
+1:0:ld8.fill r10=[r15],8
+1:1:ld8.fill r11=[r15],8
+1:0:ld8.fill r12=[r15],8
+1:1:ld8.fill r13=[r15],8
+1:0:ld8.fill r14=[r15],8
+1:0:ld8.fill r15=[r15]
+1:1:bsw.0
+1:1:adds r27=32,r16
+1:0:st8 [r27]=r0
+1:1:adds r27=24,r16
+1:0:st8 [r27]=r0
+1:1:adds r27=144,r17
+1:0:st8 [r27]=r0
+1:1:adds r27=176,r17
+1:0:st8 [r27]=r26
+1:1:mov r28=6
+1:0:adds r27=8,r17
+1:1:st8.rel [r27]=r28
+1:1:mov.i ar.pfs=r22
+1:1:mov.m ar.unat=r24
+1:0:mov cr.ifs=r21
+1:1:mov.m ar.rsc=r23
+1:0:st8.rel [r16]=r0
+1:1:dep r20=r0,r20,14,1
+1:0:mov cr.iip=r19
+0:0:mov cr.ipsr=r20
+1:1:mov pr=r25,0xfffffffffffffffe
+1:1:rfi
+1:1:hint.m 0
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopExternal>

@@ -1,0 +1,16 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64UserBreakEntry
+# size: 0x80
+# artifacts: O0 O2 firmware
+0:0:mov r31=pr
+0:0:mov r17=cr.iim
+0:1:movl r18=0x100000
+1:1:cmp.eq p6,p7=r17,r18
+1:1:(p06) br.cond.sptk.few <+0x60>
+1:0:mov pr=r31,0xfffffffffffffffe
+1:0:mov.m ar.k4=44
+0:0:mov r16=6
+0:1:br.many <reloc:PCREL21B AsteriaIa64UserExceptionEntry>
+1:1:mov pr=r31,0xfffffffffffffffe
+1:1:br.many <reloc:PCREL21B AsteriaIa64SystemCallEntry>

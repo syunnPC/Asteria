@@ -1,0 +1,81 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64SalBootRendezvousHandlerEntry
+# size: 0x350
+# artifacts: O0 O2 firmware
+0:0:alloc r32=ar.pfs,5,3,0
+0:0:mov r33=b0
+0:1:mov r34=r1
+1:0:mov r14=psr
+0:0:mov.m r15=ar.rsc
+1:1:and r15=19,r15
+1:1:movl r16=0x401b0f064002
+1:1:and r14=r14,r16
+1:0:or r14=r14,r15
+1:1:cmp.eq p6,p7=r14,r0
+1:0:(p06) mov r36=1
+0:1:(p07) mov r36=r0
+1:1:mov r35=cr.lid
+1:1:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64DispatchSalBootRendezvous>
+1:1:cmp.eq p6,p7=r9,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:ptr.i r8,r9
+1:0:srlz.i
+1:1:cmp.eq p6,p7=r10,r0
+1:1:(p06) br.cond.sptk.few <+0x310>
+1:1:mov r14=1
+1:0:cmp.eq p6,p7=r10,r14
+1:1:(p07) br.cond.dpnt.few <+0x330>
+1:1:cmp.eq p6,p7=r11,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:tbit.z p7,p6=r11,63
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:and r16=7,r11
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:ld8 r14=[r11],8
+1:0:ld8 r15=[r11],8
+1:1:ld8 r8=[r11]
+1:1:tbit.z p7,p6=r14,63
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:and r16=15,r14
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:tbit.z p7,p6=r15,63
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:movl r17=0x7fff
+1:1:and r16=r15,r17
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:adds r16=16,r14
+1:0:cmp.eq p7,p6=r16,r15
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:cmp.eq p6,p7=r8,r0
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:1:mov r16=4
+1:0:cmp.ltu p7,p6=r8,r16
+1:1:(p06) br.cond.dpnt.few <+0x330>
+1:0:mov r1=r34
+1:1:bsw.1
+1:1:rsm 0x2000
+1:0:srlz.d
+1:0:srlz.i
+1:1:cover
+1:1:flushrs
+1:0:mov.m ar.rsc=r0
+1:1:invala
+1:0:mov.m ar.bspstore=r15
+1:0:mov.m ar.rnat=r0
+0:1:mov.i ar.pfs=r0
+1:1:mf
+1:0:mov r12=r14
+1:1:alloc r14=ar.pfs,1,0,0
+1:0:mov r32=r8
+1:0:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64RunApplicationProcessorOwnedExecutionContext>
+1:1:br.few <+0x330>
+1:0:mov r1=r34
+0:0:mov b0=r33
+0:1:mov.i ar.pfs=r32
+1:1:br.ret.sptk.many b0
+1:1:hint.m 0
+1:1:br.few <+0x330>

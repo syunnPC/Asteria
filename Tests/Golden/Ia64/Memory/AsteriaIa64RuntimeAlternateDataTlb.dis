@@ -1,0 +1,119 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# range: AsteriaIa64RuntimeAlternateDataTlbStart..AsteriaIa64RuntimeAlternateDataTlbEnd
+# size: 0x3d0
+# artifacts: O0 O2 firmware
+0:0:mov r16=pr
+0:0:mov r31=psr
+0:0:mov r30=cr.ipsr
+0:0:mov r29=cr.isr
+0:1:movl r28=0xe000
+1:0:and r28=r31,r28
+0:0:movl r27=0x1008020000
+0:1:xor r26=r31,r30
+1:0:and r26=r26,r27
+1:0:or r28=r28,r26
+0:1:and r26=r31,r27
+1:1:xor r26=r26,r27
+1:0:or r28=r28,r26
+0:1:movl r27=0x101000002000
+1:1:and r26=r30,r27
+1:0:xor r26=r26,r27
+1:0:or r28=r28,r26
+0:1:movl r27=0x400400008000
+1:1:and r26=r30,r27
+1:0:or r28=r28,r26
+0:1:movl r27=0x8000000000
+1:0:and r26=r29,r27
+0:1:shl r27=r29,1
+1:0:andcm r27=r29,r27
+0:1:movl r31=0x4000000000
+1:1:and r27=r27,r31
+1:0:or r26=r26,r27
+1:1:or r28=r28,r26
+1:0:cmp.eq p7,p6=r28,r0
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:0:mov.m r17=ar.k3
+0:1:movl r27=0x2000000000000000
+1:0:cmp.eq p6,p7=r17,r0
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:and r28=15,r17
+1:0:cmp.eq p7,p6=r28,r0
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:cmp.ltu p7,p6=r17,r27
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:adds r28=48,r17
+1:0:ld8 r28=[r28]
+1:1:ld8.acq r28=[r28]
+1:0:cmp.eq p7,p6=r28,r0
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:0:ld8 r20=[r17]
+0:1:adds r28=8,r17
+1:0:ld8 r21=[r28]
+0:1:mov r28=4
+1:0:cmp.ltu p7,p6=r21,r28
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:cmp.eq p6,p7=r20,r0
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:and r28=7,r20
+1:0:cmp.eq p7,p6=r28,r0
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:cmp.ltu p7,p6=r20,r27
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:shl r21=r21,3
+1:1:add r21=r20,r21
+1:0:ld8.acq r22=[r21]
+0:1:mov r28=1
+1:0:cmp.ltu p7,p6=r28,r22
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:and r28=7,r22
+1:0:cmp.eq p7,p6=r28,r0
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:cmp.ltu p7,p6=r22,r27
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:1:adds r28=6168,r22
+1:0:ld8.acq r23=[r28]
+0:1:mov r27=257
+1:0:cmp.eq p6,p7=r23,r0
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:cmp.ltu p6,p7=r27,r23
+0:0:(p06) br.cond.dpnt.few <+0x3c0>
+0:0:adds r23=-1,r23
+0:0:adds r25=40,r22
+0:1:mov r24=cr.ifa
+1:0:dep r24=r0,r24,0,12
+0:0:cmp.eq p6,p7=r23,r0
+0:0:(p06) br.cond.dpnt.few <+0x380>
+0:1:ld8.acq r28=[r25],-16
+1:0:ld8 r26=[r25],8
+1:0:ld8 r27=[r25],32
+0:0:cmp.ltu p6,p7=r24,r26
+0:0:(p06) br.cond.dpnt.few <+0x370>
+0:1:sub r29=r24,r26
+1:1:shr.u r29=r29,12
+1:0:cmp.ltu p7,p6=r29,r28
+0:0:(p06) br.cond.dpnt.few <+0x370>
+0:0:shl r29=r29,12
+0:1:movl r30=0x3fffffffff000
+1:0:and r31=r27,r30
+0:1:andcm r27=r27,r30
+1:1:add r31=r31,r29
+1:0:or r27=r31,r27
+0:0:mov r30=48
+0:1:mov cr.ifa=r24
+1:0:mov cr.itir=r30
+1:1:itc.d r27
+1:0:srlz.d
+1:1:mov pr=r16,0xfffffffffffffffe
+1:1:rfi
+1:0:adds r23=-1,r23
+0:0:br.few <+0x2a0>
+0:1:mov r30=cr.ipsr
+1:1:extr.u r28=r30,32,2
+1:0:cmp.eq p7,p6=3,r28
+0:1:(p06) br.cond.dpnt.few <+0x3c0>
+1:0:mov pr=r16,0xfffffffffffffffe
+1:0:mov r16=4
+0:1:br.many <reloc:PCREL21B AsteriaIa64UserFaultEntry>
+1:0:mov r16=69632
+0:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>

@@ -1,0 +1,149 @@
+# The desktop session's scene corpus (desktop session).
+#
+# SceneCorpusTests.cpp renders every case with the compositor's Scene and
+# Tools/Vm/AsteriaVm/Session.py with the runner's model; both check the PPM's
+# SHA-256 against SceneDigests.txt, so their images are byte-identical.
+# Lexical rules: Tests/Support/RenderCorpus.hpp.
+#
+#   case scene <name> <width> <height> <rgbx|bgrx>
+#   font <vegur|fallback>              (default Vegur Bold/Regular UI)
+#   window <x> <y> <width> <height> <focused|unfocused|attention> [flag...]
+#   window maximized <focused|unfocused|attention> [flag...]   (the frame is the output)
+#       flags: notresponding volume (a volume bundle) close-pressed maximize-pressed
+#       windows stack in the order given, the first at the bottom
+#   title "<name>" "<subtitle>"           (the last window's; a name of up to 16 bytes)
+#   image pattern <seed> <width> <height> (the last window's image)
+#   image solid <red> <green> <blue> <width> <height>
+#   image terminal <terminal corpus case> (Tests/User/Terminal/TerminalCorpus.txt)
+#   image none
+#   switcher "<text>"
+#   outline <x> <y> <width> <height>
+#   end
+
+case scene desktop-empty 160 100 bgrx
+end
+
+case scene one-window 320 200 bgrx
+window 20 16 200 150 focused
+title "terminal" ""
+image pattern 1 192 122
+end
+
+case scene two-overlapping 400 300 rgbx
+window 10 10 260 180 unfocused
+title "files" "/volumes/data"
+image pattern 2 252 152
+window 120 90 250 190 focused
+title "terminal" "~/src"
+image pattern 3 242 162
+end
+
+case scene small-image 320 240 bgrx
+window 8 8 200 120 focused
+title "viewer" "half"
+image solid 32 160 64 90 40
+window 100 140 180 90 unfocused
+title "blank" ""
+image none
+end
+
+case scene title-marks 480 200 rgbx
+window 4 4 470 60 attention volume notresponding
+title "abcdefghijklmnop" "with \x01, \x7F and \xC3\x89, long enough to be cut before the buttons"
+image pattern 4 462 32
+window 4 100 300 60 unfocused volume
+title "editor" "notes.txt"
+image pattern 5 292 32
+end
+
+case scene buttons-pressed 300 120 bgrx
+window 10 10 140 80 focused close-pressed
+title "a" ""
+image solid 255 255 255 132 52
+window 150 10 140 80 unfocused maximize-pressed
+title "b" "sub"
+image solid 0 0 0 132 52
+end
+
+case scene maximized 320 200 rgbx
+window 30 30 100 80 unfocused
+title "behind" ""
+image pattern 6 92 52
+window maximized focused
+title "terminal" "max"
+image pattern 7 320 180
+end
+
+case scene maximized-pressed 256 160 bgrx
+window maximized unfocused maximize-pressed
+title "terminal" ""
+image pattern 8 300 200
+end
+
+case scene offscreen 200 150 rgbx
+window -40 -10 120 90 focused
+title "left" ""
+image pattern 9 112 62
+window 150 110 120 90 unfocused
+title "right" ""
+image pattern 10 112 62
+end
+
+case scene narrow-window 120 120 bgrx
+window 10 10 40 60 focused
+title "narrow" "x"
+image pattern 11 32 32
+window 60 10 9 29 unfocused
+end
+
+case scene switcher 400 300 rgbx
+window 20 20 300 200 unfocused
+title "files" ""
+image pattern 12 292 172
+window 60 60 300 200 focused
+title "terminal" "~/src"
+image pattern 13 292 172
+switcher "terminal - ~/src and a long tail that is cut at forty"
+end
+
+case scene switcher-tiny 30 20 bgrx
+switcher "x"
+end
+
+case scene outline 300 200 rgbx
+window 40 30 180 120 focused
+title "moving" ""
+image pattern 14 172 92
+outline 90 60 180 120
+end
+
+case scene terminal-window 400 300 bgrx
+window 32 32 264 125 focused
+title "terminal" "shell"
+image terminal sgr-colours
+window 210 180 160 95 unfocused volume
+title "files" "/"
+image pattern 9 152 66
+end
+
+case scene unicode-titles 400 180 rgbx
+window 8 8 380 70 focused volume
+title "caf\xc3\xa9" "\xe2\x94\x80 \xc3\xb1 \xe4\xb8\xad \xe2\x99\xa6"
+image none
+switcher "caf\xc3\xa9 - \xe2\x94\x80 \xe4\xb8\xad"
+end
+
+case scene vegur-ligatures-ellipsis 300 180 rgbx
+window 8 8 204 80 focused volume notresponding
+title "office AV" "ffi efficient AVATAR long title"
+image none
+switcher "office AV - ffi efficient AVATAR long title"
+end
+
+case scene bitmap-ui-fallback 400 150 bgrx
+font fallback
+window 8 8 380 70 focused volume notresponding
+title "office AV" "a long tail clipped with an ellipsis"
+image none
+switcher "office AV - ffi efficient"
+end

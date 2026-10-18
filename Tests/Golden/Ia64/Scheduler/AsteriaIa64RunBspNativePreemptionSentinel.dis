@@ -1,0 +1,95 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# range: AsteriaIa64RunBspNativePreemptionSentinel..AsteriaIa64KernelIdle
+# size: 0x3d0
+# artifacts: O0 O2 firmware[ia64_native_preemption_probe]
+0:1:cmp.eq p6,p7=r32,r0
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:0:ld8.acq r14=[r32]
+0:1:adds r15=8,r32
+1:0:ld8.acq r15=[r15]
+0:1:mov r16=1
+1:0:cmp.eq p7,p6=r14,r16
+0:1:mov r16=2
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.eq p7,p6=r15,r16
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:1:adds r14=16,r32
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14]
+1:0:cmp.eq p7,p6=r15,r0
+0:1:mov r17=232
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:1:adds r14=128,r32
+1:0:ld8 r15=[r14],8
+1:0:ld8 r16=[r14]
+0:1:movl r17=<reloc:IMM64 AsteriaIa64BspNativePreemptionSentinelLandingStart>
+1:0:cmp.eq p7,p6=r15,r17
+0:1:movl r17=<reloc:IMM64 AsteriaIa64BspNativePreemptionSentinelLandingEnd>
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:1:adds r14=40,r32
+1:0:ld8 r15=[r14],8
+1:1:ld8 r16=[r14]
+1:0:cmp.ltu p6,p7=r12,r15
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.ltu p7,p6=r12,r16
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:0:mov r14=psr
+0:1:movl r15=0x10080ee002
+1:0:and r14=r14,r15
+0:1:movl r15=0x1008022000
+1:1:cmp.eq p7,p6=r14,r15
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:1:mov.m r14=ar.rsc
+1:0:cmp.eq p7,p6=r14,r0
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:0:mov.m r14=ar.bspstore
+0:0:mov.m r15=ar.bsp
+1:1:adds r16=56,r32
+1:0:ld8 r17=[r16],8
+1:1:ld8 r18=[r16]
+1:0:cmp.ltu p6,p7=r14,r17
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.ltu p7,p6=r14,r18
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.ltu p6,p7=r15,r14
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.ltu p7,p6=r15,r18
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:0:sub r15=r15,r14
+0:1:mov r16=16384
+1:1:cmp.ltu p7,p6=r15,r16
+1:1:(p06) br.cond.dpnt.few <+0x3a0>
+1:0:mov r14=cr.itm
+0:1:adds r15=144,r32
+1:1:ld8 r15=[r15]
+1:0:cmp.eq p7,p6=r14,r15
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:cmp.eq p6,p7=r14,r0
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:movl r15=0xffffffffffffffff
+1:1:cmp.eq p6,p7=r14,r15
+1:0:(p06) br.cond.dpnt.few <+0x3a0>
+0:1:mf
+1:0:ssm 0x4000
+1:0:srlz.d
+1:1:rsm 0x4000
+1:0:srlz.d
+1:1:adds r14=8,r32
+1:0:ld8.acq r14=[r14]
+1:1:mov r15=6
+1:0:cmp.eq p6,p7=r14,r15
+1:0:(p06) br.cond.sptk.few <+0x3c0>
+0:1:mov r15=2
+1:0:cmp.eq p6,p7=r14,r15
+1:1:(p06) br.cond.sptk.few <+0x0>
+1:1:rsm 0x4000
+1:0:srlz.d
+1:0:mov r8=1
+0:1:br.ret.sptk.many b0
+1:0:mov r8=r0
+0:1:br.ret.sptk.many b0

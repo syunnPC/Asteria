@@ -1,0 +1,39 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64WritePhysicalPort
+# size: 0x130
+# artifacts: O0 O2 firmware
+0:0:mov r14=psr
+0:0:mov r16=r32
+0:0:mov r22=r33
+0:1:mov r19=r34
+1:0:rsm 0x4000
+1:1:srlz.d
+1:0:mov.m r20=ar.rsc
+1:1:dep r21=0,r20,0,2
+1:1:mov.m ar.rsc=r21
+1:0:rsm 0x20000
+1:1:srlz.d
+1:1:movl r17=0x8000000000000000
+1:1:or r18=r16,r17
+1:0:mf
+1:0:cmp.eq p6,p7=1,r22
+0:0:cmp.eq p8,p9=2,r22
+0:1:cmp.eq p10,p11=4,r22
+1:1:(p06) st1 [r18]=r19
+1:0:mf.a
+1:1:mf
+1:0:(p08) st2 [r18]=r19
+1:1:mf.a
+1:0:mf
+1:1:(p10) st4 [r18]=r19
+1:0:mf.a
+1:1:mf
+1:0:tbit.z p7,p6=r14,17
+0:1:tbit.z p9,p8=r14,14
+1:1:(p06) ssm 0x20000
+1:0:srlz.d
+1:1:mov.m ar.rsc=r20
+1:0:(p08) ssm 0x4000
+1:1:srlz.d
+1:1:br.ret.sptk.many b0

@@ -1,0 +1,752 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "host-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build/CMake/${presetName}",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Host"
+      }
+    },
+    {
+      "name": "host-debug",
+      "displayName": "Hosted tests with ASan and UBSan",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "ASTERIA_PROFILE": "Debug"
+      }
+    },
+    {
+      "name": "host-release",
+      "displayName": "Optimized hosted tests with LTO",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "ASTERIA_PROFILE": "Release"
+      }
+    },
+    {
+      "name": "host-thread",
+      "displayName": "Hosted tests with ThreadSanitizer",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "ASTERIA_PROFILE": "Thread"
+      }
+    },
+    {
+      "name": "host-analyze",
+      "displayName": "GCC static analysis of every source, tool, and test",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "ASTERIA_PROFILE": "Analyze"
+      }
+    },
+    {
+      "name": "host-coverage",
+      "displayName": "Hosted tests with Clang source-based coverage",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang++",
+        "ASTERIA_PROFILE": "Coverage"
+      }
+    },
+    {
+      "name": "host-fuzz",
+      "displayName": "Clang libFuzzer harnesses with ASan and UBSan",
+      "inherits": "host-base",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "clang++",
+        "ASTERIA_PROFILE": "Fuzz"
+      }
+    },
+    {
+      "name": "target-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/Build/CMake/${presetName}"
+    },
+    {
+      "name": "ia64",
+      "displayName": "IA-64 UEFI firmware and ESP user images",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Ia64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Ia64"
+      }
+    },
+    {
+      "name": "ia64-relocated",
+      "displayName": "IA-64 firmware linked at a 4 GiB image base",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Ia64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Ia64",
+        "ASTERIA_FIRMWARE_IMAGE_BASE": "0x0000000100000000",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "ia64-synthetic-probe",
+      "displayName": "IA-64 firmware with the synthetic user-probe diagnostic",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Ia64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Ia64",
+        "ASTERIA_IA64_SYNTHETIC_USER_PROBE": "1",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "ia64-preemption-probe",
+      "displayName": "IA-64 firmware with the one-shot BSP preemption diagnostic (requires the synthetic user probe)",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Ia64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Ia64",
+        "ASTERIA_IA64_NATIVE_PREEMPTION_PROBE": "1",
+        "ASTERIA_IA64_SYNTHETIC_USER_PROBE": "1",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "amd64",
+      "displayName": "AMD64 UEFI firmware and ESP user images",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Amd64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Amd64"
+      }
+    },
+    {
+      "name": "amd64-relocated",
+      "displayName": "AMD64 firmware linked at a 4 GiB image base",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Amd64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Amd64",
+        "ASTERIA_FIRMWARE_IMAGE_BASE": "0x0000000100000000",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "amd64-preemption-probe",
+      "displayName": "AMD64 firmware with the BSP preemption diagnostic",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Amd64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Amd64",
+        "ASTERIA_AMD64_NATIVE_PREEMPTION_PROBE": "1",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "amd64-preemption-probe-relocated",
+      "displayName": "AMD64 firmware with the preemption diagnostic, linked at a 4 GiB image base",
+      "inherits": "target-base",
+      "toolchainFile": "${sourceDir}/Tools/CMake/Toolchains/Amd64.cmake",
+      "cacheVariables": {
+        "ASTERIA_TARGET": "Amd64",
+        "ASTERIA_AMD64_NATIVE_PREEMPTION_PROBE": "1",
+        "ASTERIA_COMPILE_CHECKS": "OFF",
+        "ASTERIA_FIRMWARE_IMAGE_BASE": "0x0000000100000000"
+      }
+    },
+    {
+      "name": "amd64-stop-probe",
+      "inherits": "amd64",
+      "cacheVariables": {
+        "ASTERIA_AMD64_STOP_PROBE": "1"
+      }
+    },
+    {
+      "name": "amd64-stop-early-probe",
+      "inherits": "amd64-stop-probe",
+      "cacheVariables": {
+        "ASTERIA_AMD64_STOP_PROBE": "2"
+      }
+    },
+    {
+      "name": "amd64-x2apic-probe",
+      "inherits": "amd64",
+      "cacheVariables": {
+        "ASTERIA_AMD64_X2APIC_HANDOFF_PROBE": "ON",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "ia64-stop-probe",
+      "inherits": "ia64",
+      "cacheVariables": {
+        "ASTERIA_IA64_STOP_PROBE": "1",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "ia64-stop-early-probe",
+      "inherits": "ia64",
+      "cacheVariables": {
+        "ASTERIA_IA64_STOP_PROBE": "2",
+        "ASTERIA_COMPILE_CHECKS": "OFF"
+      }
+    },
+    {
+      "name": "amd64-watchdog-probe",
+      "inherits": "amd64",
+      "cacheVariables": {
+        "ASTERIA_AMD64_STOP_PROBE": "3"
+      }
+    },
+    {
+      "name": "ia64-watchdog-probe",
+      "inherits": "ia64",
+      "cacheVariables": {
+        "ASTERIA_IA64_STOP_PROBE": "3"
+      }
+    },
+    {
+      "name": "amd64-component-watchdog-probe",
+      "inherits": "amd64",
+      "cacheVariables": {
+        "ASTERIA_COMPONENT_WATCHDOG_PROBE": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host-debug",
+      "configurePreset": "host-debug"
+    },
+    {
+      "name": "host-release",
+      "configurePreset": "host-release"
+    },
+    {
+      "name": "host-thread",
+      "configurePreset": "host-thread"
+    },
+    {
+      "name": "host-analyze",
+      "configurePreset": "host-analyze"
+    },
+    {
+      "name": "host-coverage",
+      "configurePreset": "host-coverage"
+    },
+    {
+      "name": "host-fuzz",
+      "configurePreset": "host-fuzz"
+    },
+    {
+      "name": "ia64",
+      "configurePreset": "ia64"
+    },
+    {
+      "name": "ia64-relocated",
+      "configurePreset": "ia64-relocated"
+    },
+    {
+      "name": "ia64-synthetic-probe",
+      "configurePreset": "ia64-synthetic-probe"
+    },
+    {
+      "name": "ia64-preemption-probe",
+      "configurePreset": "ia64-preemption-probe"
+    },
+    {
+      "name": "amd64",
+      "configurePreset": "amd64"
+    },
+    {
+      "name": "amd64-relocated",
+      "configurePreset": "amd64-relocated"
+    },
+    {
+      "name": "amd64-preemption-probe",
+      "configurePreset": "amd64-preemption-probe"
+    },
+    {
+      "name": "amd64-preemption-probe-relocated",
+      "configurePreset": "amd64-preemption-probe-relocated"
+    },
+    {
+      "name": "amd64-stop-probe",
+      "configurePreset": "amd64-stop-probe"
+    },
+    {
+      "name": "amd64-stop-early-probe",
+      "configurePreset": "amd64-stop-early-probe"
+    },
+    {
+      "name": "amd64-x2apic-probe",
+      "configurePreset": "amd64-x2apic-probe"
+    },
+    {
+      "name": "ia64-stop-probe",
+      "configurePreset": "ia64-stop-probe"
+    },
+    {
+      "name": "ia64-stop-early-probe",
+      "configurePreset": "ia64-stop-early-probe"
+    },
+    {
+      "name": "amd64-watchdog-probe",
+      "configurePreset": "amd64-watchdog-probe"
+    },
+    {
+      "name": "ia64-watchdog-probe",
+      "configurePreset": "ia64-watchdog-probe"
+    },
+    {
+      "name": "amd64-component-watchdog-probe",
+      "configurePreset": "amd64-component-watchdog-probe"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "host-base",
+      "hidden": true,
+      "output": {
+        "outputOnFailure": true
+      },
+      "execution": {
+        "noTestsAction": "error",
+        "stopOnFailure": false
+      }
+    },
+    {
+      "name": "host-debug",
+      "inherits": "host-base",
+      "configurePreset": "host-debug"
+    },
+    {
+      "name": "host-release",
+      "inherits": "host-base",
+      "configurePreset": "host-release"
+    },
+    {
+      "name": "host-thread",
+      "inherits": "host-base",
+      "configurePreset": "host-thread"
+    },
+    {
+      "name": "host-analyze",
+      "inherits": "host-base",
+      "configurePreset": "host-analyze",
+      "filter": {
+        "include": {
+          "label": "static"
+        }
+      }
+    },
+    {
+      "name": "host-coverage",
+      "inherits": "host-base",
+      "configurePreset": "host-coverage"
+    },
+    {
+      "name": "host-fuzz",
+      "inherits": "host-base",
+      "configurePreset": "host-fuzz"
+    },
+    {
+      "name": "ia64",
+      "inherits": "host-base",
+      "configurePreset": "ia64"
+    },
+    {
+      "name": "ia64-relocated",
+      "inherits": "host-base",
+      "configurePreset": "ia64-relocated"
+    },
+    {
+      "name": "ia64-synthetic-probe",
+      "inherits": "host-base",
+      "configurePreset": "ia64-synthetic-probe"
+    },
+    {
+      "name": "ia64-preemption-probe",
+      "inherits": "host-base",
+      "configurePreset": "ia64-preemption-probe"
+    },
+    {
+      "name": "amd64",
+      "inherits": "host-base",
+      "configurePreset": "amd64"
+    },
+    {
+      "name": "amd64-relocated",
+      "inherits": "host-base",
+      "configurePreset": "amd64-relocated"
+    },
+    {
+      "name": "amd64-preemption-probe",
+      "inherits": "host-base",
+      "configurePreset": "amd64-preemption-probe"
+    },
+    {
+      "name": "amd64-preemption-probe-relocated",
+      "inherits": "host-base",
+      "configurePreset": "amd64-preemption-probe-relocated"
+    },
+    {
+      "name": "amd64-stop-probe",
+      "inherits": "host-base",
+      "configurePreset": "amd64-stop-probe"
+    },
+    {
+      "name": "amd64-stop-early-probe",
+      "inherits": "host-base",
+      "configurePreset": "amd64-stop-early-probe"
+    },
+    {
+      "name": "amd64-x2apic-probe",
+      "configurePreset": "amd64-x2apic-probe",
+      "inherits": "host-base"
+    },
+    {
+      "name": "ia64-stop-probe",
+      "inherits": "host-base",
+      "configurePreset": "ia64-stop-probe"
+    },
+    {
+      "name": "ia64-stop-early-probe",
+      "inherits": "host-base",
+      "configurePreset": "ia64-stop-early-probe"
+    },
+    {
+      "name": "amd64-watchdog-probe",
+      "configurePreset": "amd64-watchdog-probe",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "ia64-watchdog-probe",
+      "configurePreset": "ia64-watchdog-probe",
+      "output": {
+        "outputOnFailure": true
+      }
+    },
+    {
+      "name": "amd64-component-watchdog-probe",
+      "configurePreset": "amd64-component-watchdog-probe",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "host-debug",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-debug"
+        },
+        {
+          "type": "build",
+          "name": "host-debug"
+        },
+        {
+          "type": "test",
+          "name": "host-debug"
+        }
+      ]
+    },
+    {
+      "name": "host-release",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-release"
+        },
+        {
+          "type": "build",
+          "name": "host-release"
+        },
+        {
+          "type": "test",
+          "name": "host-release"
+        }
+      ]
+    },
+    {
+      "name": "host-thread",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-thread"
+        },
+        {
+          "type": "build",
+          "name": "host-thread"
+        },
+        {
+          "type": "test",
+          "name": "host-thread"
+        }
+      ]
+    },
+    {
+      "name": "host-analyze",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-analyze"
+        },
+        {
+          "type": "build",
+          "name": "host-analyze"
+        },
+        {
+          "type": "test",
+          "name": "host-analyze"
+        }
+      ]
+    },
+    {
+      "name": "host-coverage",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-coverage"
+        },
+        {
+          "type": "build",
+          "name": "host-coverage"
+        },
+        {
+          "type": "test",
+          "name": "host-coverage"
+        }
+      ]
+    },
+    {
+      "name": "host-fuzz",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "host-fuzz"
+        },
+        {
+          "type": "build",
+          "name": "host-fuzz"
+        },
+        {
+          "type": "test",
+          "name": "host-fuzz"
+        }
+      ]
+    },
+    {
+      "name": "ia64",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64"
+        },
+        {
+          "type": "build",
+          "name": "ia64"
+        },
+        {
+          "type": "test",
+          "name": "ia64"
+        }
+      ]
+    },
+    {
+      "name": "ia64-relocated",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64-relocated"
+        },
+        {
+          "type": "build",
+          "name": "ia64-relocated"
+        },
+        {
+          "type": "test",
+          "name": "ia64-relocated"
+        }
+      ]
+    },
+    {
+      "name": "ia64-synthetic-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64-synthetic-probe"
+        },
+        {
+          "type": "build",
+          "name": "ia64-synthetic-probe"
+        },
+        {
+          "type": "test",
+          "name": "ia64-synthetic-probe"
+        }
+      ]
+    },
+    {
+      "name": "ia64-preemption-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64-preemption-probe"
+        },
+        {
+          "type": "build",
+          "name": "ia64-preemption-probe"
+        },
+        {
+          "type": "test",
+          "name": "ia64-preemption-probe"
+        }
+      ]
+    },
+    {
+      "name": "amd64",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64"
+        },
+        {
+          "type": "build",
+          "name": "amd64"
+        },
+        {
+          "type": "test",
+          "name": "amd64"
+        }
+      ]
+    },
+    {
+      "name": "amd64-relocated",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64-relocated"
+        },
+        {
+          "type": "build",
+          "name": "amd64-relocated"
+        },
+        {
+          "type": "test",
+          "name": "amd64-relocated"
+        }
+      ]
+    },
+    {
+      "name": "amd64-preemption-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64-preemption-probe"
+        },
+        {
+          "type": "build",
+          "name": "amd64-preemption-probe"
+        },
+        {
+          "type": "test",
+          "name": "amd64-preemption-probe"
+        }
+      ]
+    },
+    {
+      "name": "amd64-preemption-probe-relocated",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64-preemption-probe-relocated"
+        },
+        {
+          "type": "build",
+          "name": "amd64-preemption-probe-relocated"
+        },
+        {
+          "type": "test",
+          "name": "amd64-preemption-probe-relocated"
+        }
+      ]
+    },
+    {
+      "name": "amd64-stop-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64-stop-probe"
+        },
+        {
+          "type": "build",
+          "name": "amd64-stop-probe"
+        },
+        {
+          "type": "test",
+          "name": "amd64-stop-probe"
+        }
+      ]
+    },
+    {
+      "name": "amd64-stop-early-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "amd64-stop-early-probe"
+        },
+        {
+          "type": "build",
+          "name": "amd64-stop-early-probe"
+        },
+        {
+          "type": "test",
+          "name": "amd64-stop-early-probe"
+        }
+      ]
+    },
+    {
+      "name": "ia64-stop-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64-stop-probe"
+        },
+        {
+          "type": "build",
+          "name": "ia64-stop-probe"
+        },
+        {
+          "type": "test",
+          "name": "ia64-stop-probe"
+        }
+      ]
+    },
+    {
+      "name": "ia64-stop-early-probe",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "ia64-stop-early-probe"
+        },
+        {
+          "type": "build",
+          "name": "ia64-stop-early-probe"
+        },
+        {
+          "type": "test",
+          "name": "ia64-stop-early-probe"
+        }
+      ]
+    }
+  ]
+}

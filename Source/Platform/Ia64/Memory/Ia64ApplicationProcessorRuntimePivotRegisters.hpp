@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: Apache-2.0
+
+#ifndef ASTERIA_PLATFORM_IA64_MEMORY_IA64_APPLICATION_PROCESSOR_RUNTIME_PIVOT_REGISTERS_HPP_INCLUDED
+#define ASTERIA_PLATFORM_IA64_MEMORY_IA64_APPLICATION_PROCESSOR_RUNTIME_PIVOT_REGISTERS_HPP_INCLUDED
+
+// The unbanked static registers in which Ia64ApplicationProcessorRuntimePivot.S
+// carries its values across bsw.1. Macro-only, so the assembly and the C++
+// static_asserts of Ia64ApplicationProcessorRuntimePivot.cpp include the same
+// numbers.
+
+#define ASTERIA_IA64_AP_PIVOT_CPU_REGISTER_NUMBER 14
+#define ASTERIA_IA64_AP_PIVOT_STACK_REGISTER_NUMBER 15
+#define ASTERIA_IA64_AP_PIVOT_BSPSTORE_REGISTER_NUMBER 11
+#define ASTERIA_IA64_AP_PIVOT_LANDING_REGISTER_NUMBER 10
+
+// ASTERIA_IA64_AP_PIVOT_REGISTER(number) is the register operand r<number>.
+#define ASTERIA_IA64_AP_PIVOT_PASTE_INNER(prefix, number) prefix##number
+#define ASTERIA_IA64_AP_PIVOT_PASTE(prefix, number) ASTERIA_IA64_AP_PIVOT_PASTE_INNER(prefix, number)
+#define ASTERIA_IA64_AP_PIVOT_REGISTER(number) ASTERIA_IA64_AP_PIVOT_PASTE(r, number)
+
+#endif // ASTERIA_PLATFORM_IA64_MEMORY_IA64_APPLICATION_PROCESSOR_RUNTIME_PIVOT_REGISTERS_HPP_INCLUDED

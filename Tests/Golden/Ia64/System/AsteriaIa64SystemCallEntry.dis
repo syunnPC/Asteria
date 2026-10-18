@@ -1,0 +1,622 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64SystemCallEntry
+# size: 0x15f0
+# artifacts: O0 O2 firmware
+0:1:mov.m r16=ar.rsc
+1:0:mov.m ar.k6=r16
+0:1:mov r17=12
+1:0:mov.m ar.rsc=r17
+1:0:mov r24=pr
+0:1:mov.m r25=ar.k3
+1:0:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xc0>
+0:1:adds r25=48,r25
+1:0:ld8 r25=[r25]
+1:1:cmp.eq p6,p7=r25,r0
+1:0:(p06) br.cond.sptk.few <+0xc0>
+0:1:ld8.acq r26=[r25]
+1:0:cmp.eq p6,p7=r26,r0
+1:0:(p06) br.cond.sptk.few <+0xc0>
+0:1:mov r16=11264
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>
+1:0:mov pr=r24,0xfffffffffffffffe
+1:0:mov r31=pr
+0:0:mov r23=psr
+0:0:mov r22=cr.iip
+0:0:mov r21=cr.ipsr
+0:0:mov r20=cr.isr
+0:0:mov r19=cr.iim
+0:0:mov r18=cr.ifs
+1:1:movl r16=0x10080ee000
+1:0:and r17=r23,r16
+0:1:movl r16=0x1008020000
+1:1:cmp.eq p7,p6=r17,r16
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x50170802a000
+1:0:and r17=r21,r16
+0:1:movl r16=0x101308022000
+1:1:cmp.eq p7,p6=r17,r16
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x8000000000000000
+1:1:and r17=r18,r16
+1:0:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:and r16=15,r22
+0:1:extr.u r17=r21,41,2
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r16=3
+1:0:cmp.eq p6,p7=r17,r16
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:mov.m r16=ar.k6
+0:1:mov r17=12
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.spnt.few <+0x15a0>
+1:1:mov.m r17=ar.k3
+1:0:cmp.eq p6,p7=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:and r16=15,r17
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x1fffffffffffffd0
+1:1:cmp.ltu p6,p7=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:adds r17=16,r17
+1:0:ld8.acq r30=[r17]
+1:1:cmp.eq p6,p7=r30,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:and r16=15,r30
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x1fffffffffffffc0
+1:1:cmp.ltu p6,p7=r16,r30
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r24=r30
+1:0:ld8 r29=[r24],8
+1:1:ld8 r28=[r24],8
+1:0:ld8 r27=[r24],8
+1:1:ld8 r26=[r24],8
+1:0:ld8 r25=[r24],8
+1:1:ld8 r17=[r24],8
+1:0:ld8 r16=[r24],8
+1:1:ld8 r24=[r24]
+1:0:cmp.eq p7,p6=r24,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r24=4
+1:0:cmp.ltu p7,p6=r16,r24
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.eq p6,p7=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:and r16=7,r17
+0:1:movl r24=0x2000000000000000
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r17,r24
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r30=r17
+1:0:and r16=15,r29
+0:1:cmp.eq p6,p7=r29,r0
+1:1:cmp.ne.or p6,p7=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:adds r24=416,r29
+0:1:movl r16=0x2000000000000000
+1:1:cmp.ltu p7,p6=r29,r24
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p6,p7=r16,r24
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.eq p6,p7=r28,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r17=4095
+1:0:and r16=r17,r28
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:and r16=r17,r27
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r28,r27
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:sub r16=r27,r28
+0:1:mov r17=16384
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x2000000000000000
+1:1:cmp.ltu p6,p7=r16,r27
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.eq p6,p7=r26,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r17=4095
+1:0:and r16=r17,r26
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:and r16=r17,r25
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r26,r25
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:sub r16=r25,r26
+0:1:mov r17=32768
+1:1:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x2000000000000000
+1:1:cmp.ltu p6,p7=r16,r25
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r28,r25
+1:1:(p06) br.cond.sptk.few <+0x690>
+1:1:cmp.ltu p7,p6=r26,r27
+1:0:(p06) br.cond.sptk.few <+0x690>
+1:1:br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r29,r27
+1:1:(p06) br.cond.sptk.few <+0x6e0>
+1:1:cmp.ltu p7,p6=r28,r24
+1:0:(p06) br.cond.sptk.few <+0x6e0>
+1:1:br.cond.dpnt.few <+0x15d0>
+1:1:cmp.ltu p7,p6=r29,r25
+1:1:(p06) br.cond.sptk.few <+0x730>
+1:1:cmp.ltu p7,p6=r26,r24
+1:0:(p06) br.cond.sptk.few <+0x730>
+1:1:br.cond.dpnt.few <+0x15d0>
+1:1:movl r16=0x100000
+1:1:cmp.eq p7,p6=r19,r16
+1:1:(p06) br.cond.dpnt.few <AsteriaIa64SystemCallUnknownBreak>
+1:1:adds r17=408,r29
+1:0:ld8 r16=[r17]
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:ld8.acq r16=[r29]
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r16=1
+1:0:st8.rel [r29]=r16
+1:1:adds r17=8,r29
+1:0:st8 [r17]=r23
+1:1:adds r17=16,r29
+1:0:st8 [r17]=r22
+1:1:adds r17=24,r29
+1:0:st8 [r17]=r21
+1:1:adds r17=32,r29
+1:0:st8 [r17]=r20
+1:1:adds r17=40,r29
+1:0:st8 [r17]=r19
+1:1:adds r17=48,r29
+1:0:st8 [r17]=r18
+1:1:adds r17=152,r29
+1:0:st8 [r17]=r31
+1:1:mov.i r16=ar.pfs
+1:1:adds r17=64,r29
+1:1:st8 [r17]=r16
+1:0:mov.m r16=ar.k6
+1:1:adds r17=72,r29
+1:0:st8 [r17]=r16
+1:1:mov r17=12
+1:0:cmp.eq p7,p6=r16,r17
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov.i r16=ar.ec
+1:1:adds r17=144,r29
+1:1:st8 [r17]=r16
+1:0:mov.m r16=ar.unat
+1:1:adds r17=104,r29
+1:0:st8 [r17]=r16
+1:1:mov.m ar.unat=r0
+1:0:mov.m r16=ar.fpsr
+1:1:adds r17=120,r29
+1:0:st8 [r17]=r16
+1:1:mov.i r16=ar.lc
+1:1:adds r17=128,r29
+1:1:st8 [r17]=r16
+1:0:mov.m r16=ar.ccv
+1:1:adds r17=136,r29
+1:0:st8 [r17]=r16
+1:1:mov r16=b0
+1:1:adds r17=160,r29
+1:1:st8 [r17]=r16
+1:1:mov r16=b1
+1:1:adds r17=168,r29
+1:0:st8 [r17]=r16
+1:1:mov r16=b2
+1:1:adds r17=176,r29
+1:1:st8 [r17]=r16
+1:1:mov r16=b3
+1:1:adds r17=184,r29
+1:0:st8 [r17]=r16
+1:1:mov r16=b4
+1:1:adds r17=192,r29
+1:1:st8 [r17]=r16
+1:1:mov r16=b5
+1:1:adds r17=200,r29
+1:0:st8 [r17]=r16
+1:1:mov r16=b6
+1:1:adds r17=208,r29
+1:1:st8 [r17]=r16
+1:1:mov r16=b7
+1:1:adds r17=216,r29
+1:0:st8 [r17]=r16
+1:1:br.call.sptk.many b6=<+0x1570>
+1:0:mov.i r18=ar.pfs
+0:1:adds r17=64,r29
+1:1:ld8 r16=[r17]
+1:0:mov.i ar.pfs=r16
+0:1:adds r17=208,r29
+1:0:ld8 r16=[r17]
+1:0:mov b6=r16
+0:1:extr.u r16=r18,7,7
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.spnt.few <+0x1580>
+1:1:extr.u r16=r18,14,24
+1:1:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.spnt.few <+0x1580>
+1:1:and r16=127,r18
+1:0:mov r17=96
+1:1:cmp.ltu p6,p7=r17,r16
+1:1:(p06) br.cond.spnt.few <+0x1580>
+1:1:mov r17=6
+1:0:cmp.ltu p6,p7=r16,r17
+1:1:(p06) br.cond.spnt.few <+0x1580>
+1:1:mov r18=r0
+1:1:tnat.z p7,p6=r15
+1:0:(p06) adds r18=1,r18
+0:1:tnat.z p7,p6=r32
+1:0:(p06) adds r18=2,r18
+0:1:tnat.z p7,p6=r33
+1:0:(p06) adds r18=4,r18
+0:1:tnat.z p7,p6=r34
+1:0:(p06) adds r18=8,r18
+0:1:tnat.z p7,p6=r35
+1:0:(p06) adds r18=16,r18
+0:1:tnat.z p7,p6=r36
+1:0:(p06) adds r18=32,r18
+0:1:tnat.z p7,p6=r37
+1:1:(p06) adds r18=64,r18
+1:1:adds r17=224,r29
+1:0:st8.spill [r17]=r1,8
+1:1:st8.spill [r17]=r2,8
+1:0:st8.spill [r17]=r3,8
+1:1:st8.spill [r17]=r4,8
+1:0:st8.spill [r17]=r5,8
+1:1:st8.spill [r17]=r6,8
+1:0:st8.spill [r17]=r7,8
+1:1:st8.spill [r17]=r11,8
+1:0:st8.spill [r17]=r12,8
+1:1:st8.spill [r17]=r13,8
+1:0:st8.spill [r17]=r14,8
+1:1:st8.spill [r17]=r15,8
+1:0:adds r17=320,r29
+1:1:st8.spill [r17]=r15,8
+1:0:st8.spill [r17]=r32,8
+1:1:st8.spill [r17]=r33,8
+1:0:st8.spill [r17]=r34,8
+1:1:st8.spill [r17]=r35,8
+1:0:st8.spill [r17]=r36,8
+1:1:st8.spill [r17]=r37,8
+1:0:st8 [r17]=r18
+1:1:mov.m r16=ar.unat
+1:0:adds r17=112,r29
+1:1:st8 [r17]=r16
+1:0:mov.m ar.unat=r0
+0:1:mov r14=r28
+1:1:bsw.1
+1:1:st8.spill [r14]=r16,8
+1:0:st8.spill [r14]=r17,8
+1:1:st8.spill [r14]=r18,8
+1:0:st8.spill [r14]=r19,8
+1:1:st8.spill [r14]=r20,8
+1:0:st8.spill [r14]=r21,8
+1:1:st8.spill [r14]=r22,8
+1:0:st8.spill [r14]=r23,8
+1:1:st8.spill [r14]=r24,8
+1:0:st8.spill [r14]=r25,8
+1:1:st8.spill [r14]=r26,8
+1:0:st8.spill [r14]=r27,8
+1:1:st8.spill [r14]=r28,8
+1:0:st8.spill [r14]=r29,8
+1:1:st8.spill [r14]=r30,8
+1:0:st8.spill [r14]=r31,8
+1:1:mov.m r15=ar.unat
+1:0:st8 [r14]=r15
+1:1:bsw.0
+1:0:mov.m ar.unat=r0
+1:1:cover
+1:1:mov r18=cr.ifs
+1:0:adds r17=56,r29
+1:1:st8 [r17]=r18
+1:1:movl r16=0x8000000000000000
+1:1:and r17=r18,r16
+1:0:cmp.eq p6,p7=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:extr.u r16=r18,38,25
+0:1:extr.u r17=r18,14,24
+1:1:or r16=r16,r17
+1:0:cmp.eq p7,p6=r16,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:0:extr.u r16=r18,0,7
+0:1:extr.u r17=r18,7,7
+1:1:mov r19=96
+1:0:cmp.ltu p6,p7=r19,r16
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:cmp.eq p7,p6=r17,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:sub r16=r16,r17
+1:0:mov r19=6
+1:1:cmp.ltu p6,p7=r16,r19
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:invala
+1:0:mov.m ar.rsc=r0
+1:0:mov.m r16=ar.bspstore
+0:0:mov.m r19=ar.rnat
+1:1:adds r17=80,r29
+1:0:st8 [r17]=r16
+1:1:adds r17=96,r29
+1:0:st8 [r17]=r19
+1:1:mov.m ar.bspstore=r26
+1:0:mov.m ar.rnat=r0
+1:1:mov.m r18=ar.bsp
+1:0:cmp.ltu p6,p7=r18,r26
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:sub r18=r18,r26
+1:0:and r24=7,r18
+1:1:cmp.eq p7,p6=r24,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mov r24=16384
+1:0:cmp.ltu p7,p6=r18,r24
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:shl r18=r18,16
+1:1:adds r17=88,r29
+1:1:st8 [r17]=r18
+1:0:mov r22=3
+1:1:mov.m ar.rsc=r22
+1:0:adds r12=-16,r27
+1:1:mf
+1:0:alloc r22=ar.pfs,2,0,0
+1:0:mov r4=r29
+0:1:mov r5=r28
+1:0:mov r32=r4
+0:1:mov r33=r30
+1:0:ssm 0x2000
+0:1:bsw.1
+1:1:srlz.d
+1:0:movl r1=<reloc:IMM64 __gp>
+0:1:movl r14=0x9804c0270033f
+1:1:mov.m ar.fpsr=r14
+1:1:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64SystemCallBridge>
+1:1:cmp.eq p7,p6=r8,r0
+1:1:(p06) br.cond.dpnt.few <+0x15d0>
+1:1:mf
+1:0:adds r15=80,r4
+1:1:ld8 r17=[r15],8
+1:0:ld8 r16=[r15],8
+1:1:ld8 r18=[r15]
+1:0:mov.m ar.rsc=r16
+1:1:alloc r22=ar.pfs,96,96,0
+1:0:mov r32=r0
+0:0:mov r33=r0
+0:0:mov r34=r0
+0:0:mov r35=r0
+0:0:mov r36=r0
+0:0:mov r37=r0
+0:0:mov r38=r0
+0:1:mov r39=r0
+1:0:mov r40=r0
+0:0:mov r41=r0
+0:0:mov r42=r0
+0:0:mov r43=r0
+0:0:mov r44=r0
+0:0:mov r45=r0
+0:0:mov r46=r0
+0:1:mov r47=r0
+1:0:mov r48=r0
+0:0:mov r49=r0
+0:0:mov r50=r0
+0:0:mov r51=r0
+0:0:mov r52=r0
+0:0:mov r53=r0
+0:0:mov r54=r0
+0:1:mov r55=r0
+1:0:mov r56=r0
+0:0:mov r57=r0
+0:0:mov r58=r0
+0:0:mov r59=r0
+0:0:mov r60=r0
+0:0:mov r61=r0
+0:0:mov r62=r0
+0:1:mov r63=r0
+1:0:mov r64=r0
+0:0:mov r65=r0
+0:0:mov r66=r0
+0:0:mov r67=r0
+0:0:mov r68=r0
+0:0:mov r69=r0
+0:0:mov r70=r0
+0:1:mov r71=r0
+1:0:mov r72=r0
+0:0:mov r73=r0
+0:0:mov r74=r0
+0:0:mov r75=r0
+0:0:mov r76=r0
+0:0:mov r77=r0
+0:0:mov r78=r0
+0:1:mov r79=r0
+1:0:mov r80=r0
+0:0:mov r81=r0
+0:0:mov r82=r0
+0:0:mov r83=r0
+0:0:mov r84=r0
+0:0:mov r85=r0
+0:0:mov r86=r0
+0:1:mov r87=r0
+1:0:mov r88=r0
+0:0:mov r89=r0
+0:0:mov r90=r0
+0:0:mov r91=r0
+0:0:mov r92=r0
+0:0:mov r93=r0
+0:0:mov r94=r0
+0:1:mov r95=r0
+1:0:mov r96=r0
+0:0:mov r97=r0
+0:0:mov r98=r0
+0:0:mov r99=r0
+0:0:mov r100=r0
+0:0:mov r101=r0
+0:0:mov r102=r0
+0:1:mov r103=r0
+1:0:mov r104=r0
+0:0:mov r105=r0
+0:0:mov r106=r0
+0:0:mov r107=r0
+0:0:mov r108=r0
+0:0:mov r109=r0
+0:0:mov r110=r0
+0:1:mov r111=r0
+1:0:mov r112=r0
+0:0:mov r113=r0
+0:0:mov r114=r0
+0:0:mov r115=r0
+0:0:mov r116=r0
+0:0:mov r117=r0
+0:0:mov r118=r0
+0:1:mov r119=r0
+1:0:mov r120=r0
+0:0:mov r121=r0
+0:0:mov r122=r0
+0:0:mov r123=r0
+0:0:mov r124=r0
+0:0:mov r125=r0
+0:0:mov r126=r0
+0:1:mov r127=r0
+1:0:alloc r22=ar.pfs,0,0,0
+1:1:loadrs
+1:0:invala
+1:1:mov.m ar.bspstore=r17
+1:0:mov.m ar.rnat=r18
+1:1:adds r15=64,r4
+1:0:ld8 r6=[r15],8
+1:1:ld8 r7=[r15]
+1:0:setf.sig f10=r6
+0:1:setf.sig f11=r7
+1:0:adds r15=120,r4
+1:1:ld8 r16=[r15],8
+1:0:ld8 r17=[r15],8
+1:1:ld8 r18=[r15],8
+1:0:ld8 r19=[r15]
+1:0:mov.m ar.fpsr=r16
+0:0:mov.i ar.lc=r17
+0:0:mov.m ar.ccv=r18
+0:1:mov.i ar.ec=r19
+1:1:adds r15=160,r4
+1:1:ld8 r16=[r15],8
+1:0:ld8 r17=[r15],8
+1:1:ld8 r18=[r15],8
+1:0:ld8 r19=[r15],8
+1:1:ld8 r22=[r15],8
+1:0:ld8 r23=[r15],8
+1:1:ld8 r24=[r15],8
+1:0:ld8 r25=[r15]
+1:0:mov b0=r16
+0:0:mov b1=r17
+0:0:mov b2=r18
+0:0:mov b3=r19
+0:0:mov b4=r22
+0:0:mov b5=r23
+0:0:mov b6=r24
+0:1:mov b7=r25
+1:0:adds r14=104,r4
+0:1:adds r15=112,r4
+1:0:ld8 r6=[r14]
+0:0:ld8 r7=[r15]
+1:1:setf.sig f12=r6
+1:0:adds r15=128,r5
+1:1:ld8 r6=[r15]
+1:0:mov.m ar.unat=r6
+0:1:mov r15=r5
+1:1:ld8.fill r16=[r15],8
+1:0:ld8.fill r17=[r15],8
+1:1:ld8.fill r18=[r15],8
+1:0:ld8.fill r19=[r15],8
+1:1:ld8.fill r20=[r15],8
+1:0:ld8.fill r21=[r15],8
+1:1:ld8.fill r22=[r15],8
+1:0:ld8.fill r23=[r15],8
+1:1:ld8.fill r24=[r15],8
+1:0:ld8.fill r25=[r15],8
+1:1:ld8.fill r26=[r15],8
+1:0:ld8.fill r27=[r15],8
+1:1:ld8.fill r28=[r15],8
+1:0:ld8.fill r29=[r15],8
+1:1:ld8.fill r30=[r15],8
+1:0:ld8.fill r31=[r15]
+1:1:adds r15=112,r4
+1:0:ld8 r6=[r15]
+1:1:mov.m ar.unat=r6
+1:0:adds r15=384,r4
+1:1:ld8 r8=[r15],8
+1:0:ld8 r9=[r15],8
+1:1:ld8 r10=[r15]
+1:0:setf.sig f13=r10
+1:1:adds r15=16,r4
+1:0:ld8 r2=[r15],8
+1:1:ld8 r3=[r15]
+1:0:setf.sig f6=r2
+0:1:setf.sig f7=r3
+1:0:adds r15=56,r4
+1:1:ld8 r6=[r15]
+1:0:setf.sig f8=r6
+1:1:adds r15=152,r4
+1:0:ld8 r5=[r15]
+1:1:setf.sig f9=r5
+1:0:adds r15=224,r4
+0:1:mov r7=r4
+1:1:ld8.fill r1=[r15],8
+1:0:ld8.fill r2=[r15],8
+1:1:ld8.fill r3=[r15],8
+1:0:ld8.fill r4=[r15],8
+1:1:ld8.fill r5=[r15],8
+1:0:ld8.fill r6=[r15],8
+1:1:ld8.fill r10=[r15],8
+1:0:ld8.fill r11=[r15],8
+1:1:ld8.fill r12=[r15],8
+1:0:ld8.fill r13=[r15],8
+1:1:ld8.fill r14=[r15],8
+1:0:ld8.fill r15=[r15]
+1:0:st8.rel [r7]=r0
+1:1:bsw.0
+1:0:mov r16=r2
+0:0:mov r17=r3
+0:0:mov r18=r4
+0:0:mov r19=r5
+0:1:mov r21=r10
+1:0:getf.sig r10=f13
+0:0:getf.sig r20=f12
+0:0:getf.sig r22=f10
+0:0:getf.sig r23=f11
+1:1:bsw.1
+1:0:rsm 0x2000
+0:1:bsw.0
+1:1:srlz.d
+1:0:getf.sig r24=f6
+0:0:getf.sig r25=f7
+0:0:getf.sig r26=f8
+0:1:getf.sig r27=f9
+1:1:mov.i ar.pfs=r22
+1:1:mov cr.ifs=r26
+1:0:mov.m ar.rsc=r23
+1:0:mov cr.iip=r24
+0:0:mov cr.ipsr=r25
+1:1:mov pr=r27,0xfffffffffffffffe
+1:0:mov r2=r16
+0:0:mov r3=r17
+0:0:mov r4=r18
+0:1:mov r5=r19
+1:0:mov r7=r21
+0:0:mov.m ar.unat=r20
+1:1:rfi
+1:1:br.ret.sptk.many b6
+1:1:adds r17=104,r29
+1:0:ld8 r16=[r17]
+1:0:mov.m ar.unat=r16
+0:0:st8.rel [r29]=r0
+1:1:mov pr=r31,0xfffffffffffffffe
+1:0:mov.m ar.k4=44
+0:1:mov r16=6
+1:1:br.many <reloc:PCREL21B AsteriaIa64UserExceptionEntryNormalized>
+1:1:hint.m 0
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopBreak>

@@ -1,0 +1,106 @@
+# The terminal's rendering corpus (desktop session ). TerminalCorpusTests renders each case with
+# User/Terminal and Tools/Vm/Tests/test_terminal.py with the runner's model
+# (Tools/Vm/AsteriaVm/Terminal.py); both must produce the PPM whose SHA-256 TerminalDigests.txt
+# records. Format: Tests/Support/ RenderCorpus.hpp. A case is `case terminal <name> <columns> <rows>
+# <rgbx|bgrx>`; its statements are `write "<bytes>"` (output to the terminal) and `resize <columns>
+# <rows>`. The image is the whole grid, columns x 8 by rows x 16 pixels, with the cursor.
+
+case terminal text-basic 20 4 bgrx
+write "Hello, Asteria!\r\nline two\r\n"
+write "Tabs:\ta\tb"
+end
+
+case terminal sgr-colours 32 6 bgrx
+write "\e[30m0\e[31m1\e[32m2\e[33m3\e[34m4\e[35m5\e[36m6\e[37m7\e[39m "
+write "\e[90m8\e[91m9\e[92mA\e[93mB\e[94mC\e[95mD\e[96mE\e[97mF\e[39m\r\n"
+write "\e[40m \e[41m \e[42m \e[43m \e[44m \e[45m \e[46m \e[47m \e[49m "
+write "\e[100m \e[101m \e[102m \e[103m \e[104m \e[105m \e[106m \e[107m \e[49m\r\n"
+write "\e[30;47mink on 7\e[m \e[97;44mwhite on 4\e[m\r\n"
+write "\e[1;30mb0\e[31mb1\e[32mb2\e[33mb3\e[34mb4\e[35mb5\e[36mb6\e[37mb7\e[m"
+end
+
+case terminal sgr-attributes 24 4 rgbx
+write "\e[1mbold\e[22m \e[4munder\e[24m \e[7mrev\e[27m\r\n"
+write "\e[1;4;7;35mall\e[m \e[1;91mbright\e[m \e[4;7mur\e[m\r\n"
+write "\e[44mbg\e[7mrev bg\e[m \e[38;5;196;1mx\e[m"
+end
+
+case terminal cursor-positioning 16 6 bgrx
+write "\e[3;5HA\e[BB\e[2CC\e[3DD\e[AE\e[1;16HF"
+write "\e[6;1HG\e[4GH\e[2dI\e[5;10fJ\e[2EK\e[2FL"
+end
+
+case terminal erase 16 5 bgrx
+write "ABCDEFGHIJKLMNOP\r\nabcdefghijklmnop\r\n0123456789ABCDEF\r\nqrstuvwxyzQRSTUV\r\nWXYZ"
+write "\e[44m\e[1;5H\e[1K\e[2;10H\e[K\e[3;3H\e[4X\e[42m\e[4;8H\e[2K\e[46m\e[5;3H\e[J"
+end
+
+case terminal scroll-region 12 6 bgrx
+write "row0\r\nrow1\r\nrow2\r\nrow3\r\nrow4\r\nrow5"
+write "\e[2;4r\e[4;1H\nnew\n\e[2;1H\eMtop\e[S\e[T\e[r\e[6;1H\n\e[43mlast"
+end
+
+case terminal insert-delete 12 4 rgbx
+write "0123456789ab\r\nABCDEFGHIJKL\r\nmnopqrstuvwx\r\nMNOPQRSTUVWX"
+write "\e[1;3H\e[2@\e[2;3H\e[3P\e[45m\e[3;1H\e[L\e[49m\e[4;1H\e[M"
+end
+
+case terminal utf8-cp437 20 4 bgrx
+write "\xe2\x95\x94\xe2\x95\x90\xe2\x95\x90\xe2\x95\x97 \xe2\x98\xba\xe2\x99\xa5\xe2\x99\xa6 \xc3\xa9\xc3\xb1\xc3\x9f\r\n"
+write "\xe2\x95\x9a\xe2\x95\x90\xe2\x95\x90\xe2\x95\x9d \xe2\x82\xac\xf0\x9f\x98\x80 \xe2\x96\x91\xe2\x96\x92\xe2\x96\x93\xe2\x96\x88\r\n"
+write "bad:\xc0\xaf\xed\xa0\x80\xff\xc3x \xce\xb1\xce\xb2\xcf\x80\xe2\x88\x9e\r\n"
+write "\xc2\x85c1\xc2\xa0nbsp\xc2\xb0\xc2\xb1\xc2\xb2\xe2\x8c\x82"
+end
+
+case terminal wrap 8 4 bgrx
+write "abcdefghijklmnop\e[?7l0123456789\e[?7hXY"
+end
+
+case terminal cursor-hidden 8 2 bgrx
+write "hidden\e[?25l"
+end
+
+case terminal cursor-pending-wrap 8 2 rgbx
+write "\r\n\e[32m12345678"
+end
+
+case terminal reverse-cursor 8 2 bgrx
+write "\e[7mrev\e[m\e[D"
+end
+
+case terminal strings-ignored 16 2 bgrx
+write "a\e]0;window title\x07b\ePq#0;2;0;0;0\e\\c\e_apc\e\\d\e[c\e[6ne"
+write "\e(Bf\e)0g\e[?1049hh\e[>0ci"
+end
+
+case terminal resize 12 4 bgrx
+write "abcdefghijkl\r\nmnopqrstuvwx\r\nyz0123456789\r\n\e[44mLAST"
+resize 6 2
+write "\e[2;1HZ"
+resize 10 3
+write "\e[3;10H*"
+end
+
+case terminal shell-80x25 80 25 bgrx
+write "Asteria terminal 80x25\r\n\r\n"
+write "\e[1;32muser\e[m:\e[1;34m/\e[m$ ls\r\n"
+write "\e[1;34mSystem\e[m  \e[1;34mUsers\e[m  readme.txt  \e[1;32mshell\e[m  \e[31mcore.img\e[m\r\n"
+write "\e[1;32muser\e[m:\e[1;34m/\e[m$ echo \"box\"\r\n"
+write "\xe2\x94\x8c\xe2\x94\x80\xe2\x94\x80\xe2\x94\x90\r\n\xe2\x94\x82ok\xe2\x94\x82\r\n\xe2\x94\x94\xe2\x94\x80\xe2\x94\x80\xe2\x94\x98\r\n"
+write "\e[1;32muser\e[m:\e[1;34m/\e[m$ \e[7m \e[m\e[D"
+write "\e[25;1H\e[44;97m status: 80x25, no scrollback \e[K\e[m\e[6;24H"
+end
+
+# Unicode storage and renderer-only glyph lookup.
+case terminal unicode-box 12 3 rgbx
+write "\xe2\x94\x8c\xe2\x94\x80\xe2\x94\x90\r\n\xe2\x94\x82 \xe2\x94\x82\r\n\xe2\x94\x94\xe2\x94\x80\xe2\x94\x98"
+end
+case terminal unicode-latin1 12 2 bgrx
+write "\xc3\x87\xc3\xa9\xc3\xb1\xc3\xbc\xc2\xa5\xc2\xb0"
+end
+case terminal unicode-unsupported-cjk 8 2 rgbx
+write "A\xe4\xb8\xadB"
+end
+case terminal unicode-invalid 12 2 bgrx
+write "\xc0\xaf\xed\xa0\x80\xf4\x90\x80\x80\xc3x"
+end

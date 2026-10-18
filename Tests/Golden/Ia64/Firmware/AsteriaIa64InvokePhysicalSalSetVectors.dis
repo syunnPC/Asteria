@@ -1,0 +1,45 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InvokePhysicalSalSetVectors
+# size: 0x150
+# artifacts: O0 O2 firmware
+0:0:alloc r34=ar.pfs,15,7,0
+0:0:mov r35=b0
+0:0:mov r36=b5
+0:0:mov r37=r1
+0:0:mov r38=psr
+1:1:movl r14=0x1008020002
+1:1:and r14=r38,r14
+1:0:cmp.eq p7,p6=r14,r0
+1:1:(p06) br.cond.dpnt.few <+0x100>
+1:1:mov r38=r32
+1:0:ld8 r14=[r38],8
+1:1:ld8 r15=[r38],8
+1:0:mov b5=r14
+0:0:mov r1=r15
+0:0:ld8 r39=[r38],8
+1:1:ld8 r40=[r38],8
+1:0:ld8 r41=[r38],8
+1:1:ld8 r42=[r38],8
+1:0:ld8 r43=[r38],8
+1:1:ld8 r44=[r38],8
+1:0:ld8 r45=[r38],8
+1:1:ld8 r46=[r38]
+1:1:br.call.sptk.many b0=b5
+1:0:st8 [r33]=r0
+0:0:mov r1=r37
+0:0:mov b5=r36
+0:0:mov b0=r35
+0:1:mov.i ar.pfs=r34
+1:1:br.ret.sptk.many b0
+1:0:mov r8=r0
+0:0:mov r9=r0
+0:0:mov r10=r0
+0:0:mov r11=r0
+0:1:mov r14=1
+1:0:st8 [r33]=r14
+0:0:mov r1=r37
+0:0:mov b5=r36
+0:0:mov b0=r35
+0:1:mov.i ar.pfs=r34
+1:1:br.ret.sptk.many b0

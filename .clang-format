@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: Apache-2.0
+BasedOnStyle: LLVM
+BreakBeforeBraces: Allman
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 120
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortBlocksOnASingleLine: Never
+IndentCaseLabels: false
+NamespaceIndentation: None
+FixNamespaceComments: false
+IndentExternBlock: NoIndent
+PointerAlignment: Left
+ReferenceAlignment: Left
+SortIncludes: Never
+ReflowComments: Never
+BreakStringLiterals: false
+SortUsingDeclarations: Never
+AccessModifierOffset: -4
+AllowShortLambdasOnASingleLine: None

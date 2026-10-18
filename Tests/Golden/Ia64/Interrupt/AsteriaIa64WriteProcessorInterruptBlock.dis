@@ -1,0 +1,9 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64WriteProcessorInterruptBlock
+# size: 0x30
+# artifacts: O0 O2 firmware
+0:1:mf
+1:0:st8 [r32]=r33
+1:1:mf.a
+1:1:br.ret.sptk.many b0

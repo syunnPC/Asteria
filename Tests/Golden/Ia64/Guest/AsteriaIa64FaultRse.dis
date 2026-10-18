@@ -1,0 +1,17 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64FaultRse
+# size: 0x80
+# artifacts: firmware-test:pager_elf
+0:1:mov.m ar.rsc=r0
+1:0:mov.m ar.bspstore=r4
+1:0:mov.m ar.rnat=r0
+0:1:mov r15=12
+1:1:mov.m ar.rsc=r15
+1:0:alloc r2=ar.pfs,1,0,0
+1:1:mov r32=12
+1:1:br.call.sptk.many b0=<AsteriaIa64FaultRseGrow>
+1:1:alloc r2=ar.pfs,1,0,0
+1:0:mov r32=r8
+1:1:br.call.sptk.many b0=<AsteriaIa64FaultScenarioExit>
+1:1:br.few <+0x70>

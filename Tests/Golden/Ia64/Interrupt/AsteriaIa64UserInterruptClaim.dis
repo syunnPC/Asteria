@@ -1,0 +1,70 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64UserInterruptClaim
+# size: 0x2e0
+# artifacts: O0 O2 firmware
+0:1:mov r31=pr
+1:1:mov r20=cr.ivr
+1:0:srlz.d
+1:1:mov r18=15
+1:0:cmp.eq p6,p7=r20,r18
+1:1:(p06) br.cond.dpnt.few <+0x220>
+1:1:mov r18=232
+1:0:cmp.eq p7,p6=r20,r18
+1:1:(p06) br.cond.dpnt.few <+0x160>
+1:0:mov r19=cr.itm
+0:0:mov.m r18=ar.itc
+1:1:cmp.eq p6,p7=r19,r0
+1:1:(p06) br.cond.dpnt.few <+0x240>
+1:1:movl r17=0xffffffffffffffff
+1:1:cmp.eq p6,p7=r19,r17
+1:1:(p06) br.cond.dpnt.few <+0x240>
+1:1:cmp.ltu p6,p7=r18,r19
+1:1:(p06) br.cond.dpnt.few <+0x1f0>
+1:1:movl r16=0x100e8
+1:1:mov cr.itv=r16
+1:0:srlz.d
+1:1:mov r17=cr.itv
+1:0:cmp.eq p7,p6=r17,r16
+1:1:(p06) br.cond.dpnt.few <+0x280>
+1:1:mov cr.eoi=r0
+1:0:srlz.d
+1:1:mov r18=12288
+1:0:mov.m ar.k5=r18
+1:0:mov pr=r31,0xfffffffffffffffe
+0:1:mov r16=5
+1:1:br.few <reloc:PCREL21B AsteriaIa64UserInterruptEntry>
+1:1:mov r18=64
+1:0:cmp.ltu p6,p7=r20,r18
+1:1:(p06) br.cond.dpnt.few <+0x240>
+1:1:adds r18=16,r18
+1:0:cmp.ltu p7,p6=r20,r18
+1:1:(p06) br.cond.dpnt.few <+0x240>
+1:1:mov cr.eoi=r0
+1:0:srlz.d
+1:1:mov r18=12288
+1:0:or r18=r18,r20
+1:1:mov.m ar.k5=r18
+1:0:mov pr=r31,0xfffffffffffffffe
+0:1:mov r16=5
+1:1:br.few <reloc:PCREL21B AsteriaIa64UserInterruptEntry>
+1:1:mov cr.eoi=r0
+1:0:srlz.d
+1:1:mov pr=r31,0xfffffffffffffffe
+1:1:rfi
+1:1:mov pr=r31,0xfffffffffffffffe
+1:1:rfi
+1:1:movl r17=0x100e8
+1:1:mov cr.itv=r17
+1:0:srlz.d
+1:1:mov r18=cr.itv
+1:0:cmp.eq p7,p6=r18,r17
+1:1:(p06) br.cond.dpnt.few <+0x2b0>
+1:1:mov cr.eoi=r0
+1:0:srlz.d
+1:1:hint.m 0
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopExternal>
+1:1:mov cr.eoi=r0
+1:0:srlz.d
+1:1:hint.m 0
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopExternal>

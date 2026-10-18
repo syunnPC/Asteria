@@ -1,0 +1,8 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InitialTranslatedExecution
+# size: 0x30
+# artifacts: O0 O2 firmware
+0:1:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64RunInitialTranslatedKernel>
+1:1:hint.m 0
+1:1:br.few <+0x10>

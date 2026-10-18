@@ -1,0 +1,342 @@
+Asteria capability nucleus - UEFI bootstrap
+target=AMD64 little-endian
+ASTERIA:STAGE:SYSTEM-TABLE
+ASTERIA:STAGE:CONSOLE
+ASTERIA:STAGE:BOOT-SERVICES
+ASTERIA:STAGE:RUNTIME-SERVICES
+ASTERIA:STAGE:SYSTEM-TABLE-CRC
+  firmware-image-base=0x0000000004000000 image-size=0x00000000000DC000
+ASTERIA:STAGE:LOADED-IMAGE
+ASTERIA:STAGE:AMD64-IMAGE-LAYOUT
+ASTERIA:STAGE:KERNEL-ELF
+  image-base=0x000000001D800000 image-size=0x0000000000385000
+  kernel-base=0x000000001D800000
+ASTERIA:EVIDENCE:0x000000001D919368
+  memory-map-bytes=0x0000000000001980 descriptor-bytes=0x0000000000000030
+ASTERIA:STAGE:MEMORY-MAP
+ASTERIA:STAGE:AMD64-AHCI-RESOURCE
+ASTERIA:STAGE:ACPI
+ASTERIA:STAGE:GRAPHICS
+  width=0x0000000000000500 height=0x0000000000000320
+ASTERIA:STAGE:BOOT-FILE:INIT.ELF size=347064 crc32c=0xadb61d26
+ASTERIA:STAGE:BOOT-FILE:USER.ELF size=29624 crc32c=0xdb6435c8
+ASTERIA:STAGE:BOOT-FILE:SPINNER.ELF size=12896 crc32c=0x49028a1a
+ASTERIA:STAGE:BOOT-MODULE:component COMP.ELF size=146744 crc32c=0x354c9ca6
+ASTERIA:STAGE:BOOT-MODULE:directory DIR.ELF size=24992 crc32c=0xb48279d2
+ASTERIA:STAGE:BOOT-MODULE:client CLIENT.ELF size=18496 crc32c=0xac95d56f
+ASTERIA:STAGE:BOOT-MODULE:usb USB.ELF size=54312 crc32c=0xcc58085b
+ASTERIA:STAGE:BOOT-MODULE:display DISPLAY.ELF size=63096 crc32c=0xccbcf9ea
+ASTERIA:STAGE:BOOT-MODULE:ia64-stub INTERP.ELF size=20944 crc32c=0xe9dc7235
+ASTERIA:STAGE:BOOT-MODULE:ia64-sample IA64.ELF size=160 crc32c=0xd8b9d55f
+ASTERIA:STAGE:BOOT-MODULE:aarch64-sample AARCH64.ELF size=128 crc32c=0xb2ce18be
+ASTERIA:STAGE:BOOT-MODULE:pe-sample PE.ELF size=392 crc32c=0xc0e7cfce
+ASTERIA:STAGE:BOOT-MODULE:face-probe FACEPROB.ELF size=16856 crc32c=0xfec7a046
+ASTERIA:STAGE:BOOT-MODULE:compositor COMPOSIT.ELF size=130408 crc32c=0x4ad07cfd
+ASTERIA:STAGE:BOOT-MODULE:pattern PATTERN.ELF size=25240 crc32c=0x2bc06328
+ASTERIA:STAGE:BOOT-MODULE:input-seat SEAT.ELF size=33296 crc32c=0x8388fa1e
+ASTERIA:STAGE:BOOT-MODULE:toolkit TOOLKIT.ELF size=128504 crc32c=0x84a3939d
+ASTERIA:STAGE:BOOT-MODULE:ui-bold VEGURB.OTF size=15956 crc32c=0xc5d93c9a
+ASTERIA:STAGE:BOOT-MODULE:ui-regular VEGURR.OTF size=15248 crc32c=0xf4bf0f17
+ASTERIA:STAGE:BOOT-FILE:KERNEL.ELF size=1368112 crc32c=0x0fe94e81
+ASTERIA:BOOT-ENTROPY:SOURCES:0x000000000000000D
+ASTERIA:STAGE:AMD64-BOOTSTRAP-RESERVATION
+ASTERIA:STAGE:BOOT
+ASTERIA:AMD64-TSC:SOURCE=ACPI-PM:HZ=0x00000000E211A441
+ASTERIA:AMD64-APIC:MODE=XAPIC:DEVICE-IRQS=BSP:DESTINATION-LIMIT=254
+ASTERIA:STAGE:EXIT-BOOT-SERVICES
+ASTERIA:STAGE:BOOT-INFO
+ASTERIA:BOOT-SERVICES:ABSENT system-table=0x000000001f5ec018
+ASTERIA:STAGE:PAGE-ALLOCATOR
+ASTERIA:STAGE:AMD64-INITIAL-MAPPING-PLAN
+ASTERIA:STAGE:AMD64-INITIAL-PAGE-TABLE
+ASTERIA:STAGE:AMD64-INITIAL-ADDRESS-SPACE
+ASTERIA:STAGE:AMD64-RUNTIME-ROOT
+VT-D handoff BASE=0x00000000FED90000 GSTS=0x00000000
+IQA=0x0000000000000000 IQH=0x0000000000000000 IQT=0x0000000000000000
+FSTS=0x00000000
+ASTERIA:STAGE:AMD64-PCI
+ASTERIA:AMD64-NIC:PUBLISHED
+ASTERIA:AMD64-AHCI-IDENTIFY:NO-DISK
+ASTERIA:I8042:PUBLISHED:FADT-8042
+ASTERIA:AMD64-IOMMU:VT-D
+ASTERIA:AMD64-VTD:SHARED-DISPLAY:0x0000000000000000
+ASTERIA:AMD64-VTD:UNIT:0x0000000000000000:BASE:0x00000000FED90000:STATE:0x0000000000000002
+ASTERIA:STAGE:AMD64-AP-RUNTIME
+ASTERIA:STAGE:AMD64-SHOOTDOWN
+ASTERIA:STAGE:AMD64-USER-LAUNCH
+
+USER:TAP version 14
+
+USER:# handle.endpoint: selector 0x0000000000000100 authenticator 0xa00f0542d6875cd8
+
+USER:# handle.diagnostic: selector 0x0000000000000101 authenticator 0x29bf1b874a9ffc59
+
+USER:# handle.waitset: selector 0x0000000000000102 authenticator 0xb943b4481b174c24
+
+USER:ok 1 - bss.zero: the loader clears the image's zero-initialized storage
+
+USER:ok 2 - query.endpoint: the bootstrap Endpoint is Inspect|Invoke|Read with an infinite lease
+
+USER:ok 3 - query.diagnostic: the DiagnosticChannel is Inspect|Write with an infinite lease
+
+USER:ok 4 - debugwrite.rejects-control-bytes
+
+USER:ok 5 - debugwrite.rejects-a-handle-without-write
+
+USER:ok 6 - ipc.send: the canonical 88-byte frame is queued as sequence 1
+
+USER:ok 7 - ipc.receive: the same sequence is delivered in 136 bytes
+
+USER:ok 8 - ipc.delivery: header and payload equal the canonical delivery
+
+USER:ok 9 - waitset.wait: the timer notification is selected with its registration sequence
+
+USER:# thread: done
+
+USER:ok 10 - waitset.wait: the timer notification is selected with its registration sequence
+
+USER:ok 11 - abi.code-selector: user code runs in CPL 3 with the user code selector
+
+USER:ok 12 - abi.stack-selector: the user data selector
+
+USER:ok 13 - abi.interrupts: user code runs with IF set
+
+USER:ok 14 - abi.io-privilege: IOPL is 0
+
+USER:ok 15 - abi.stack-bounds: the entry runs on the initial user stack
+
+USER:ok 16 - abi.syscall-user-state: SYSCALL with AC and ID set and RSP zero answers like a plain call
+
+USER:ok 17 - abi.syscall-flags: the call returns RFLAGS as the program set them, AC and ID included
+
+USER:ok 18 - abi.syscall-flags-set: AC and ID were set at SYSCALL
+
+USER:ok 19 - abi.syscall-stack: the call returns RSP unchanged, even zero
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000001
+
+USER:ok 20 - pager.read: a first read of a lazy page returns the pager's frame
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000002
+
+USER:ok 21 - pager.write: a first write to a lazy page lands in the pager's frame
+
+USER:ok 22 - pager.resident: a resolved page stays mapped
+
+USER:ok 23 - abi.extended-state: xmm0-xmm15 and MXCSR keep the program's values across preemption, faults, system calls and waits
+
+USER:1..23
+
+USER:# shared image: 1 0 1397575732 285 17472395326327116252 539 11800364042735656874 1
+
+USER:# shared image: 1 1 1397575732 287 10014469752968721283 1052 8794211279713373531 1
+
+USER:# smp: spinners preempted, four homes faulted and resolved, sibling read faulted after unmap, drained
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000003
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000004
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000005
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000006
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000007
+
+USER:# amd64 entry state: pending XSETBV supervised, terminated, reclaimed
+
+USER:# amd64 entry state: invalid interrupt RIP supervised after busy delivery, terminated, reclaimed
+
+USER:# amd64 return boundary: SYSCALL at last two bytes supervised, terminated, reclaimed
+
+USER:# amd64 entry state: XSETBV supervised, terminated, reclaimed
+
+USER:# amd64 entry state: user flags and SYSCALL supervised, terminated, reclaimed
+
+USER:# frame rights: Map-only copy read, writable mapping refused, reclaimed
+
+USER:# shared image: 2 0 256 1054 11541948558281904780 1049 5186416896337969291 1
+
+USER:# shared image: 2 1 256 545 13198018600201643421 1306 3147177124695588347 1
+
+USER:# display: 1280x800 bgrx, console 160x50
+
+USER:# display: scanout wc, fill 4096000 bytes 21340 us, scroll 0 px 0 us, slowest 0 px 0 us
+
+USER:# pointer: 640,400 sequence 0
+
+USER:# devices: 0000:00:00.0 8086:29c0 class=06/00/00 bridge -> bridge
+
+USER:# devices: 0000:00:01.0 1234:1111 class=03/00/00 display -> display broker
+
+USER:# devices: 0000:00:02.0 1234:11e8 class=00/ff/00 other -> edu demo driver
+
+USER:# devices: 0000:00:03.0 1af4:1005 class=00/ff/00 other -> unsupported
+
+USER:# devices: 0000:00:04.0 1af4:1001 class=01/00/00 storage -> unsupported
+
+USER:# devices: 0000:00:10.0 8086:10d3 class=02/00/00 network -> e1000e NIC driver
+
+USER:# devices: 0000:00:1f.0 8086:2918 class=06/01/00 bridge -> bridge
+
+USER:# devices: 0000:00:1f.2 8086:2922 class=01/06/01 SATA AHCI -> ahci driver
+
+USER:# devices: 0000:00:1f.3 8086:2930 class=0c/05/00 serial bus -> unsupported
+
+USER:# devices: input 8042=present FADT-8042
+
+USER:# shared image: 3 0 1 559 312032672325913082 813 12466754553414236280 1
+
+USER:# shared image: 3 1 1 3633 11724558998871049778 1326 15494363973236099545 1
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000008
+
+USER:# component: crashed, terminated and torn down
+
+USER:# shared image: 3 0 2 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 2 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# component: hung, killed and torn down
+
+USER:# shared image: 3 0 3 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 3 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# component: reported, exited and torn down
+
+USER:# shared image: 3 0 4 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 4 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# component: created in its own domain, refused beyond it and executable memory, drained
+
+USER:# shared image: 3 0 5 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 5 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# driver: 10! computed, DMA confined, stray write faulted, MSIs waited, drained
+
+USER:# shared image: 3 0 7 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 7 3633 11724558998871049778 1326 15494363973236099545 0
+ASTERIA:AMD64-PAGER:TERMINATED:0x0000000000000009
+
+USER:# shared image: 3 0 8 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 8 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# driver: crashed mid-transfer, restarted, DriverRestarted, served
+
+USER:# shared image: 3 0 9 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 9 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# fs: Describe 512-byte blocks, sectors 0x0000000000000000
+
+USER:# fs: no disk, driver killed while it waits
+
+USER:# devices: not saved, no disk available
+
+USER:# shared image: 3 0 10 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 10 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# shared image: 3 0 11 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 11 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# net: nic 52:54:00:a5:7e:01, 10.0.2.15/24
+
+USER:# net: resolved 10.0.2.2
+
+USER:# net: listening on udp 7
+
+USER:# spinner: done
+ASTERIA:AMD64-PAGER:TERMINATED:0x000000000000000A
+
+USER:# net: echoed 16 bytes to 10.0.2.2:40000
+
+USER:# net: send to 10.0.2.3 refused
+
+USER:# net: drops not-for-us 1, bad-icmp 1, unauthorized 1
+
+USER:# net: stopped
+
+USER:# shared image: 3 0 12 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 12 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# block: no disk, queued read Cancelled, served nothing, drained
+
+USER:# ports: i8042 status read, reset refused, keyboard line armed and masked
+
+USER:# shared image: 3 0 6 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 6 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# component: echoed, killed while waiting and torn down
+
+USER:# shared image: 4 0 13 1344 7737087665547992915 1598 15251694779012461413 1
+
+USER:# shared image: 4 1 13 1090 11424647409095288379 2111 11280594582996215118 1
+
+USER:# shared image: 3 0 14 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 14 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# directory: bound echo
+
+USER:# shared image: 5 0 15 346 17855080619082747541 600 3112533217109046454 1
+
+USER:# client: resolved echo and got 3 echoes
+
+USER:# shared image: 3 0 16 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 16 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# directory: echo restarted and rebound
+
+USER:# client: stale send refused, resolved again, 3 echoes, torn down
+
+USER:# services: directory and echo killed while waiting and torn down
+
+USER:# shared image: 6 0 17 1347 437941445382022540 2363 14150918865499652518 1
+
+USER:# shared image: 6 1 17 1605 8067969988768681534 2625 6144939006088325819 1
+
+USER:# loader: ia64 executable ran under its registered interpreter
+
+USER:# loader: aarch64 executable refused, no interpreter registered
+
+USER:# loader: pe32+ executable refused as an unsupported format
+
+USER:# shared image: 3 0 18 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 18 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# pointer: 640,400 sequence 0
+
+USER:# shared image: 3 0 19 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 19 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# input: typed 'asteria', pointer moved (5,-3), left button, secure attention reported, focus switched
+
+USER:# shared image: 3 0 20 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 20 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# pointer: 645,397 sequence 2
+
+USER:# shared image: 3 0 21 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 21 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# shared image: 3 0 22 559 312032672325913082 813 12466754553414236280 0
+
+USER:# shared image: 3 1 22 3633 11724558998871049778 1326 15494363973236099545 0
+
+USER:# input: PS/2 ready, QMP may inject
+
+USER:asteria
+
+USER:# input: typed 'asteria', pointer moved (5,-3), left button, PS/2, secure attention reported, second client empty
+
+USER:# pointer: 650,394 sequence 5
+
+USER:# display: stopped
+
+USER:# root service: done

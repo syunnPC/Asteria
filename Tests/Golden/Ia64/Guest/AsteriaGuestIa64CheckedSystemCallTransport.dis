@@ -1,0 +1,24 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaGuestIa64CheckedSystemCallTransport
+# size: 0xb0
+# artifacts: firmware-test-user
+0:1:alloc r35=ar.pfs,8,5,0
+1:0:mov r36=b0
+0:0:mov r37=r32
+0:0:mov r38=r33
+0:1:mov r39=r34
+1:1:br.call.sptk.many b0=<reloc:PCREL21B AsteriaIa64UserSystemCallTransport>
+1:0:movl r14=<reloc:IMM64 __gp>
+0:0:movl r15=<reloc:IMM64 AsteriaGuestIa64CheckedSystemCallCount>
+0:1:movl r16=<reloc:IMM64 AsteriaGuestIa64GlobalPointerDifference>
+1:0:xor r14=r14,r1
+0:0:ld8 r17=[r15]
+0:1:ld8 r18=[r16]
+1:0:adds r17=1,r17
+0:1:or r18=r18,r14
+1:0:st8 [r15]=r17
+0:0:st8 [r16]=r18
+0:0:mov b0=r36
+0:1:mov.i ar.pfs=r35
+1:1:br.ret.sptk.many b0

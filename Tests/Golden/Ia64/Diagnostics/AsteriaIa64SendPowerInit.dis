@@ -1,0 +1,18 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64SendPowerInit
+# size: 0x80
+# artifacts: O0 O2 firmware
+0:0:mov r16=r32
+0:0:rsm 0x4000
+1:1:srlz.d
+1:0:mov.m ar.rsc=r0
+1:1:rsm 0x20000
+1:0:srlz.d
+1:0:movl r17=0x8000000000000000
+0:1:mov r19=1280
+1:0:or r18=r16,r17
+0:1:mf
+1:0:st8 [r18]=r19
+1:1:mf.a
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopPark>

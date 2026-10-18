@@ -1,0 +1,17 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InitializeBspNativePreemptionDescriptor
+# size: 0x90
+# artifacts: O0 O2 firmware[ia64_native_preemption_probe]
+0:0:movl r14=<reloc:IMM64 AsteriaIa64BspNativePreemptionCoordinator>
+0:1:mov r15=r1
+1:0:movl r16=<reloc:IMM64 AsteriaIa64BspNativePreemptionSentinelLandingStart>
+0:1:movl r17=<reloc:IMM64 AsteriaIa64BspNativePreemptionSentinelLandingEnd>
+1:1:movl r18=<reloc:IMM64 AsteriaIa64BspNativePreemptionIdleLanding>
+1:1:st8 [r32]=r14,8
+1:0:st8 [r32]=r15,8
+1:1:st8 [r32]=r16,8
+1:0:st8 [r32]=r17,8
+1:1:st8 [r32]=r18,8
+1:0:st8 [r32]=r15
+1:1:br.ret.sptk.many b0

@@ -1,0 +1,278 @@
+{
+  "version": 1,
+  "errors": [],
+  "frames": [
+    {
+      "direction": "guest",
+      "time_us": 1791502825933447,
+      "summary": {
+        "destination": "ff:ff:ff:ff:ff:ff",
+        "source": "52:54:00:a5:7e:01",
+        "ethertype": 2054,
+        "arp": {
+          "opcode": 1,
+          "sender_mac": "52:54:00:a5:7e:01",
+          "sender_ip": "10.0.2.15",
+          "target_mac": "00:00:00:00:00:00",
+          "target_ip": "10.0.2.2"
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502825933626,
+      "summary": {
+        "destination": "52:54:00:a5:7e:01",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2054,
+        "arp": {
+          "opcode": 2,
+          "sender_mac": "52:54:00:a5:7e:02",
+          "sender_ip": "10.0.2.2",
+          "target_mac": "52:54:00:a5:7e:01",
+          "target_ip": "10.0.2.15"
+        }
+      }
+    },
+    {
+      "direction": "guest",
+      "time_us": 1791502826071014,
+      "summary": {
+        "destination": "52:54:00:a5:7e:02",
+        "source": "52:54:00:a5:7e:01",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.15",
+          "destination": "10.0.2.2",
+          "protocol": 17,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25266,
+          "checksum_valid": true,
+          "udp": {
+            "source_port": 7,
+            "destination_port": 40000,
+            "checksum": 60076,
+            "checksum_valid": true,
+            "payload": "617374657269612d7265736f6c7665"
+          }
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502826185741,
+      "summary": {
+        "destination": "ff:ff:ff:ff:ff:ff",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2054,
+        "arp": {
+          "opcode": 1,
+          "sender_mac": "52:54:00:a5:7e:02",
+          "sender_ip": "10.0.2.2",
+          "target_mac": "00:00:00:00:00:00",
+          "target_ip": "10.0.2.99"
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502826685967,
+      "summary": {
+        "destination": "ff:ff:ff:ff:ff:ff",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2054,
+        "arp": {
+          "opcode": 1,
+          "sender_mac": "52:54:00:a5:7e:02",
+          "sender_ip": "10.0.2.2",
+          "target_mac": "00:00:00:00:00:00",
+          "target_ip": "10.0.2.15"
+        }
+      }
+    },
+    {
+      "direction": "guest",
+      "time_us": 1791502826714180,
+      "summary": {
+        "destination": "52:54:00:a5:7e:02",
+        "source": "52:54:00:a5:7e:01",
+        "ethertype": 2054,
+        "arp": {
+          "opcode": 2,
+          "sender_mac": "52:54:00:a5:7e:01",
+          "sender_ip": "10.0.2.15",
+          "target_mac": "52:54:00:a5:7e:02",
+          "target_ip": "10.0.2.2"
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502827214580,
+      "summary": {
+        "destination": "52:54:00:a5:7e:01",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.2",
+          "destination": "10.0.2.15",
+          "protocol": 1,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25281,
+          "checksum_valid": true,
+          "icmp": {
+            "type": 8,
+            "identifier": 42241,
+            "sequence": 1,
+            "checksum": 3371,
+            "checksum_valid": false,
+            "payload": "617374657269612d6261642d69636d70"
+          }
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502827714802,
+      "summary": {
+        "destination": "52:54:00:a5:7e:01",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.2",
+          "destination": "10.0.2.15",
+          "protocol": 1,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25280,
+          "checksum_valid": true,
+          "icmp": {
+            "type": 8,
+            "identifier": 42242,
+            "sequence": 2,
+            "checksum": 53728,
+            "checksum_valid": true,
+            "payload": "617374657269612d676f6f642d69636d70"
+          }
+        }
+      }
+    },
+    {
+      "direction": "guest",
+      "time_us": 1791502827747878,
+      "summary": {
+        "destination": "52:54:00:a5:7e:02",
+        "source": "52:54:00:a5:7e:01",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.15",
+          "destination": "10.0.2.2",
+          "protocol": 1,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25280,
+          "checksum_valid": true,
+          "icmp": {
+            "type": 0,
+            "identifier": 42242,
+            "sequence": 2,
+            "checksum": 55776,
+            "checksum_valid": true,
+            "payload": "617374657269612d676f6f642d69636d70"
+          }
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502828248369,
+      "summary": {
+        "destination": "52:54:00:a5:7e:01",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.4",
+          "destination": "10.0.2.15",
+          "protocol": 17,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25259,
+          "checksum_valid": true,
+          "udp": {
+            "source_port": 40000,
+            "destination_port": 7,
+            "checksum": 6223,
+            "checksum_valid": true,
+            "payload": "617374657269612d756e617574686f72697a6564"
+          }
+        }
+      }
+    },
+    {
+      "direction": "peer",
+      "time_us": 1791502828748668,
+      "summary": {
+        "destination": "52:54:00:a5:7e:01",
+        "source": "52:54:00:a5:7e:02",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.2",
+          "destination": "10.0.2.15",
+          "protocol": 17,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25265,
+          "checksum_valid": true,
+          "udp": {
+            "source_port": 40000,
+            "destination_port": 7,
+            "checksum": 61073,
+            "checksum_valid": true,
+            "payload": "617374657269612d7564702d6563686f"
+          }
+        }
+      }
+    },
+    {
+      "direction": "guest",
+      "time_us": 1791502828802396,
+      "summary": {
+        "destination": "52:54:00:a5:7e:02",
+        "source": "52:54:00:a5:7e:01",
+        "ethertype": 2048,
+        "ipv4": {
+          "source": "10.0.2.15",
+          "destination": "10.0.2.2",
+          "protocol": 17,
+          "identification": 0,
+          "ttl": 64,
+          "tos": 0,
+          "dont_fragment": false,
+          "checksum": 25265,
+          "checksum_valid": true,
+          "udp": {
+            "source_port": 7,
+            "destination_port": 40000,
+            "checksum": 61073,
+            "checksum_valid": true,
+            "payload": "617374657269612d7564702d6563686f"
+          }
+        }
+      }
+    }
+  ]
+}

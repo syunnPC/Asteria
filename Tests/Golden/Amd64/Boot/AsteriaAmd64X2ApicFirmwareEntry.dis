@@ -1,0 +1,14 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaAmd64X2ApicFirmwareEntry
+# size: 0x17
+# artifacts: firmware-test:loader_elf[amd64_x2apic_handoff_probe]
+push %rcx
+push %rdx
+mov $0x1b,%ecx
+rdmsr
+or $0x400,%eax
+wrmsr
+pop %rdx
+pop %rcx
+jmp <reloc:PLT32 EfiMain-0x4>

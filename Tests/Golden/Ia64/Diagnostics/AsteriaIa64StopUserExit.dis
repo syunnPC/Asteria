@@ -1,0 +1,12 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64StopUserExit
+# size: 0x40
+# artifacts: O0 O2 firmware
+0:1:mov r17=psr
+1:1:tbit.z p7,p6=r17,13
+1:1:(p07) mov r18=131072
+1:0:(p06) mov r18=196608
+1:1:(p06) dep r18=r8,r18,20,8
+1:1:or r16=r16,r18
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>

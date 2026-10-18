@@ -1,0 +1,21 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64UserSystemCallTransport
+# size: 0x90
+# artifacts: O0:user_elf O2:user_elf firmware:user_elf firmware-test:user_elf
+0:0:mov r14=r33
+0:0:mov r16=r34
+1:1:alloc r2=ar.pfs,6,0,0
+1:0:ld8 r15=[r14],8
+1:1:ld8 r32=[r14],8
+1:0:ld8 r33=[r14],8
+1:1:ld8 r34=[r14],8
+1:0:ld8 r35=[r14],8
+1:1:ld8 r36=[r14],8
+1:0:ld8 r37=[r14]
+1:1:break.i 0x100000
+1:1:st8 [r16]=r8,8
+1:0:st8 [r16]=r9,8
+1:0:st8 [r16]=r10
+0:1:mov.i ar.pfs=r2
+1:1:br.ret.sptk.many b0

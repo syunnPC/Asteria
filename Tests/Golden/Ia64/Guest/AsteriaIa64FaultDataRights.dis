@@ -1,0 +1,6 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64FaultDataRights
+# size: 0x10
+# artifacts: firmware-test:pager_elf
+0:0:st8 [r4]=r0

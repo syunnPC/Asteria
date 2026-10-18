@@ -1,0 +1,14 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64MakeImageInstructionCoherent
+# size: 0x50
+# artifacts: O0 O2 firmware
+0:0:mov r14=r32
+0:0:add r15=r32,r33
+1:0:fc.i r14
+0:1:adds r14=16,r14
+1:1:cmp.ltu p6,p7=r14,r15
+1:1:(p06) br.cond.sptk.few <+0x10>
+1:1:sync.i
+1:0:srlz.i
+1:1:br.ret.sptk.many b0

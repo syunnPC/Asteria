@@ -1,0 +1,10 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64InitializeApplicationProcessorKernelWorkerDescriptor
+# size: 0x40
+# artifacts: O0 O2 firmware
+0:0:movl r14=<reloc:IMM64 AsteriaIa64ApplicationProcessorKernelRuntimeWorkerEntry>
+0:1:mov r15=r1
+1:0:st8 [r32]=r14,8
+1:1:st8 [r32]=r15
+1:1:br.ret.sptk.many b0

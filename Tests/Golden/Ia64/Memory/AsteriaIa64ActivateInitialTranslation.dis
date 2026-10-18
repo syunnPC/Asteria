@@ -1,0 +1,21 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64ActivateInitialTranslation
+# size: 0xc0
+# artifacts: O0 O2 firmware
+0:0:mov r8=psr
+0:0:mov.m r14=ar.rsc
+1:1:movl r15=0x100802e000
+1:1:and r15=r8,r15
+1:0:cmp.eq p7,p6=r15,r0
+1:1:cmp.ne.or p6,p7=r14,r0
+1:0:(p06) br.cond.dpnt.few <+0xb0>
+1:1:bsw.1
+1:1:movl r15=0x101008022018
+1:1:movl r14=<reloc:IMM64 AsteriaIa64InitialTranslatedExecution>
+1:0:mov cr.ifs=r0
+0:0:mov cr.ipsr=r15
+0:0:mov cr.iip=r14
+1:1:rfi
+1:0:mov r8=1
+0:1:br.ret.sptk.many b0

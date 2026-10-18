@@ -1,0 +1,290 @@
+{
+ "constants": {
+  "account_exit_code": 3235774472,
+  "address_space_slots": 16,
+  "ap_poll_grace_ticks": 4000000000,
+  "ap_task_priority": 208,
+  "bootstrap_alignment_pages": 8,
+  "bootstrap_ivt": [
+   16,
+   8
+  ],
+  "bootstrap_rse": [
+   24,
+   8
+  ],
+  "bootstrap_stack": [
+   0,
+   8
+  ],
+  "bootstrap_storage": [
+   8,
+   1
+  ],
+  "component_exit_code": 3235774466,
+  "component_stack_pages": 8,
+  "component_stack_start": 2305843009247248384,
+  "component_window_pages": 2,
+  "component_window_start": 2305843009280802816,
+  "deadline_armed": 1,
+  "deadline_disarmed": 0,
+  "deadline_source_timer_queue": 2,
+  "delivery_rights_offset": 14,
+  "domain_slots": 16,
+  "driver_exit_code": 3235774474,
+  "fault_terminated_exit_code": 9223372036854775810,
+  "first_runtime_rid": 8200,
+  "frame_pool_pages": 1024,
+  "interrupted_psr": 17661039894528,
+  "interrupted_psr_mask": 18446737476639784899,
+  "ivt_alternate_dtlb": 4096,
+  "ivt_alternate_itlb": 3072,
+  "ivt_break": 11264,
+  "ivt_external": 12288,
+  "ivt_floating_point_fault": 23552,
+  "ivt_floating_point_trap": 23808,
+  "ivt_general_exception": 21504,
+  "ivt_page_faults": [
+   20480,
+   20736,
+   20992,
+   21248
+  ],
+  "kernel_rid": 8192,
+  "killed_exit_code": 9223372036854775811,
+  "local_timer_ready": 1,
+  "mapping_window": 2305843009290240000,
+  "native_preemption_exit_code": 5278559836534996993,
+  "notification_ready": 1,
+  "page_size": 4096,
+  "probe_bootstrap": 2305843009247265024,
+  "probe_bootstrap_authenticator": 8,
+  "probe_bootstrap_frame": 16,
+  "probe_bootstrap_selector": 0,
+  "probe_bootstrap_size": 120,
+  "probe_bootstrap_waitset_authenticator": 112,
+  "probe_bootstrap_waitset_selector": 104,
+  "probe_code": 2305843009230475264,
+  "probe_delivery": 2305843009247265536,
+  "probe_delivery_size": 136,
+  "probe_domain_selector": 256,
+  "probe_endpoint_rights": 6,
+  "probe_endpoint_selector": 257,
+  "probe_ipc_error": 0,
+  "probe_ipc_evidence": 2305843009247265280,
+  "probe_ipc_evidence_size": 56,
+  "probe_ipc_information": 1,
+  "probe_lease": 18446744073709551615,
+  "probe_parent_resume": 96,
+  "probe_query_error": 0,
+  "probe_query_information": 65537,
+  "probe_query_response": 2305843009247268824,
+  "probe_receive_bytes": 136,
+  "probe_rse": 2305843009264029696,
+  "probe_rse_sentinel": 2305843009264046064,
+  "probe_send_bytes": 0,
+  "probe_sentinel": 4707198692242309427,
+  "probe_sentinel_count": 4,
+  "probe_stack": 2305843009247252480,
+  "probe_stack_pages": 4,
+  "probe_user_psr": 17673929760768,
+  "probe_wait_response": 2305843009247266000,
+  "probe_wait_response_size": 24,
+  "probe_wait_sequence": 1,
+  "probe_wait_tag": 6287387181309056001,
+  "probe_waitset_selector": 258,
+  "pte_exception_deferral": 4503599627370496,
+  "pte_kernel_r": 33,
+  "pte_kernel_rw": 1121,
+  "pte_kernel_rx": 545,
+  "pte_user_rw": 1505,
+  "pte_user_rx": 929,
+  "region_page_shift": 12,
+  "rids_per_address_space": 8,
+  "shootdown_virtual_start": 2305843009297580032,
+  "slice_ticks": 20000000,
+  "thread_pool_slots": 32,
+  "thread_slots": 32,
+  "timer_disarmed": 1,
+  "timer_expired": 3,
+  "timer_vector": 232,
+  "user_exception_selector": 6,
+  "user_fpsr": 2674338737161023,
+  "user_psr": 17673928990720,
+  "user_rsc": 12,
+  "user_stack_scratch": 16
+ },
+ "cpus": 1,
+ "disk": {
+  "lba": 8,
+  "model": "ASTERIA AHCI DISK",
+  "port": 0,
+  "sector": "415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031415354455249412d524541442d444d412d4558542d534543544f522d30303031",
+  "sectors": 4096,
+  "serial": "ASTERIAAHCI0001"
+ },
+ "facts": {
+  "ivt_image_sha256": "1dfd6c23f9ee930a908e6374c7483b84834afb349887cabbf8edf24270c3a17e",
+  "kernel_objects": {
+   "UserProbeCanonicalFrame": "414950430100580058000000000000000100000000000000000000000000000001000000010000000100000000000000ffffffffffffffff0000000000000000000000000000000000000000000000000000030000000000"
+  },
+  "kernel_sections": {
+   ".bss": [
+    79704064,
+    4182016
+   ],
+   ".data": [
+    79691776,
+    12288
+   ],
+   ".note.asteria": [
+    75497472,
+    4096
+   ],
+   ".text": [
+    71303168,
+    4194304
+   ],
+   "ReadOnlyBody": [
+    75501568,
+    4186112
+   ],
+   "ReadOnlyTail": [
+    79687680,
+    4096
+   ]
+  },
+  "kernel_symbols": {
+   "AsteriaIa64ExternalInterruptDispatchEntry": [
+    73197872,
+    1184
+   ],
+   "AsteriaIa64ExternalInterruptEntry": [
+    73188352,
+    1712
+   ],
+   "AsteriaIa64KernelIdle": [
+    73914928,
+    224
+   ],
+   "AsteriaIa64PageFaultNativeEntry": [
+    73313328,
+    2448
+   ],
+   "AsteriaIa64PollForExternalInterruptSequence": [
+    73190096,
+    944
+   ],
+   "AsteriaIa64RuntimeInterruptVectorTableImage": [
+    73367552,
+    32768
+   ],
+   "AsteriaIa64StopFromIvt": [
+    71598256,
+    80
+   ],
+   "AsteriaIa64SystemCallEntry": [
+    73957232,
+    5616
+   ],
+   "AsteriaIa64UserBreakEntry": [
+    73344928,
+    128
+   ],
+   "AsteriaIa64UserExceptionEntry": [
+    73330544,
+    6832
+   ],
+   "AsteriaIa64UserExecutionProbePayloadStart": [
+    73946656,
+    1104
+   ],
+   "AsteriaIa64UserExecutionProbePostSystemCallLoop": [
+    73946912,
+    16
+   ],
+   "AsteriaIa64UserExecutionProbeSpillChild": [
+    73946928,
+    832
+   ],
+   "AsteriaImageBase": [
+    67108864,
+    0
+   ]
+  },
+  "user_objects": {
+   "CanonicalIpcDelivery": "414950440100300088000000580007000100000000000000010000000000000000000000000000000001000000000000414950430100580058000000000000000100000000000000000000000000000001000000010000000100000000000000ffffffffffffffff0000000000000000000000000000000000000000000000000000030000000000",
+   "CanonicalIpcFrame": "414950430100580058000000000000000100000000000000000000000000000001000000010000000100000000000000ffffffffffffffff0000000000000000000000000000000000000000000000000000030000000000"
+  },
+  "user_symbols": {
+   "AsteriaIa64MinimalUserImageIdle": [
+    2305843009280815136,
+    16
+   ]
+  }
+ },
+ "image_pages": [
+  [
+   "component",
+   74
+  ],
+  [
+   "directory",
+   19
+  ],
+  [
+   "client",
+   13
+  ],
+  [
+   "interpreter",
+   12
+  ],
+  [
+   "display",
+   28
+  ]
+ ],
+ "images": [
+  [
+   "component",
+   [
+    2,
+    1
+   ]
+  ],
+  [
+   "directory",
+   [
+    2,
+    1
+   ]
+  ],
+  [
+   "client",
+   [
+    2,
+    1
+   ]
+  ],
+  [
+   "interpreter",
+   [
+    2,
+    1
+   ]
+  ],
+  [
+   "display",
+   [
+    2,
+    1
+   ]
+  ]
+ ],
+ "iommu": true,
+ "network": true,
+ "preferred_base": 67108864,
+ "recipe": "raw",
+ "relocated": false
+}

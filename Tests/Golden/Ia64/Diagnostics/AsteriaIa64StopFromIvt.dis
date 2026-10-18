@@ -1,0 +1,12 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64StopFromIvt
+# size: 0x50
+# artifacts: O0 O2 firmware
+0:1:movl r17=<reloc:IMM64 AsteriaIa64RuntimeInterruptVectorTableImage>
+1:1:sub r16=r16,r17
+1:0:mov r18=20480
+1:1:cmp.ltu p6,p7=r16,r18
+1:0:(p06) dep r16=r0,r16,0,10
+0:1:(p07) dep r16=r0,r16,0,8
+1:1:br.many <reloc:PCREL21B AsteriaIa64StopEntry>

@@ -1,0 +1,8 @@
+# golden: 2
+# binutils: GNU objdump (GNU Binutils) 2.46.1
+# symbol: AsteriaIa64FaultUnaligned
+# size: 0x20
+# artifacts: firmware-test:pager_elf
+0:0:sum 0x8
+0:0:adds r15=1,r4
+1:0:ld8 r8=[r15]

@@ -13,6 +13,8 @@ struct Row
     const char* Word;
     const char* Expected[5U];
     Asteria::Foundation::Size Count;
+    const char* AssignedName{nullptr};
+    const char* AssignedValue{nullptr};
 };
 // Expected fields are hand-derived from XCU §§2.2 and 2.6.1–2.6.7.
 constexpr Row Rows[]{
@@ -47,11 +49,28 @@ constexpr Row Rows[]{
     {"default null without colon", "${empty-word}", {}, 0U},
     {"default set", "${v:-word}", {"value"}, 1U},
     {"default empty word", "${absent-}", {}, 0U},
-    {"assign default", "${new:=assigned}", {"assigned"}, 1U},
+    {"default escaped space", "${absent:-a\\ b}", {"a b"}, 1U},
+    {"default quoted empty", "${absent:-''}", {""}, 1U},
+    {"assign default", "${new:=assigned}", {"assigned"}, 1U, "new", "assigned"},
+    {"assign unquoted space", "${new:=a b}", {"a", "b"}, 2U, "new", "a b"},
+    {"assign escaped space", "${new:=a\\ b}", {"a", "b"}, 2U, "new", "a b"},
+    {"assign single quoted space", "${new:='a b'}", {"a", "b"}, 2U, "new", "a b"},
+    {"assign double quoted space", "${new:=\"a b\"}", {"a", "b"}, 2U, "new", "a b"},
+    {"assign without colon", "${new='a b'}", {"a", "b"}, 2U, "new", "a b"},
+    {"assign null with colon", "${empty:='a b'}", {"a", "b"}, 2U, "empty", "a b"},
+    {"assign null without colon", "${empty='a b'}", {}, 0U, "empty", ""},
+    {"assign single quoted empty", "${new:=''}", {}, 0U, "new", ""},
+    {"assign double quoted empty", "${new:=\"\"}", {}, 0U, "new", ""},
+    {"assign outer quoted space", "\"${new:=a b}\"", {"a b"}, 1U, "new", "a b"},
+    {"assign outer quoted empty", "\"${new:=}\"", {""}, 1U, "new", ""},
+    {"assign empty quoted prefix", "''${new:=''}", {""}, 1U, "new", ""},
+    {"assign quoted wildcard", "${new:='*.cpp'}", {"a.cpp", "z.cpp"}, 2U, "new", "*.cpp"},
     {"alternate unset", "${absent+word}", {}, 0U},
     {"alternate null", "${empty+word}", {"word"}, 1U},
     {"alternate null colon", "${empty:+word}", {}, 0U},
     {"alternate set", "${v:+word}", {"word"}, 1U},
+    {"alternate escaped space", "${v:+a\\ b}", {"a b"}, 1U},
+    {"alternate quoted empty", "${v:+''}", {""}, 1U},
     {"length UTF-8", "${#unicode}", {"3"}, 1U},
     {"length null", "${#empty}", {"0"}, 1U},
     {"short prefix", "${path#*/}", {"b/c.txt"}, 1U},
@@ -136,6 +155,12 @@ int main()
             {
                 ASTERIA_EXPECT(test, row.Rule, S::Equal(fields.At(i), S::Literal(row.Expected[i])));
             }
+        }
+        if (row.AssignedName != nullptr)
+        {
+            bool present{false};
+            const auto assigned = engine.Get(S::Literal(row.AssignedName), present);
+            ASTERIA_EXPECT(test, row.Rule, present, S::Equal(assigned, S::Literal(row.AssignedValue)));
         }
         if (S::Equal(S::Literal(row.Rule), S::Literal("lazy substitution")))
         {

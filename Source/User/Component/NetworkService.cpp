@@ -711,13 +711,16 @@ void ServeReceive(const SocketMessage& message, const Foundation::UInt64 sender)
     const Foundation::UInt16 rights =
         static_cast<Foundation::UInt16>(g_request[DeliveryRightsOffset] |
                                         (static_cast<Foundation::UInt16>(g_request[DeliveryRightsOffset + 1U]) << 8U));
-    // Rule, Bind and Query are answered at once and hold nothing, but a
-    // transaction the sender has outstanding is still one too many.
-    if ((message.Method != SocketSendMethod) && (message.Method != SocketReceiveMethod) &&
-        Inspect(sender, message.Transaction).Duplicate)
+    // Rule, Bind and Query use the same request credit as Send even though
+    // they are answered at once and retain no state.
+    if ((message.Method != SocketSendMethod) && (message.Method != SocketReceiveMethod))
     {
-        Refuse(message, SocketRefusedCredit);
-        return;
+        const Outstanding held = Inspect(sender, message.Transaction);
+        if (held.Duplicate || (held.Sends >= SocketMaximumRequests))
+        {
+            Refuse(message, SocketRefusedCredit);
+            return;
+        }
     }
     switch (message.Method)
     {

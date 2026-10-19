@@ -385,13 +385,13 @@ bool Engine::Parameter(const Text expression, ExpansionScratch& out, const bool 
     {
         if (operation == '=')
         {
-            const Result assigned = Set(name, {temporary.Bytes, temporary.Length});
-            if (!assigned.Ok())
-            {
-                ok = Fail(assigned.Code);
-            }
+            const Text assignedValue{temporary.Bytes, temporary.Length};
+            const Result assigned = Set(name, assignedValue);
+            // Quote removal precedes assignment; replace the stored value using
+            // the surrounding parameter expansion's quoting (XCU §2.6.2).
+            ok = assigned.Ok() ? Append(out, assignedValue, flags) : Fail(assigned.Code);
         }
-        if (ok)
+        else
         {
             if (temporary.Length > ExpansionLimit - out.Length)
             {

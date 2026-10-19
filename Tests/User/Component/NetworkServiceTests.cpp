@@ -1020,6 +1020,52 @@ void TestSends(TestContext& runner) noexcept
         g_kernel.Replied(3U, Component::SocketDone, Mac, Configuration));
 }
 
+void TestImmediateRequestCredits(TestContext& runner) noexcept
+{
+    Begin();
+    g_kernel.Then(Act::Frame, Fixtures::ArpRequest, sizeof(Fixtures::ArpRequest));
+    g_kernel.Rule(1U, 0U, EchoPort, PeerPort, Fixtures::PeerAddress);
+    g_kernel.Rule(2U, 0U, 9U, PeerPort, Fixtures::PeerAddress);
+    g_kernel.SendTo(3U, EchoPort, PeerPort, Fixtures::PeerAddress, "hello");
+    g_kernel.SendTo(4U, EchoPort, PeerPort, Fixtures::PeerAddress, "world");
+    // Both request credits are in use: one Send is in flight and one held.
+    g_kernel.Query(5U);
+    g_kernel.Rule(6U, 0U, 8U, PeerPort, Fixtures::PeerAddress);
+    g_kernel.Bind(7U, 9U);
+    g_kernel.ScriptSender = Other;
+    g_kernel.Query(8U);
+    g_kernel.ScriptSender = Root;
+    g_kernel.Then(Act::Complete, nullptr, ClientPage, Component::NicDone);
+    // One credit is free again. The refused Rule and Bind must have left no state.
+    g_kernel.Query(9U);
+    g_kernel.Bind(10U, 8U);
+    g_kernel.Listen(11U, 9U);
+    g_kernel.Rule(12U, 0U, 8U, PeerPort, Fixtures::PeerAddress);
+    g_kernel.Bind(13U, 8U);
+    g_kernel.Bind(14U, 9U);
+    const UInt64 ended = Run();
+    ASTERIA_EXPECT(runner, "a Query is refused while both request credits hold Sends", ended == Served(),
+                   !g_kernel.Missed, g_kernel.Replied(5U, Component::SocketRefused, Component::SocketRefusedCredit),
+                   g_kernel.ClosedHandle(FirstReply + 5U));
+    ASTERIA_EXPECT(runner, "a Rule is refused while both request credits hold Sends",
+                   g_kernel.Replied(6U, Component::SocketRefused, Component::SocketRefusedCredit),
+                   g_kernel.ClosedHandle(FirstReply + 6U));
+    ASTERIA_EXPECT(runner, "a Bind is refused while both request credits hold Sends",
+                   g_kernel.Replied(7U, Component::SocketRefused, Component::SocketRefusedCredit),
+                   g_kernel.ClosedHandle(FirstReply + 7U));
+    ASTERIA_EXPECT(runner, "request credit is counted separately for each sender",
+                   g_kernel.Replied(8U, Component::SocketDone, Mac, Configuration));
+    ASTERIA_EXPECT(runner, "a refused Rule leaves no rule for a later Bind",
+                   g_kernel.Replied(10U, Component::SocketRefused, Component::SocketRefusedNoRule));
+    ASTERIA_EXPECT(runner, "a refused Bind leaves no binding for a later Receive",
+                   g_kernel.Replied(11U, Component::SocketRefused, Component::SocketRefusedNotBound));
+    ASTERIA_EXPECT(runner, "Query, Rule and Bind succeed once a Send completion frees a request credit",
+                   g_kernel.Replied(3U, Component::SocketDone, 5U), g_kernel.Find(4U) == nullptr,
+                   g_kernel.Replied(9U, Component::SocketDone, Mac, Configuration),
+                   g_kernel.Replied(12U, Component::SocketDone), g_kernel.Replied(13U, Component::SocketDone),
+                   g_kernel.Replied(14U, Component::SocketDone));
+}
+
 void TestReceives(TestContext& runner) noexcept
 {
     static UInt8 unauthorized[60U];
@@ -1178,6 +1224,7 @@ int main()
     Asteria::Test::TestGeneratedFrames(runner);
     Asteria::Test::TestRules(runner);
     Asteria::Test::TestSends(runner);
+    Asteria::Test::TestImmediateRequestCredits(runner);
     Asteria::Test::TestReceives(runner);
     Asteria::Test::TestCounts(runner);
     Asteria::Test::TestDriverEnds(runner);
